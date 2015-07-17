@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "重点城市出入境车辆数日报表";
+    Layout = null;
+}
+
+
+<link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+<script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+<script src="~/Scripts/report/CityDailyEnEx.js"></script>
+<style>
+    .ui-widget-content .ui-state-default {
+        background: #e8eef5;
+    }
+</style>
+<input type="hidden" value="6" id="ReportType" />
+<span id="date" style="display:none;" />
+<div id="big" class="big">
+    <div class="gridName">
+        <span class="spread"></span>
+        <span>天津高速处：重点城市出入境车辆数日报表</span>
+    </div>
+    <div class="search-area">
+        <form action="" method="post" id="queryForm1">
+            <table class="queryTable">
+                <tr>
+                    <th width="60">数据日期：</th>
+                    <td width="150">
+                        <input id="holidayEnd" type="hidden" value='@ViewBag.HolidayEndTime' />
+                        <input id="holidayStart" type="hidden" value='@ViewBag.HolidayStartTime' />
+                        <input name="" type="text" class="input Wdate" id="StartTime" value='@ViewBag.HolidayStartTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', maxDate: '@ViewBag.HolidayEndTime', minDate: '@ViewBag.HolidayStartTime' })">
+                        <input name="" type="text" class="input Wdate" id="StartTime1" value='' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', maxDate: '%y-%M-%d' })" style="display:none;">
+                    </td>
+                    <td><input name="Input" type="button" value="查&nbsp;&nbsp;&nbsp;询" class="queryBtn1" id="query"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="creatReport" class="creatReport">
+        <div id="operate_btn" class="operate_btn">
+            <div class="queryBtn" id="upd">
+                <span class="query_icon updIcon"></span>
+                <span class="query_txt">修改</span>
+            </div>
+            <div class="queryBtn" id="saveBtn" style="display:none;">
+                <span class="query_icon saveIcon"></span>
+                <span class="query_txt">保存</span>
+            </div>
+            <div class="queryBtn" id="cancleBtn" style="display:none;">
+                <span class="query_icon cancleIcon"></span>
+                <span class="query_txt">取消</span>
+            </div>
+            <div class="queryBtn" id="export">
+                <span class="query_icon expIcon"></span>
+                <span class="query_txt">导出</span>
+            </div>
+            <div class="queryBtn" id="forcast">
+                <span class="query_icon forecastIcon"></span>
+                <span class="query_txt">预测</span>
+            </div>
+            <div class="queryBtn" id="check">
+                <span class="query_icon checkIcon"></span>
+                <span class="query_txt">校正</span>
+            </div>
+        </div>
+        <div class="report_title" style="text-align:center;color:#555;font-size:14px;">
+            重点城市出入境车辆数日报表
+            <span id="noDataList" style="float:right;color:red;cursor:pointer;margin-right:15px; display:none;">无数据收费站列表</span>
+        </div>
+        <div class="tableDiv">
+            <table id="report6"></table>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="@ViewBag.StartTime" id="ForecastDate" />

@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.jqGrid.js"></script>
+    <link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.jqgrid.css" rel="stylesheet" />
+    <link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.all.css" rel="stylesheet" />
+    <script src="~/Scripts/jggrid/jquery-ui-1.9.2/ui/i18n/grid.locale-cn.js"></script>
+    <link href="~/Content/CSS/report/nodataList.css" rel="stylesheet" />
+    <style>
+        .ui-widget-content .ui-state-default {
+            background: #F7F9FB;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            //获取父页面（NaturalHour)中的数据日期
+            var StartTime = $("#StartTime", parent.document).val();
+            var StartTime1 = $("#StartTime1", parent.document).val();
+            var EndTime = $("#EndTime", parent.document).val();
+            var EndTime1 = $("#EndTime1", parent.document).val();
+            var isAdmin = $("#isAdmin", parent.document).val();
+            var StartDate;
+            if (isAdmin == "true") {
+                $("#StartTime").text(StartTime1);
+                StartDate = StartTime1;
+            }
+            else {
+                $("#StartTime").text(StartTime);
+                StartDate = StartTime;
+            }
+            var EndDate;
+            if (isAdmin == "true") {
+                $("#EndTime").text(EndTime1);
+                EndDate = EndTime1;
+            }
+            else {
+                $("#EndTime").text(EndTime);
+                EndDate = EndTime;
+            }
+            var ReportType = $("#ReportType", parent.document).val();
+            jQuery("#noDataReport").jqGrid({
+                mtype: "POST",
+                url: "/Report/NoDataList",
+                postData: { "StartTime": StartDate, "EndTime": EndDate, "ReportType": ReportType },
+                autoScroll: true,
+               // scrollOffset: 18,
+                datatype: "json",
+                //rowNum: 10,
+                viewrecords: true,
+                height: 204,
+                colNames: ['收费站名称', '无采集数据时间'],
+                colModel: [
+                      { name: 'StationName', index: 'StationName', align: 'center', title: false, sortable: false,resizable: false,width:70 },
+                      { name: 'Time', index: 'Time', align: 'center', title: true, sortable: false, resizable: false }
+                ],
+                jsonReader: {
+                    root: "result",//数据源
+                    repeatitems: false
+                }
+            });
+            $("#noDataReport").jqGrid('setGridWidth', $(".grid").width());
+            $("#noDataReport").closest(".ui-jqgrid-bdiv").css({ 'overflow-y': 'scroll' });
+        });
+    </script>
+</head>
+<body>
+    <div class="explain">
+        下列收费站在当前数据日期无数据信息，请查看处理！
+    </div>
+    <div class="dataTime">
+        数据日期：
+        <span id="StartTime"></span> - <span id="EndTime"></span>
+    </div>
+    <div class="grid">
+        <table id="noDataReport"></table>
+    </div>
+
+</body>
+</html>

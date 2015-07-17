@@ -1,0 +1,30 @@
+﻿.holidayBtn{
+    float:left;
+    margin-left:10px;
+    height:26px; 
+    line-height:26px; 
+    font-size:12px; 
+    color:#578adf; 
+    border-left:1px solid #d8e0eb; 
+    border-right:1px solid #d8e0eb; 
+    background:url("../../images/index/expbtn_bg.png") repeat-x; 
+    margin-top:10px;
+    cursor:pointer;
+}
+.holidayBtn span{padding:0 6px;}
+
+.groupName{margin:0;padding:0;float:left;width:100%; height:35px; list-style-type:none; font-size:13px;border-left:1px solid #d8e0eb; cursor:pointer; border-bottom:1px solid #d8e0eb;}
+.group_li{float:left;margin-right:5px;margin-top:5px; width:80px;height:30px; line-height:30px; text-align:center; background:#d7e0ea; color:#555; margin-bottom:-1px;}
+.group_li_sel{float:left;margin-right:5px;width:80px;height:30px; background:#fff; color:#578adf; border:1px solid #d8e0eb; border-bottom:none;margin-bottom:-1px;}
+.rptConfig{float:left;margin:0;width:100%; background:#fff;}
+
+/*年度报表批量导出*/
+.yearExport{float:left;margin:40px 20%; height:32px;}
+.yearExport span{font-size:12px;color:#555;margin-left:10px;}
+.daocBtn{float:left;width:100%;height:40px;line-height:40px;border-top:1px solid #d8e0eb;margin-bottom:0;}
+.holExport{float:left;margin:10px 0; height:92px; width:100%;}
+.holChoice{float:left;width:100%;font-size:12px;color:#5b626d;}
+.holChoice span{margin-left:10px; float:left;line-height:35px;}
+.hol_checkbox{margin:0; padding:0;height:100%;list-style-type:none;}
+.hol_checkbox li{float:left;width:60px;line-height:40px;}
+.config_title{font-weight:bold;font-size:12px;}

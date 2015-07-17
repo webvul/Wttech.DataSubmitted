@@ -1,0 +1,348 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HolidayName</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.jqGrid.js"></script>
+    <link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.jqgrid.css" rel="stylesheet" />
+    <link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.all.css" rel="stylesheet" />
+    <script src="~/Scripts/jggrid/jquery-ui-1.9.2/ui/i18n/grid.locale-cn.js"></script>
+    <style>
+        .ui-widget-content .ui-state-default {
+            background: #f8fafc;
+        }
+    </style>
+    <script type="text/javascript">
+        var type = 1;
+        $(document).ready(function () {
+            getHoliday();
+        });
+        //获取假期列表数据
+        function getHoliday() {
+            jQuery("#holName").jqGrid({
+                mtype: "POST",
+                url: "/SystemManage/GetHoliday",
+                autoScroll: true,
+                datatype: "json",
+                viewrecords: true,
+                multiselect: true,
+                colNames: ['', '假期名称', '状态', '操作'],
+                colModel: [
+                      { name: 'DictId', index: 'DictId', align: 'center', title: false, sortable: false, resizable: false, hidden: true },
+                      { name: 'Name', index: 'Name', align: 'center', title: false, sortable: false, resizable: false, editable: true, edittype: "text" },
+                      { name: 'IsDelete', index: 'IsDelete', align: 'center', title: false, sortable: false, resizable: false },
+                      { name: 'Action', index: 'Action', align: 'center', title: false, sortable: false, resizable: false }
+                ],
+                jsonReader: {
+                    root: "holidayInfo",//数据源
+                    repeatitems: false
+                },
+                gridComplete: function () {
+                    var ids = jQuery("#holName").jqGrid('getDataIDs');
+                    for (var i = 0; i < ids.length; i++) {
+                        var cl = ids[i];
+                        var rowdata = jQuery("#holName").jqGrid('getRowData', cl);
+                        if (rowdata.IsDelete == 1 || rowdata.IsDelete == "已删除") {
+                            aa = "<a class='tabelhover' href='#' ></a>";
+                            jQuery("#holName").jqGrid('setRowData', ids[i], { Action: aa });
+                        }else{
+                            be = "<a class='tabelhover' href='#' onclick=\"editName('" + cl + "');\" >编辑</a>";
+                            jQuery("#holName").jqGrid('setRowData', ids[i], { Action: be });
+                        }
+                    }
+                },
+                afterInsertRow: function (rowid, aData) {
+                    switch (aData.IsDelete) {
+                        case 0:
+                            jQuery("#holName").jqGrid('setCell', rowid, 'IsDelete', '正常');
+                            break;
+                        case 1:
+                            jQuery("#holName").jqGrid('setCell', rowid, 'IsDelete', '已删除');
+                            break;
+                    }
+                }
+            });
+            $("#holName").jqGrid('setGridWidth', $("#grid").width());
+            $("#holName").jqGrid('setGridHeight', $("#grid").height() - 40);
+        }
+        //新增假期名称
+        function addHolName() {
+            $("#operat").hide();
+            $("#addHolName").show('slow');
+        }
+        //取消新增假期名称
+        function quitHolName() {
+            $("#vacationName").attr("value", "");
+            $("#addHolName").hide();
+            $("#operat").show('slow');
+            type = 1;
+        }
+        //保存假期名称
+        function save() {
+            addHoliday();
+        }
+        //行编辑
+        function editName(id) {
+            if (type == 1) {
+                type = 0;
+                jQuery("#holName").jqGrid('editRow', id);
+                var saveRow = "<a onclick=\"saveRow('" + id + "');\" title=\"保存\" class='tabelhover'>保存</a>&nbsp;&nbsp;&nbsp;&nbsp<a onclick=\"quit('" + id + "');\" title=\"取消\" class='tabelhover'>取消</a>";
+                $("#holName").jqGrid('setRowData', id, { Action: saveRow });
+            } else {
+                alert("请先保存或取消后再编辑!");
+            }
+        }
+        //行保存
+        function saveRow(id) {
+            var rowData = $("#holName").jqGrid("getRowData", id);
+            var DictId = rowData.DictId;
+            var Name = $("#" + id + "_Name").val();
+            $.ajax({
+                dataType: "json",
+                type: "POST",
+                url: "/SystemManage/UpdateHoliday",
+                data: { "DictId": DictId ,"Name":Name },
+                success: function (data) {                    
+                    if (data.ResultKey==1) {
+                        alert(data.ResultValue);
+                        type = 1;
+                        jQuery("#holName").jqGrid('saveRow', id);
+                        var publish = "<a onclick=\"editName('" + id + "');\" title=\"编辑\" >编辑</a>";
+                        $("#holName").jqGrid('setRowData', id, { Action: publish });
+                        $("#holName").trigger("reloadGrid");
+                    } else if (data.ResultKey == 2) {
+                        alert(data.ResultValue);
+                    } else if (data.ResultKey == 3) {
+                        alert(data.ResultValue);
+                    } else if (data.ResultKey == 7) {
+                        alert(data.ResultValue);
+                    } else {
+                        alert(data.ResultValue);
+                    }
+
+                },
+                error: function (data) {
+                    alert(data.ResultValue);
+                }
+            });
+        }
+        //行编辑取消
+        function quit(id) {
+            type = 1;
+            $("#holName").jqGrid("restoreRow", id);
+            var publish = "<a onclick=\"editName('" + id + "');\" title=\"编辑\">编辑</a>";
+            $("#holName").jqGrid('setRowData', id, { Action: publish });
+        }
+        //新增
+        function addHoliday() {
+            var name = $("#vacationName").val();
+            if (name == "") {
+                alert("假期名称不能为空！");
+                $("#vacationName").focus();
+                return;
+            }
+            $.ajax({
+                dataType: 'json',
+                type: "POST",
+                url: "/SystemManage/AddHoliday",
+                data: { "name": name },
+                success: function (data) {
+                    if (data.ResultKey == 2) {
+                        alert(data.ResultValue);
+                       // type = 1;
+                        $("#vacationName").attr("value", "");
+                        //$("#addHolName").hide();
+                        //$("#operat").show('slow');
+                        $("#holName").trigger("reloadGrid");
+                    } else if (data.ResultKey == 0) {
+                        alert(data.ResultValue);
+                        $("#vacationName").focus();
+                        return;
+                    } else if (data.ResultKey == 3) {
+                        alert(data.ResultValue);
+                        $("#vacationName").focus();
+                    }else {
+                        alert(data.ResultValue);
+                        $("#vacationName").attr("value", "");
+                        $("#vacationName").focus();
+                        return;
+                    }
+
+                },
+                error: function (data) {
+                    alert(data.ResultValue);
+                    return;
+                }
+            });
+        }
+        //删除
+        function delHolName() {
+            $(".delIcon").addClass("delIcon_select");
+            $(".delIcon+span").css({ "color": "#5789DF" });
+            var sels = $("#holName").jqGrid('getGridParam', 'selarrrow');
+            if (type != 1) {
+                alert("请先保存或取消后再删除！");
+                $(".delIcon").removeClass("delIcon_select");
+                $(".delIcon+span").css({ "color": "#555" });
+                return;
+            }
+            if (sels == "") {
+                alert("请选择要删除的假期名称！");
+                $(".delIcon").removeClass("delIcon_select");
+                $(".delIcon+span").css({ "color": "#555" });
+            } else {
+                if (confirm("确定要删除此项吗？")) {
+                    var len = sels.length;
+                    var DictId = new Array(len);
+                    for (var i = 0; i < len ; i++) {
+                        var rowData = $("#holName").jqGrid('getRowData', sels[i]);
+                        DictId[i] = rowData.DictId;
+                    }
+                    var postdata = { dictIdList: DictId };
+                    $.ajax({
+                        type: "POST",
+                        dataType: 'json',
+                        url: "/SystemManage/DeleteHoliday",
+                        data: postdata,
+                        error: function (data) {
+                            alert(data.ResultValue);
+                            $(".delIcon").removeClass("delIcon_select");
+                            $(".delIcon+span").css({ "color": "#555" });
+                        },
+                        success: function (data) {
+                            if (data.ResultKey == 1) {
+                                var len = sels.length;
+                                for (var i = 0; i < len ; i++) {
+                                    $("#holName").jqGrid('delRowData', sels[0]);
+                                }
+                                alert(data.ResultValue);
+                                $(".delIcon").removeClass("delIcon_select");
+                                $(".delIcon+span").css({ "color": "#555" });
+                                $("#cb_holName").attr("checked", false);
+                                $("#holName").trigger("reloadGrid");
+                            } else if (data.ResultKey == 2) {
+                                alert(data.ResultValue);
+                                $(".delIcon").removeClass("delIcon_select");
+                                $(".delIcon+span").css({ "color": "#555" });
+                                return;
+                            } else {
+                                alert(data.ResultValue);
+                                $(".delIcon").removeClass("delIcon_select");
+                                $(".delIcon+span").css({ "color": "#555" });
+                                return;
+                            }
+                        }
+
+                    });
+                }
+            }
+        }
+        //恢复
+        function restoreHolName() {
+            $(".cancleIcon").addClass("cancleIcon_select");
+            $(".cancleIcon+span").css({ "color": "#5789DF" });
+            var sels = $("#holName").jqGrid('getGridParam', 'selarrrow');
+            if (type != 1) {
+                alert("请先保存或取消后再恢复！");
+                $(".cancleIcon").removeClass("cancleIcon_select");
+                $(".cancleIcon+span").css({ "color": "#555" });
+                return;
+            }
+            if (sels == "") {
+                alert("请选择要恢复的假期名称！");
+                $(".cancleIcon").removeClass("cancleIcon_select");
+                $(".cancleIcon+span").css({ "color": "#555" });
+            } else {
+                    var len = sels.length;
+                    var DictId = new Array(len);
+                    for (var i = 0; i < len ; i++) {
+                        var rowData = $("#holName").jqGrid('getRowData', sels[i]);
+                        DictId[i] = rowData.DictId;
+                    }
+                    var postdata = { dictIdList: DictId };
+                    $.ajax({
+                        type: "POST",
+                        dataType: 'json',
+                        url: "/SystemManage/RecoverHoliday",
+                        data: postdata,
+                        error: function (data) {
+                            alert(data.ResultValue);
+                            $(".cancleIcon").removeClass("cancleIcon_select");
+                            $(".cancleIcon+span").css({ "color": "#555" });
+                        },
+                        success: function (data) {
+                            if (data.ResultKey == 1) {
+                                //var len = sels.length;
+                                //for (var i = 0; i < len ; i++) {
+                                //    $("#holName").jqGrid('delRowData', sels[0]);
+                                //}
+                                alert(data.ResultValue);
+                                $("#cb_holName").attr("checked", false);
+                                $("#holName").trigger("reloadGrid");
+                            } else if (data.ResultKey == 2) {
+                                alert(data.ResultValue);
+                                $(".cancleIcon").removeClass("cancleIcon_select");
+                                $(".cancleIcon+span").css({ "color": "#555" });
+                                return;
+                            } else {
+                                alert(data.ResultValue);
+                                $(".cancleIcon").removeClass("cancleIcon_select");
+                                $(".cancleIcon+span").css({ "color": "#555" });
+                                return;
+                            }
+                        }
+                    });
+
+                }
+        }
+    </script>
+</head>
+<body>
+    <div id="operat" style="height:40px;">
+        <div class="queryBtn" id="add" onclick="addHolName()">
+            <span class="query_icon addIcon"></span>
+            <span class="query_txt">新增</span>
+        </div>
+        <div class="queryBtn" id="delete" onclick="delHolName()">
+            <span class="query_icon delIcon"></span>
+            <span class="query_txt">删除</span>
+        </div>
+        <div class="queryBtn" id="restore" onclick="restoreHolName()">
+            <span class="query_icon cancleIcon"></span>
+            <span class="query_txt">恢复</span>
+        </div>
+    </div>
+    <div id="addHolName" style="margin:5px 10px 0; height:95px; font-size:12px; border:1px solid #d8e0eb; display:none; color:#5b626d;">
+        <div style="height:40px;line-height:40px; font-size:14px;">
+            <span class="spread" style="float:left;"></span>
+            <span>新增假期名称</span>            
+        </div>
+        <div>
+            <div style="float:left;">
+                <span>假期名称：</span>
+                <input name="" type="text" class="input" id="vacationName" style="margin-top:5px;">
+            </div>
+            <div class="queryBtn1" id="saveHolName" onclick="save()" style="margin-top:5px;">
+                <span>保存</span>
+            </div>
+            @*<div class="queryBtn1" id="saveHolName" onclick="saveAddHoliday()" style="margin-top:5px;">
+                <span>保存新增</span>
+            </div>*@
+            <div class="queryBtn1" id="quitHolName" onclick="quitHolName()" style="margin-top:5px;">
+                <span>关闭</span>
+            </div>
+        </div>
+    </div>
+    <div id="grid" style="margin:10px;height:360px;">
+        <table id="holName"></table>
+    </div>
+</body>
+</html>

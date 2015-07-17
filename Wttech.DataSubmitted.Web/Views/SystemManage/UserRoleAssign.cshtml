@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserRoleAssign</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            loadRoleList();
+        });
+        //加载角色权限列表
+        function loadRoleList() {
+            $.ajax({
+                contentType: "application/json",
+                type: "POST",
+                url: "/SystemManage/GetRoleList",
+                success: function (data) {
+                    $.each(data, function (a, b) {
+                        var str = "";
+                        if (b.RoleName == '数据报送员') {
+                            str += "<input name='rolelist' type='radio' value='" + b.RoleName + "' id=" + b.RoleId + " checked='checked' />" + b.RoleName;
+                        } else {
+                            str += "<input name='rolelist' type='radio' value='" + b.RoleName + "' id=" + b.RoleId + " />" + b.RoleName;
+                        }
+                        
+                        $("#assign").append(str);
+                    })
+
+                }
+            });
+        }
+        function save(assignUserId) {
+            var roleId = $("input[name='rolelist'][type='radio']:checked").attr("id");
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                url: "/SystemManage/UserRoleAssign",
+                data: { "UserIdList": assignUserId, "RoleIdList": [roleId] },
+                success: function (data) {
+                    if (data == 1) {
+                        alert("分配成功!");
+                       // $(self.parent.frames["right-middle"].document).contents().find('#query').click();
+                        // return 1;
+                        //window.parent.closeDialog('assignUser');
+                    } else if (data == 2) {
+                        alert("分配失败，请选择用户！");
+                        //window.parent.closeDialog('assignUser');
+                        // return 2;
+                    } else {
+                        alert("分配角色失败！");
+                        // return 3;
+                    }
+                },
+                error: function (data) {
+                    alert("抱歉，分配角色失败！");
+                }
+                
+            });
+        }
+    </script>
+</head>
+<body>
+    <div style="font-size:12px; font-family:'Microsoft YaHei'; margin:10px 15px 20px;">
+        请选择赋予的用户角色:
+    </div>
+    <div id="assign" style="font-size:12px; font-family:'Microsoft YaHei'; margin:0 40px 20px; float:right;">
+
+    </div>
+</body>
+</html>

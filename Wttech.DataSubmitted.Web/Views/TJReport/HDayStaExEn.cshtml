@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "天津市高速公路支队假期重点收费站流量表（出口+入口）";
+    Layout = null;
+}
+
+<link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+<script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+<script src="~/Scripts/report/HDayStaExEn.js"></script>
+<style>
+    .ui-widget-content .ui-state-default {
+        background: #F8fafc;
+    }
+</style>
+<input type="hidden" value="11" id="ReportType" />
+<span id="date" style="display:none;"></span>
+<div id="big" class="big">
+    <div class="gridName">
+        <span class="spread"></span>
+        <span>天津交管部门：天津市高速公路支队假期重点收费站流量表（出口+入口）</span>
+    </div>
+    <div class="search-area">
+        <form action="" method="post" id="queryForm1">
+            <table class="queryTable" style="margin-left:10px;">
+                <tr>
+                    <th width="60">数据日期：</th>
+                    <td width="400">
+                        <div id="sjy">
+                            <input name="StartTime" type="text" class="input Wdate" id="StartTime" value='@ViewBag.StartTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', maxDate: '@ViewBag.EndTime' })">
+                            -&nbsp;<input name="EndTime" type="text" class="input Wdate" id="EndTime" value='@ViewBag.EndTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', minDate: '#F{$dp.$D(\'StartTime\')}', maxDate: '#F{$dp.$D(\'StartTime\',{d:14});}' })">
+                        </div>
+                        <div id="gly">
+                            <input name="" type="text" class="input Wdate" id="StartTime1" value='@ViewBag.StartTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日' })" style="display:none;">
+                            -&nbsp;<input name="" type="text" class="input Wdate" id="EndTime1" value='@ViewBag.EndTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', minDate: '#F{$dp.$D(\'StartTime1\')}', maxDate: '#F{$dp.$D(\'StartTime1\',{d:14});}' })" style="display:none;">
+                        </div>
+                    </td>
+                    <th width="80" style="text-align:right">假期名称：</th>
+                    <td>
+                        <select name="HolidayId" class="select" id="Holiday_List" style="width:100px;">
+                            @foreach (var item in (IEnumerable<SelectListItem>)ViewBag.HolName)
+                            {
+                                if (item.Value == ViewBag.HolidayId)
+                                {
+                                    <option value="@item.Value" selected="selected">@item.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        </select>
+                    </td>
+                    <td><input name="Input" type="button" value="查&nbsp;&nbsp;&nbsp;询" class="queryBtn1" id="query"></td>
+
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="creatReport" class="creatReport">
+        <div id="operate_btn" class="operate_btn">
+            <div class="queryBtn" id="upd">
+                <span class="query_icon updIcon"></span>
+                <span class="query_txt">修改</span>
+            </div>
+            <div class="queryBtn" id="saveBtn" style="display:none;">
+                <span class="query_icon saveIcon"></span>
+                <span class="query_txt">保存</span>
+            </div>
+            <div class="queryBtn" id="cancleBtn" style="display:none;">
+                <span class="query_icon cancleIcon"></span>
+                <span class="query_txt">取消</span>
+            </div>
+            <div class="queryBtn" id="export">
+                <span class="query_icon expIcon"></span>
+                <span class="query_txt">导出</span>
+            </div>
+            <div class="queryBtn" id="check">
+                <span class="query_icon checkIcon"></span>
+                <span class="query_txt">校正</span>
+            </div>
+        </div>
+        <div class="report_title" style="text-align:center;color:#555;font-size:14px;">
+            天津市高速公路支队<span id="year"></span>年<span id="report9_name"></span>重点收费站流量表（出口+入口）
+            <span id="noDataList" style="float:right;color:red;cursor:pointer;margin-right:15px; display:none;">无数据收费站列表</span>
+        </div>
+        <div class="tableDiv">
+            <table id="report11"></table>
+        </div>
+    </div>
+</div>

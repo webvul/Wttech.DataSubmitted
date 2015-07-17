@@ -1,0 +1,172 @@
+﻿@using Wttech.DataSubmitted.Common.ViewModels
+@{
+    ViewBag.Title = "批量报表导出";
+    Layout = null;
+}
+
+
+<link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+<link href="~/Content/CSS/report/holidayConfig.css" rel="stylesheet" />
+<script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        resize();
+        $(".group_li:first").addClass("group_li_sel");
+        $(".group_li").click(function () {
+            $(this).addClass("group_li_sel").siblings().removeClass("group_li_sel");
+            var tab = $(this).attr("id-title", $(this).attr("id"));
+            var tab1 = $(this).attr("id-title");
+            $("[class='" + tab1 + "']").show().siblings().hide();
+        });
+        // 全选
+        $("#allcheck").click(function () {
+            $('input[name="holCheck"]').attr("checked", this.checked);
+        });
+        var $subBox = $("input[name='holCheck']");
+        $subBox.click(function () {
+            $("#allcheck").attr("checked", $subBox.length == $("input[name='holCheck']:checked").length ? true : false);
+        });
+    });
+    function resize() {
+        $("body").height($(window).height()).width($(window).width());
+        $("#big").height($("#maincontent").height());
+        $("#creatReport").width($("#big").width() - 30);
+    }
+    $(window).resize(function () {
+        resize();
+    })
+    //假期报表导出
+    $("#exp").click(function () {
+        var HDayIdList = new Array();
+        var i = 0;
+        $("input[name=holCheck]").each(function () {
+            if ($(this).attr("checked")) {
+                HDayIdList[i++] = $(this).val();
+            }
+        });
+        var StartTime = $("#dailyStartTime").val();
+        var EndTime = $("#dailyEndTime").val();
+        if (StartTime != "" && EndTime != "") {
+            if (StartTime >= EndTime) {
+                alert("开始时间不能大于结束时间！");
+                return;
+            }
+        }
+        $.ajax({
+            url: '/Report/ExportReport',
+            data: { "ReportType": 0, "HDayIdList": HDayIdList, "StartTime": StartTime, "EndTime": EndTime, "ExportType": 1 },
+            dataType: "json",
+            type: "Post",
+            beforeSend: function () {
+                isShowload(1);
+            },
+            complete: function () {
+                isShowload(0);
+            },
+            success: function (data) {
+                var path = escape(data.path);
+                if (data.path.indexOf("导出失败") != -1)
+                {
+                    alert(data.path);
+                    return;
+                }
+                window.location = "/DownFile/Downfile?name=" + path + "&reporttype=all";
+            }
+        });
+    });
+    //年度报表导出
+    $("#year_exp").click(function () {
+        var StartYear = $("#beginYear option:selected").text();
+        var EndYear = $("#endYear option:selected").text();
+        if (parseInt(StartYear) > parseInt(EndYear)) {
+            alert("开始年份不能大于结束年份！");
+            return;
+        }
+        $.ajax({
+            url: '/Report/ExportReport',
+            data: { "ReportType": 0, "StartYear": StartYear, "EndYear": EndYear, "ExportType": 2 },
+            dataType: "json",
+            type: "Post",
+            beforeSend: function () {
+                isShowload(1);
+            },
+            complete: function () {
+                isShowload(0);
+            },
+            success: function (data) {
+                var path = escape(data.path);
+                if (data.path.indexOf("批量导出失败") != -1) {
+                    alert(data.path);
+                    return;
+                }
+                window.location = "/DownFile/Downfile?name=" + path + "&reporttype=all";
+            }
+        });
+    });
+</script>
+<div id="big" class="big">
+    <div class="gridName">
+        <span class="spread"></span>
+        <span>批量报表导出</span>
+    </div>
+    <div id="creatReport" class="creatReport" style="margin-top: 18px; border: 0;">
+
+        <ul class="groupName" style="border-left: 0;">
+            <li class="group_li" id="div_holExport" style="width: 100px;">假期报表导出</li>
+            <li class="group_li" id="div_yearExport" style="width: 100px;">年度报表导出</li>
+        </ul>
+        <div id="rptConfig" class="rptConfig" style="height: 154px; border: 1px solid #d8e0eb; border-top: 0;">
+            <div class="div_holExport">
+                <div class="holExport">
+                    <div class="holChoice">
+                        <span>导出假期选择：</span>
+                        <ul class="hol_checkbox">
+                            <li><input type="checkbox" name="selectAll" value="" id="allcheck" />全选</li>
+                            @foreach (var item in (IEnumerable<NodeViewModel>)ViewBag.HDayIdList)
+                            {
+                                if (ViewBag.SelectedIdList.Contains(item.DictId))
+                                {
+                                    <li><input type="checkbox" name="holCheck" value="@item.DictId" checked />@item.Name</li>
+                                }
+                                else
+                                {
+                                    <li><input type="checkbox" name="holCheck" value="@item.DictId" />@item.Name</li>
+                                }
+                            }
+                        </ul>
+
+                    </div>
+                    <div class="holChoice">
+                        <span>日常报送时间：</span>
+                        <input name="" type="text" class="input Wdate" id="dailyStartTime" onclick="WdatePicker()">
+                        至&nbsp;<input name="" type="text" class="input Wdate" id="dailyEndTime" onclick="WdatePicker()">
+                    </div>
+                </div>
+                <div class="daocBtn">
+                    <input name="Input" type="button" value="导&nbsp;&nbsp;&nbsp;出" class="queryBtn1" id="exp" style="float: right; margin-right: 15px; margin-top: 5px;">
+                </div>
+            </div>
+            <div class="div_yearExport" style="display: none;">
+                <div class="yearExport">
+                    <span>选择导出年份：</span>
+                    <select id="beginYear" class="select">
+                        @foreach (var item in (IEnumerable<int>)ViewBag.HasYearList)
+                        {
+                            <option>@item</option>
+                        }
+                    </select>
+                    -&nbsp;<select id="endYear" class="select">
+                        @foreach (var item in (IEnumerable<int>)ViewBag.HasYearList)
+                        {
+                            <option>@item</option>
+                        }
+                    </select>
+                </div>
+                <div class="daocBtn">
+                    <input name="Input" type="button" value="导&nbsp;&nbsp;&nbsp;出" class="queryBtn1" id="year_exp" style="float: right; margin-right: 15px; margin-top: 5px;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

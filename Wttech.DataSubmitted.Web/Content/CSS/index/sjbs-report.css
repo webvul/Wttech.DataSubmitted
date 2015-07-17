@@ -1,0 +1,200 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html,body{margin:0; padding:0;font-family:"微软雅黑";overflow:hidden;background:#f8fafc;}
+.gridName{float:left;margin:0;height:42px; width:100%; border-bottom:1px solid #d8e0eb; font-size:14px; line-height:42px;}
+.spread{background:#578adf;width:5px; height:16px; margin:13px 10px;}
+.gridName span{float:left;color:#555;}
+.big{width:100%; display:block;float:left; overflow-y:auto; overflow-x:hidden;background:#ffffff;}
+
+/*报表查询区域样式*/
+.search-area{float:left;width:100%;margin:0; height:42px; margin-bottom:15px;border-bottom:1px solid #d8e0eb;}
+#queryForm1{width:100%; margin:0; height:100%;}
+.queryTable{border:none; font-size:12px; margin-left:20px; height:100%; border-spacing:0;}
+.queryTable tr{height:42px;padding:0;margin:0;}
+.queryTable th{height:42px; line-height:42px; text-align:left; color:#555;font-weight:normal;}
+.queryTable td{height:42px;}
+.queryBtn1{
+    float:left; 
+    margin-left:10px; 
+    width:72px;
+    height:30px; 
+    line-height:30px;
+    font-size:12px;
+    text-align:center; 
+    color:#fff; 
+    margin-top:0; 
+    border:none; 
+    background:url("../../images/index/btn_bg.png") no-repeat;
+    cursor:pointer;
+}
+/*日志查询搜索区*/
+.LogQuery{border:none; font-size:12px; height:100%; border-spacing:0;}
+.LogQuery tr{height:42px;padding:0;margin:0;}
+.LogQuery th{height:42px; line-height:42px; text-align:right;color:#555;font-weight:normal;}
+.LogQuery td{height:42px;}
+.select{width:173px;height:28px;line-height:28px; border:1px solid #d8e0eb;}
+
+/*用户权限管理模块，新增用户区域样式*/
+.addTable{width:100%; border:none; font-size:12px; margin:0; height:100%; border-spacing:0;}
+.addTable tr{height:44px;}
+.addTable th{height:44px; line-height:44px; text-align:right;}
+.addTable td{height:44px;}
+
+/*修改、导出、删除、校正等按钮背景图及图标*/
+.operate_btn{float:left;width:100%; height:44px; border-bottom:1px solid #d8e0eb; border-left:1px solid #d8e0eb;}
+.queryBtn{
+    float:left;
+    margin-left:10px;
+    /*width:64px;*/
+    height:26px; 
+    line-height:26px; 
+    font-size:12px; 
+    color:#555555; 
+    border:1px solid #d8e0eb; 
+    background:#fff; 
+    margin-top:10px;
+    cursor:pointer;
+
+}
+.queryBtn_select{
+    float:left;
+    margin-left:10px;
+    /*width:64px;*/
+    height:26px; 
+    line-height:26px; 
+    font-size:12px; 
+    color:#555555; 
+    border-left:1px solid #d8e0eb; 
+    border-right:1px solid #d8e0eb; 
+    background:url("../../images/index/expbtn_bg.png") repeat-x; 
+    margin-top:10px;
+    cursor:pointer;
+}
+.query_txt{padding-right:10px;}
+.query_icon{display: block; float:left; width:12px;height:12px; margin:7px 5px 7px 10px;}
+.updIcon{background: url('../../images/report/upd_icon.png');}/*修改*/
+.updIcon_select{background: url('../../images/report/upd_icon_hover.png');}/*修改点击后样式*/
+.expIcon{background: url('../../images/report/export_icon.png');}/*导出*/
+.expIcon_select{background: url('../../images/report/export_icon_hover.png');}/*导出点击后样式*/
+.checkIcon {background: url('../../images/report/check_icon.png');}/*校正*/
+.checkIcon_select {background: url('../../images/report/check_icon_hover.png');}/*校正点击后样式*/
+.unexpIcon{background: url('../../images/report/unexport.png');}/*导出禁用*/
+.uncheckIcon {background: url('../../images/report/uncheck.png');}/*校正禁用*/
+.saveIcon{background: url('../../images/report/save_icon.png');}/*保存*/
+.saveIcon_select{background: url('../../images/report/save_icon_hover.png');}/*保存点击后样式*/
+.cancleIcon {background: url('../../images/report/cancle_icon.png');}/*取消*/
+.cancleIcon_select {background: url('../../images/report/cancle_icon_hover.png');}/*取消点击后样式*/
+.addIcon{background: url('../../images/report/addUser_icon.png') no-repeat;}/*新增用户*/
+.addIcon_select{background: url('../../images/report/addUser_icon_hover.png') no-repeat;}/*新增用户点击后样式*/
+.assignIcon {background: url('../../images/report/userAssign_icon.png') no-repeat;}/*角色分配*/
+.assignIcon_select {background: url('../../images/report/userAssign_icon_hover.png') no-repeat;}/*角色分配点击后样式*/
+.delIcon{background: url('../../images/report/delete_icon.png') no-repeat;}/*删除*/
+.delIcon_select{background: url('../../images/report/delete_icon_hover.png') no-repeat;}/*删除点击后样式*/
+.holIcon{background: url('../../images/report/holiday_icon.png') no-repeat;}/*假期名称管理*/
+.holIcon_select{background: url('../../images/report/holiday_icon_hover.png') no-repeat;}/*假期名称管理点击后样式*/
+.editIcon{background: url('../../images/report/edit_icon.png') no-repeat;}/*编辑*/
+.forecastIcon{background: url('../../images/report/forecast_icon.png') no-repeat;}/*预测*/
+.forecastIcon_select{background: url('../../images/report/forecast_icon_hover.png') no-repeat;}/*预测点击后样式*/
+.unforecastIcon{background: url('../../images/report/forecast_icon.png') no-repeat;}/*预测禁用*/
+.input{width:150px; height:28px; line-height:28px; padding-left:10px; padding-right:10px; border:1px solid #d8e0eb;}/*输入框样式*/
+
+
+/*列表查看样式*/
+.Table{ font-size:12px;height:100%; text-align:center; margin:0; width:100%; background:#fff;}
+.Table td{
+    border-left:1px solid #d8e0eb;
+    border-top:1px solid #d8e0eb;
+    height:34px; 
+    line-height:34px; 
+    color:#5b626d;
+
+}
+.Table th{
+    border-left:1px solid #d8e0eb;
+    border-top:1px solid #d8e0eb;
+    height:40px;
+    line-height:40px;
+    color:#000;
+    background:#e8eef5;
+}
+.Table td a{
+    text-decoration:none;
+    color:#5b626d;
+}
+.Table td a:hover{
+    color:#003a71;
+}
+.tabelhover{
+    cursor:pointer;
+    text-decoration:none;
+}
+.tabelhover:hover{
+    color:#003a71;
+}
+
+/*报表显示区带修改导出按钮区域*/
+#creatReport{float:left;margin-top:0; margin-right:15px; margin-left:15px; border:1px solid #d8e0eb; border-left:0;}
+
+.tableDiv{float:left;margin:0;}
+
+/*报表一二级标题样式*/
+.report_title{
+    float:left;
+    width:100%;
+    height:40px;
+    line-height:40px;
+    font-size:12px;
+    color:#555555;
+    border:1px solid #d8e0eb;
+    border-top:0;
+}
+
+/*报表15、16、17备注栏公用样式*/
+.reportRemark{
+    float:left;
+    /*width:100%;
+    height:68px;*/
+    border-left:1px solid #d8e0eb;
+    border-right:1px solid #d8e0eb; 
+    font-size:12px;
+    color:#5b626d; 
+    background:#fff;
+}
+#reportRemark {position:relative;top:10px;
+}
+#row_remark{height:68px;border-right:1px solid #d8e0eb;line-height:68px;text-align:center;float:left;}
+.report17{width:100%;}
+.report17 tr{height:30px;}
+.report17 th{height:30px; line-height:30px; text-align:right;color:#5b626d;font-weight:normal;}
+.report17 td{height:30px; line-height:30px; text-align:left;color:#5b626d;}
+
+/*无数据列表提示文字样式*/
+#noDataList{float:right;color:red;cursor:pointer;margin-right:15px; font-size:12px; display:none;}
+
+/*假期配置圆角div*/
+.b1, .b2, .b3, .b4, .b1b, .b2b, .b3b, .b4b, .b {
+    display: block;
+    overflow: hidden;
+}
+.b1, .b2, .b3, .b1b, .b2b, .b3b {
+    height: 1px;
+}
+.b2, .b3, .b4, .b2b, .b3b, .b4b, .b{
+    border-left: 1px solid #d8e0eb;
+    border-right: 1px solid #d8e0eb;
+}
+.b1, .b1b {
+    margin: 0 5px;
+    background: #d8e0eb;
+}
+.b2, .b2b {margin: 0 3px;border-width: 2px;}
+.b3, .b3b {margin: 0 2px;}
+.b4, .b4b {height: 2px;margin: 0 1px;}
+.d1{background: #fff;}
+.k{ width: 240px;height:235px;}
+
+/*假期配置17备注编辑*/
+.k .bz_table{margin-left:20px; border:none; font-size:12px; height:100%; border-spacing:0;}
+.k .bz_table tr{height:30px;}
+.k .bz_table th{height:30px;line-height:30px;text-align:right;font-weight:normal;}
+.k .bz_table td{height:30px;line-height:30px;color:#5b626d;}

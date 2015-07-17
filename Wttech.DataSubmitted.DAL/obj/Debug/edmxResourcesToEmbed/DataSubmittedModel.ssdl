@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataSubmittedModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DS_DataSource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StaID" Type="int" />
+    <Property Name="VehType" Type="int" />
+    <Property Name="OutNumMTC" Type="int" />
+    <Property Name="InNumMTC" Type="int" />
+    <Property Name="OutNumETC" Type="int" />
+    <Property Name="InNumETC" Type="int" />
+    <Property Name="OutNum" Type="int" />
+    <Property Name="InNum" Type="int" />
+    <Property Name="RecMoney" Type="money" />
+    <Property Name="PayMoney" Type="money" />
+    <Property Name="HourPer" Type="tinyint" />
+    <Property Name="CalcuTime" Type="datetime" />
+    <Property Name="CalcuType" Type="tinyint" />
+    <Property Name="CrtDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OT_Dic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Belong" Type="int" />
+    <Property Name="Rank" Type="int" />
+    <Property Name="Rek" Type="varchar(max)" />
+    <Property Name="IsDelete" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="OT_ErrorStation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StaID" Type="int" Nullable="false" />
+    <Property Name="StaName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+    <Property Name="HourPer" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="OT_ExportHis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TableType" Type="int" />
+    <Property Name="HDayId" Type="int" />
+    <Property Name="SavePath" Type="varchar(max)" />
+    <Property Name="HourPer" Type="tinyint" />
+    <Property Name="DataDate" Type="datetime" />
+    <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OT_HDayConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ConfigName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HDayId" Type="int" />
+    <Property Name="HDayStart" Type="datetime" />
+    <Property Name="HDayEnd" Type="datetime" />
+    <Property Name="CompStart" Type="datetime" />
+    <Property Name="CompEnd" Type="datetime" />
+    <Property Name="ForeDate" Type="date" />
+    <Property Name="ForeFloat" Type="int" />
+    <Property Name="RptRemark" Type="nvarchar(max)" />
+    <Property Name="CheckFloat" Type="int" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="ConfigItem" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="OT_Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" />
+    <Property Name="LogDate" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Describe" Type="varchar" MaxLength="500" />
+    <Property Name="Rank" Type="int" />
+    <Property Name="RptName" Type="varchar" MaxLength="200" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OT_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="IsDelete" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OT_Station">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Num" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InDir" Type="int" Nullable="false" />
+    <Property Name="OutDir" Type="int" Nullable="false" />
+    <Property Name="District" Type="int" Nullable="false" />
+    <Property Name="IsDelete" Type="tinyint" Nullable="false" />
+    <Property Name="Charge" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OT_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDelete" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OT_UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsDelete" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RP_AADTAndTransCalcu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EnTra" Type="float" />
+    <Property Name="EnCar" Type="float" />
+    <Property Name="EnTrav" Type="float" />
+    <Property Name="ExTra" Type="float" />
+    <Property Name="ExCar" Type="float" />
+    <Property Name="ExTrav" Type="float" />
+    <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+    <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDate" Type="datetime" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RP_AADTSta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LineSum" Type="float" />
+    <Property Name="SumGrow" Type="float" />
+    <Property Name="LineExSum" Type="float" />
+    <Property Name="LineEnSum" Type="float" />
+    <Property Name="ExEnPer" Type="float" />
+    <Property Name="FeeSum" Type="money" />
+    <Property Name="SmaCarFeeNum" Type="float" />
+    <Property Name="ExSmaCarFee" Type="float" />
+    <Property Name="EnSmaCarFee" Type="float" />
+    <Property Name="SmaCarCompGrow" Type="float" />
+    <Property Name="SmaCarFee" Type="money" />
+    <Property Name="ChagSumNum" Type="float" />
+    <Property Name="ExChagNum" Type="float" />
+    <Property Name="EnChagNum" Type="float" />
+    <Property Name="ChagAmount" Type="money" />
+    <Property Name="GreNum" Type="float" />
+    <Property Name="GreFee" Type="money" />
+    <Property Name="StaExSum" Type="float" />
+    <Property Name="StaEnSum" Type="float" />
+    <Property Name="WorkPeoNum" Type="int" />
+    <Property Name="InfoNum" Type="varchar" MaxLength="1000" />
+    <Property Name="SitState" Type="varchar" MaxLength="1000" />
+    <Property Name="CalculTime" Type="datetime" Nullable="false" />
+    <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDate" Type="datetime" />
+    <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDate" Type="datetime" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RP_Daily">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VehType" Type="int" />
+    <Property Name="OutNum" Type="float" />
+    <Property Name="InNum" Type="float" />
+    <Property Name="ChagFee" Type="money" />
+    <Property Name="StaType" Type="int" />
+    <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDate" Type="datetime" />
+    <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDate" Type="datetime" />
+    <Property Name="State" Type="tinyint" />
+    <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RP_EnEx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EnSmaCar" Type="float" />
+    <Property Name="EnOthCar" Type="float" />
+    <Property Name="EnTruk" Type="float" />
+    <Property Name="EnGre" Type="float" />
+    <Property Name="ExSmaCar" Type="float" />
+    <Property Name="ExOthCar" Type="float" />
+    <Property Name="ExTruk" Type="float" />
+    <Property Name="ExGre" Type="float" />
+    <Property Name="StaType" Type="int" />
+    <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+    <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDate" Type="datetime" />
+    <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDate" Type="datetime" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RP_HDayAADT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="YC" Type="float" />
+    <Property Name="YXBD" Type="float" />
+    <Property Name="YXBX" Type="float" />
+    <Property Name="JZL" Type="float" />
+    <Property Name="JC" Type="float" />
+    <Property Name="KG" Type="float" />
+    <Property Name="TGX" Type="float" />
+    <Property Name="TGXF" Type="float" />
+    <Property Name="TGB" Type="float" />
+    <Property Name="SameSum" Type="float" />
+    <Property Name="CompGrow" Type="float" />
+    <Property Name="Out" Type="float" />
+    <Property Name="CalcuTime" Type="datetime" />
+    <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDate" Type="datetime" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Sum" Type="float" />
+  </EntityType>
+  <EntityType Name="RP_HDayAADTSta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ExNat" Type="float" />
+    <Property Name="EnNat" Type="float" />
+    <Property Name="ExEqu" Type="float" />
+    <Property Name="EnEqu" Type="float" />
+    <Property Name="CrowDeg" Type="float" />
+    <Property Name="SmaEx" Type="float" />
+    <Property Name="SmaEn" Type="float" />
+    <Property Name="MedEx" Type="float" />
+    <Property Name="MedEn" Type="float" />
+    <Property Name="LarEx" Type="float" />
+    <Property Name="LarEn" Type="float" />
+    <Property Name="HeaEx" Type="float" />
+    <Property Name="HeaEn" Type="float" />
+    <Property Name="SupEx" Type="float" />
+    <Property Name="SupEn" Type="float" />
+    <Property Name="EnExTrukNum" Type="float" />
+    <Property Name="CarTrukPer" Type="float" />
+    <Property Name="SupTruNum" Type="float" />
+    <Property Name="SupTruPer" Type="float" />
+    <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+    <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDate" Type="datetime" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="LineType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RP_HourAADT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Dyf_ExIn" Type="float" />
+    <Property Name="Dyf_EnOut" Type="float" />
+    <Property Name="Mjqd_EnIn" Type="float" />
+    <Property Name="Mjqd_EnOut" Type="float" />
+    <Property Name="Mjqx_ExIn" Type="float" />
+    <Property Name="Mjqx_EnOut" Type="float" />
+    <Property Name="Cy_ExIn" Type="float" />
+    <Property Name="Cy_EnOut" Type="float" />
+    <Property Name="HourPer" Type="tinyint" Nullable="false" />
+    <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+    <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDate" Type="datetime" />
+    <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDate" Type="datetime" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RP_NatSta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sum" Type="float" />
+    <Property Name="EnNum" Type="float" />
+    <Property Name="ExNum" Type="float" />
+    <Property Name="StaType" Type="int" />
+    <Property Name="HourPer" Type="tinyint" />
+    <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDate" Type="datetime" />
+    <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDate" Type="datetime" />
+    <Property Name="RunStae" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Rek" Type="varchar" MaxLength="100" />
+    <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_OT_ExportHis_OT_Dic">
+    <End Role="OT_Dic" Type="Self.OT_Dic" Multiplicity="0..1" />
+    <End Role="OT_ExportHis" Type="Self.OT_ExportHis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_Dic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_ExportHis">
+        <PropertyRef Name="HDayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OT_HDayConfig_OT_Dic">
+    <End Role="OT_Dic" Type="Self.OT_Dic" Multiplicity="0..1" />
+    <End Role="OT_HDayConfig" Type="Self.OT_HDayConfig" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_Dic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_HDayConfig">
+        <PropertyRef Name="HDayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OT_UserRole_OT_Role">
+    <End Role="OT_Role" Type="Self.OT_Role" Multiplicity="1" />
+    <End Role="OT_UserRole" Type="Self.OT_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OT_UserRole_OT_User">
+    <End Role="OT_User" Type="Self.OT_User" Multiplicity="1" />
+    <End Role="OT_UserRole" Type="Self.OT_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_UserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_uid">
+    <End Role="OT_Dic" Type="Self.OT_Dic" Multiplicity="1" />
+    <End Role="OT_HDayConfig" Type="Self.OT_HDayConfig" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_Dic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_HDayConfig">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SP_LinkServer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ServerIp" Type="varchar" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="PassWord" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_StaDataSource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="timePeriodHourPra" Type="int" Mode="In" />
+    <Parameter Name="staticalTimePra" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="DataSubmittedModelStoreContainer">
+    <EntitySet Name="DS_DataSource" EntityType="Self.DS_DataSource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OT_Dic" EntityType="Self.OT_Dic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OT_ErrorStation" EntityType="Self.OT_ErrorStation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OT_ExportHis" EntityType="Self.OT_ExportHis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OT_HDayConfig" EntityType="Self.OT_HDayConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OT_Log" EntityType="Self.OT_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OT_Role" EntityType="Self.OT_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OT_Station" EntityType="Self.OT_Station" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OT_User" EntityType="Self.OT_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OT_UserRole" EntityType="Self.OT_UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_AADTAndTransCalcu" EntityType="Self.RP_AADTAndTransCalcu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_AADTSta" EntityType="Self.RP_AADTSta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_Daily" EntityType="Self.RP_Daily" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_EnEx" EntityType="Self.RP_EnEx" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_HDayAADT" EntityType="Self.RP_HDayAADT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_HDayAADTSta" EntityType="Self.RP_HDayAADTSta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_HourAADT" EntityType="Self.RP_HourAADT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_NatSta" EntityType="Self.RP_NatSta" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_OT_ExportHis_OT_Dic" Association="Self.FK_OT_ExportHis_OT_Dic">
+      <End Role="OT_Dic" EntitySet="OT_Dic" />
+      <End Role="OT_ExportHis" EntitySet="OT_ExportHis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OT_HDayConfig_OT_Dic" Association="Self.FK_OT_HDayConfig_OT_Dic">
+      <End Role="OT_Dic" EntitySet="OT_Dic" />
+      <End Role="OT_HDayConfig" EntitySet="OT_HDayConfig" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OT_UserRole_OT_Role" Association="Self.FK_OT_UserRole_OT_Role">
+      <End Role="OT_Role" EntitySet="OT_Role" />
+      <End Role="OT_UserRole" EntitySet="OT_UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OT_UserRole_OT_User" Association="Self.FK_OT_UserRole_OT_User">
+      <End Role="OT_User" EntitySet="OT_User" />
+      <End Role="OT_UserRole" EntitySet="OT_UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="fk_uid" Association="Self.fk_uid">
+      <End Role="OT_Dic" EntitySet="OT_Dic" />
+      <End Role="OT_HDayConfig" EntitySet="OT_HDayConfig" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

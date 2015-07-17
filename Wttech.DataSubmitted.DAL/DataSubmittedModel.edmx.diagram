@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9ee9eee3dac349a08142638eb2d0af4b" Name="Diagram1">
+        <EntityTypeShape EntityType="DataSubmittedModel.DS_DataSource" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.OT_Dic" Width="1.5" PointX="0.75" PointY="3.25" />
+        <EntityTypeShape EntityType="DataSubmittedModel.OT_ErrorStation" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.OT_ExportHis" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="DataSubmittedModel.OT_HDayConfig" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="DataSubmittedModel.OT_Log" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.OT_Role" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="DataSubmittedModel.OT_Station" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.OT_User" Width="1.5" PointX="5.75" PointY="5" />
+        <EntityTypeShape EntityType="DataSubmittedModel.OT_UserRole" Width="1.5" PointX="8" PointY="0.875" />
+        <EntityTypeShape EntityType="DataSubmittedModel.RP_AADTAndTransCalcu" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.RP_AADTSta" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.RP_Daily" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.RP_EnEx" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.RP_HDayAADT" Width="1.5" PointX="11.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.RP_HDayAADTSta" Width="1.5" PointX="11.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.RP_HourAADT" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataSubmittedModel.RP_NatSta" Width="1.5" PointX="0.75" PointY="13.75" />
+        <AssociationConnector Association="DataSubmittedModel.FK_OT_ExportHis_OT_Dic" />
+        <AssociationConnector Association="DataSubmittedModel.FK_OT_HDayConfig_OT_Dic" />
+        <AssociationConnector Association="DataSubmittedModel.fk_uid" />
+        <AssociationConnector Association="DataSubmittedModel.FK_OT_UserRole_OT_Role" />
+        <AssociationConnector Association="DataSubmittedModel.FK_OT_UserRole_OT_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

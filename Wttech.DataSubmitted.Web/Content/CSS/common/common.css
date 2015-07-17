@@ -1,0 +1,15 @@
+﻿body {
+}
+.wait{
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -100px; 
+    width:270px;
+    height:120px;
+    CURSOR: wait;
+    display:none;*/
+    background:#fff;filter:alpha(opacity=20);display:none;
+}
+.wait span{position:absolute;}
+.wait img{position:absolute;}

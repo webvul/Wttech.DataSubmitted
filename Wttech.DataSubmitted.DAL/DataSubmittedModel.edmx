@@ -1,0 +1,1225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataSubmittedModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DS_DataSource">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StaID" Type="int" />
+          <Property Name="VehType" Type="int" />
+          <Property Name="OutNumMTC" Type="int" />
+          <Property Name="InNumMTC" Type="int" />
+          <Property Name="OutNumETC" Type="int" />
+          <Property Name="InNumETC" Type="int" />
+          <Property Name="OutNum" Type="int" />
+          <Property Name="InNum" Type="int" />
+          <Property Name="RecMoney" Type="money" />
+          <Property Name="PayMoney" Type="money" />
+          <Property Name="HourPer" Type="tinyint" />
+          <Property Name="CalcuTime" Type="datetime" />
+          <Property Name="CalcuType" Type="tinyint" />
+          <Property Name="CrtDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OT_Dic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Belong" Type="int" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="Rek" Type="varchar(max)" />
+          <Property Name="IsDelete" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="OT_ErrorStation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StaID" Type="int" Nullable="false" />
+          <Property Name="StaName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+          <Property Name="HourPer" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="OT_ExportHis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TableType" Type="int" />
+          <Property Name="HDayId" Type="int" />
+          <Property Name="SavePath" Type="varchar(max)" />
+          <Property Name="HourPer" Type="tinyint" />
+          <Property Name="DataDate" Type="datetime" />
+          <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OT_HDayConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ConfigName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HDayId" Type="int" />
+          <Property Name="HDayStart" Type="datetime" />
+          <Property Name="HDayEnd" Type="datetime" />
+          <Property Name="CompStart" Type="datetime" />
+          <Property Name="CompEnd" Type="datetime" />
+          <Property Name="ForeDate" Type="date" />
+          <Property Name="ForeFloat" Type="int" />
+          <Property Name="RptRemark" Type="nvarchar(max)" />
+          <Property Name="CheckFloat" Type="int" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="ConfigItem" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="OT_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="LogDate" Type="datetime" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Describe" Type="varchar" MaxLength="500" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="RptName" Type="varchar" MaxLength="200" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OT_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="IsDelete" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OT_Station">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Num" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InDir" Type="int" Nullable="false" />
+          <Property Name="OutDir" Type="int" Nullable="false" />
+          <Property Name="District" Type="int" Nullable="false" />
+          <Property Name="IsDelete" Type="tinyint" Nullable="false" />
+          <Property Name="Charge" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OT_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDelete" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OT_UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDelete" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RP_AADTAndTransCalcu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EnTra" Type="float" />
+          <Property Name="EnCar" Type="float" />
+          <Property Name="EnTrav" Type="float" />
+          <Property Name="ExTra" Type="float" />
+          <Property Name="ExCar" Type="float" />
+          <Property Name="ExTrav" Type="float" />
+          <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+          <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+          <Property Name="CrtDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDate" Type="datetime" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RP_AADTSta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LineSum" Type="float" />
+          <Property Name="SumGrow" Type="float" />
+          <Property Name="LineExSum" Type="float" />
+          <Property Name="LineEnSum" Type="float" />
+          <Property Name="ExEnPer" Type="float" />
+          <Property Name="FeeSum" Type="money" />
+          <Property Name="SmaCarFeeNum" Type="float" />
+          <Property Name="ExSmaCarFee" Type="float" />
+          <Property Name="EnSmaCarFee" Type="float" />
+          <Property Name="SmaCarCompGrow" Type="float" />
+          <Property Name="SmaCarFee" Type="money" />
+          <Property Name="ChagSumNum" Type="float" />
+          <Property Name="ExChagNum" Type="float" />
+          <Property Name="EnChagNum" Type="float" />
+          <Property Name="ChagAmount" Type="money" />
+          <Property Name="GreNum" Type="float" />
+          <Property Name="GreFee" Type="money" />
+          <Property Name="StaExSum" Type="float" />
+          <Property Name="StaEnSum" Type="float" />
+          <Property Name="WorkPeoNum" Type="int" />
+          <Property Name="InfoNum" Type="varchar" MaxLength="1000" />
+          <Property Name="SitState" Type="varchar" MaxLength="1000" />
+          <Property Name="CalculTime" Type="datetime" Nullable="false" />
+          <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+          <Property Name="CrtDate" Type="datetime" />
+          <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDate" Type="datetime" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RP_Daily">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VehType" Type="int" />
+          <Property Name="OutNum" Type="float" />
+          <Property Name="InNum" Type="float" />
+          <Property Name="ChagFee" Type="money" />
+          <Property Name="StaType" Type="int" />
+          <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+          <Property Name="CrtDate" Type="datetime" />
+          <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDate" Type="datetime" />
+          <Property Name="State" Type="tinyint" />
+          <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RP_EnEx">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EnSmaCar" Type="float" />
+          <Property Name="EnOthCar" Type="float" />
+          <Property Name="EnTruk" Type="float" />
+          <Property Name="EnGre" Type="float" />
+          <Property Name="ExSmaCar" Type="float" />
+          <Property Name="ExOthCar" Type="float" />
+          <Property Name="ExTruk" Type="float" />
+          <Property Name="ExGre" Type="float" />
+          <Property Name="StaType" Type="int" />
+          <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+          <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+          <Property Name="CrtDate" Type="datetime" />
+          <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDate" Type="datetime" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RP_HDayAADT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="YC" Type="float" />
+          <Property Name="YXBD" Type="float" />
+          <Property Name="YXBX" Type="float" />
+          <Property Name="JZL" Type="float" />
+          <Property Name="JC" Type="float" />
+          <Property Name="KG" Type="float" />
+          <Property Name="TGX" Type="float" />
+          <Property Name="TGXF" Type="float" />
+          <Property Name="TGB" Type="float" />
+          <Property Name="SameSum" Type="float" />
+          <Property Name="CompGrow" Type="float" />
+          <Property Name="Out" Type="float" />
+          <Property Name="CalcuTime" Type="datetime" />
+          <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+          <Property Name="CrtDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDate" Type="datetime" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Sum" Type="float" />
+        </EntityType>
+        <EntityType Name="RP_HDayAADTSta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExNat" Type="float" />
+          <Property Name="EnNat" Type="float" />
+          <Property Name="ExEqu" Type="float" />
+          <Property Name="EnEqu" Type="float" />
+          <Property Name="CrowDeg" Type="float" />
+          <Property Name="SmaEx" Type="float" />
+          <Property Name="SmaEn" Type="float" />
+          <Property Name="MedEx" Type="float" />
+          <Property Name="MedEn" Type="float" />
+          <Property Name="LarEx" Type="float" />
+          <Property Name="LarEn" Type="float" />
+          <Property Name="HeaEx" Type="float" />
+          <Property Name="HeaEn" Type="float" />
+          <Property Name="SupEx" Type="float" />
+          <Property Name="SupEn" Type="float" />
+          <Property Name="EnExTrukNum" Type="float" />
+          <Property Name="CarTrukPer" Type="float" />
+          <Property Name="SupTruNum" Type="float" />
+          <Property Name="SupTruPer" Type="float" />
+          <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+          <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+          <Property Name="CrtDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDate" Type="datetime" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="LineType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RP_HourAADT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Dyf_ExIn" Type="float" />
+          <Property Name="Dyf_EnOut" Type="float" />
+          <Property Name="Mjqd_EnIn" Type="float" />
+          <Property Name="Mjqd_EnOut" Type="float" />
+          <Property Name="Mjqx_ExIn" Type="float" />
+          <Property Name="Mjqx_EnOut" Type="float" />
+          <Property Name="Cy_ExIn" Type="float" />
+          <Property Name="Cy_EnOut" Type="float" />
+          <Property Name="HourPer" Type="tinyint" Nullable="false" />
+          <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+          <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+          <Property Name="CrtDate" Type="datetime" />
+          <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDate" Type="datetime" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RP_NatSta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Sum" Type="float" />
+          <Property Name="EnNum" Type="float" />
+          <Property Name="ExNum" Type="float" />
+          <Property Name="StaType" Type="int" />
+          <Property Name="HourPer" Type="tinyint" />
+          <Property Name="CrtBy" Type="varchar" MaxLength="50" />
+          <Property Name="CrtDate" Type="datetime" />
+          <Property Name="UpdBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDate" Type="datetime" />
+          <Property Name="RunStae" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Rek" Type="varchar" MaxLength="100" />
+          <Property Name="CalcuTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_OT_ExportHis_OT_Dic">
+          <End Role="OT_Dic" Type="Self.OT_Dic" Multiplicity="0..1" />
+          <End Role="OT_ExportHis" Type="Self.OT_ExportHis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_Dic">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_ExportHis">
+              <PropertyRef Name="HDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OT_HDayConfig_OT_Dic">
+          <End Role="OT_Dic" Type="Self.OT_Dic" Multiplicity="0..1" />
+          <End Role="OT_HDayConfig" Type="Self.OT_HDayConfig" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_Dic">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_HDayConfig">
+              <PropertyRef Name="HDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OT_UserRole_OT_Role">
+          <End Role="OT_Role" Type="Self.OT_Role" Multiplicity="1" />
+          <End Role="OT_UserRole" Type="Self.OT_UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OT_UserRole_OT_User">
+          <End Role="OT_User" Type="Self.OT_User" Multiplicity="1" />
+          <End Role="OT_UserRole" Type="Self.OT_UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_uid">
+          <End Role="OT_Dic" Type="Self.OT_Dic" Multiplicity="1" />
+          <End Role="OT_HDayConfig" Type="Self.OT_HDayConfig" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_Dic">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_HDayConfig">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_LinkServer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ServerIp" Type="varchar" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="PassWord" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_StaDataSource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="timePeriodHourPra" Type="int" Mode="In" />
+          <Parameter Name="staticalTimePra" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="DataSubmittedModelStoreContainer">
+          <EntitySet Name="DS_DataSource" EntityType="Self.DS_DataSource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OT_Dic" EntityType="Self.OT_Dic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OT_ErrorStation" EntityType="Self.OT_ErrorStation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OT_ExportHis" EntityType="Self.OT_ExportHis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OT_HDayConfig" EntityType="Self.OT_HDayConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OT_Log" EntityType="Self.OT_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OT_Role" EntityType="Self.OT_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OT_Station" EntityType="Self.OT_Station" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OT_User" EntityType="Self.OT_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OT_UserRole" EntityType="Self.OT_UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RP_AADTAndTransCalcu" EntityType="Self.RP_AADTAndTransCalcu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RP_AADTSta" EntityType="Self.RP_AADTSta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RP_Daily" EntityType="Self.RP_Daily" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RP_EnEx" EntityType="Self.RP_EnEx" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RP_HDayAADT" EntityType="Self.RP_HDayAADT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RP_HDayAADTSta" EntityType="Self.RP_HDayAADTSta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RP_HourAADT" EntityType="Self.RP_HourAADT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RP_NatSta" EntityType="Self.RP_NatSta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_OT_ExportHis_OT_Dic" Association="Self.FK_OT_ExportHis_OT_Dic">
+            <End Role="OT_Dic" EntitySet="OT_Dic" />
+            <End Role="OT_ExportHis" EntitySet="OT_ExportHis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OT_HDayConfig_OT_Dic" Association="Self.FK_OT_HDayConfig_OT_Dic">
+            <End Role="OT_Dic" EntitySet="OT_Dic" />
+            <End Role="OT_HDayConfig" EntitySet="OT_HDayConfig" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OT_UserRole_OT_Role" Association="Self.FK_OT_UserRole_OT_Role">
+            <End Role="OT_Role" EntitySet="OT_Role" />
+            <End Role="OT_UserRole" EntitySet="OT_UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OT_UserRole_OT_User" Association="Self.FK_OT_UserRole_OT_User">
+            <End Role="OT_User" EntitySet="OT_User" />
+            <End Role="OT_UserRole" EntitySet="OT_UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="fk_uid" Association="Self.fk_uid">
+            <End Role="OT_Dic" EntitySet="OT_Dic" />
+            <End Role="OT_HDayConfig" EntitySet="OT_HDayConfig" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataSubmittedModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataSubmittedEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="SP_LinkServer">
+            <Parameter Name="ServerIp" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="PassWord" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_StaDataSource">
+            <Parameter Name="timePeriodHourPra" Mode="In" Type="Int32" />
+            <Parameter Name="staticalTimePra" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="DS_DataSource" EntityType="DataSubmittedModel.DS_DataSource" />
+          <EntitySet Name="OT_Dic" EntityType="DataSubmittedModel.OT_Dic" />
+          <EntitySet Name="OT_ErrorStation" EntityType="DataSubmittedModel.OT_ErrorStation" />
+          <EntitySet Name="OT_ExportHis" EntityType="DataSubmittedModel.OT_ExportHis" />
+          <EntitySet Name="OT_HDayConfig" EntityType="DataSubmittedModel.OT_HDayConfig" />
+          <EntitySet Name="OT_Log" EntityType="DataSubmittedModel.OT_Log" />
+          <EntitySet Name="OT_Role" EntityType="DataSubmittedModel.OT_Role" />
+          <EntitySet Name="OT_Station" EntityType="DataSubmittedModel.OT_Station" />
+          <EntitySet Name="OT_User" EntityType="DataSubmittedModel.OT_User" />
+          <EntitySet Name="OT_UserRole" EntityType="DataSubmittedModel.OT_UserRole" />
+          <EntitySet Name="RP_AADTAndTransCalcu" EntityType="DataSubmittedModel.RP_AADTAndTransCalcu" />
+          <EntitySet Name="RP_AADTSta" EntityType="DataSubmittedModel.RP_AADTSta" />
+          <EntitySet Name="RP_Daily" EntityType="DataSubmittedModel.RP_Daily" />
+          <EntitySet Name="RP_EnEx" EntityType="DataSubmittedModel.RP_EnEx" />
+          <EntitySet Name="RP_HDayAADT" EntityType="DataSubmittedModel.RP_HDayAADT" />
+          <EntitySet Name="RP_HDayAADTSta" EntityType="DataSubmittedModel.RP_HDayAADTSta" />
+          <EntitySet Name="RP_HourAADT" EntityType="DataSubmittedModel.RP_HourAADT" />
+          <EntitySet Name="RP_NatSta" EntityType="DataSubmittedModel.RP_NatSta" />
+          <AssociationSet Name="FK_OT_ExportHis_OT_Dic" Association="DataSubmittedModel.FK_OT_ExportHis_OT_Dic">
+            <End Role="OT_Dic" EntitySet="OT_Dic" />
+            <End Role="OT_ExportHis" EntitySet="OT_ExportHis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OT_HDayConfig_OT_Dic" Association="DataSubmittedModel.FK_OT_HDayConfig_OT_Dic">
+            <End Role="OT_Dic" EntitySet="OT_Dic" />
+            <End Role="OT_HDayConfig" EntitySet="OT_HDayConfig" />
+          </AssociationSet>
+          <AssociationSet Name="fk_uid" Association="DataSubmittedModel.fk_uid">
+            <End Role="OT_Dic" EntitySet="OT_Dic" />
+            <End Role="OT_HDayConfig" EntitySet="OT_HDayConfig" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OT_UserRole_OT_Role" Association="DataSubmittedModel.FK_OT_UserRole_OT_Role">
+            <End Role="OT_Role" EntitySet="OT_Role" />
+            <End Role="OT_UserRole" EntitySet="OT_UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OT_UserRole_OT_User" Association="DataSubmittedModel.FK_OT_UserRole_OT_User">
+            <End Role="OT_User" EntitySet="OT_User" />
+            <End Role="OT_UserRole" EntitySet="OT_UserRole" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="DS_DataSource">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="StaID" Type="Int32" />
+          <Property Name="VehType" Type="Int32" />
+          <Property Name="OutNumMTC" Type="Int32" />
+          <Property Name="InNumMTC" Type="Int32" />
+          <Property Name="OutNumETC" Type="Int32" />
+          <Property Name="InNumETC" Type="Int32" />
+          <Property Name="OutNum" Type="Int32" />
+          <Property Name="InNum" Type="Int32" />
+          <Property Name="RecMoney" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PayMoney" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="HourPer" Type="Byte" />
+          <Property Name="CalcuTime" Type="DateTime" Precision="3" />
+          <Property Name="CalcuType" Type="Byte" />
+          <Property Name="CrtDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="OT_Dic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Belong" Type="Int32" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="Rek" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Byte" />
+          <NavigationProperty Name="OT_ExportHis" Relationship="DataSubmittedModel.FK_OT_ExportHis_OT_Dic" FromRole="OT_Dic" ToRole="OT_ExportHis" />
+          <NavigationProperty Name="OT_HDayConfig" Relationship="DataSubmittedModel.FK_OT_HDayConfig_OT_Dic" FromRole="OT_Dic" ToRole="OT_HDayConfig" />
+          <NavigationProperty Name="OT_HDayConfig1" Relationship="DataSubmittedModel.fk_uid" FromRole="OT_Dic" ToRole="OT_HDayConfig" />
+        </EntityType>
+        <EntityType Name="OT_ErrorStation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="StaID" Type="Int32" Nullable="false" />
+          <Property Name="StaName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HourPer" Type="Byte" />
+        </EntityType>
+        <EntityType Name="OT_ExportHis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TableType" Type="Int32" />
+          <Property Name="HDayId" Type="Int32" />
+          <Property Name="SavePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HourPer" Type="Byte" />
+          <Property Name="DataDate" Type="DateTime" Precision="3" />
+          <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OT_Dic" Relationship="DataSubmittedModel.FK_OT_ExportHis_OT_Dic" FromRole="OT_ExportHis" ToRole="OT_Dic" />
+        </EntityType>
+        <EntityType Name="OT_HDayConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ConfigName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HDayId" Type="Int32" />
+          <Property Name="HDayStart" Type="DateTime" Precision="3" />
+          <Property Name="HDayEnd" Type="DateTime" Precision="3" />
+          <Property Name="CompStart" Type="DateTime" Precision="3" />
+          <Property Name="CompEnd" Type="DateTime" Precision="3" />
+          <Property Name="ForeDate" Type="DateTime" Precision="0" />
+          <Property Name="ForeFloat" Type="Int32" />
+          <Property Name="RptRemark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CheckFloat" Type="Int32" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="ConfigItem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OT_Dic" Relationship="DataSubmittedModel.FK_OT_HDayConfig_OT_Dic" FromRole="OT_HDayConfig" ToRole="OT_Dic" />
+          <NavigationProperty Name="OT_Dic1" Relationship="DataSubmittedModel.fk_uid" FromRole="OT_HDayConfig" ToRole="OT_Dic" />
+        </EntityType>
+        <EntityType Name="OT_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Describe" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="RptName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OT_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rank" Type="Int32" Nullable="false" />
+          <Property Name="IsDelete" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="OT_UserRole" Relationship="DataSubmittedModel.FK_OT_UserRole_OT_Role" FromRole="OT_Role" ToRole="OT_UserRole" />
+        </EntityType>
+        <EntityType Name="OT_Station">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InDir" Type="Int32" Nullable="false" />
+          <Property Name="OutDir" Type="Int32" Nullable="false" />
+          <Property Name="District" Type="Int32" Nullable="false" />
+          <Property Name="IsDelete" Type="Byte" Nullable="false" />
+          <Property Name="Charge" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OT_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="OT_UserRole" Relationship="DataSubmittedModel.FK_OT_UserRole_OT_User" FromRole="OT_User" ToRole="OT_UserRole" />
+        </EntityType>
+        <EntityType Name="OT_UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="IsDelete" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="OT_Role" Relationship="DataSubmittedModel.FK_OT_UserRole_OT_Role" FromRole="OT_UserRole" ToRole="OT_Role" />
+          <NavigationProperty Name="OT_User" Relationship="DataSubmittedModel.FK_OT_UserRole_OT_User" FromRole="OT_UserRole" ToRole="OT_User" />
+        </EntityType>
+        <EntityType Name="RP_AADTAndTransCalcu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="EnTra" Type="Double" />
+          <Property Name="EnCar" Type="Double" />
+          <Property Name="EnTrav" Type="Double" />
+          <Property Name="ExTra" Type="Double" />
+          <Property Name="ExCar" Type="Double" />
+          <Property Name="ExTrav" Type="Double" />
+          <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrtDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RP_AADTSta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="LineSum" Type="Double" />
+          <Property Name="SumGrow" Type="Double" />
+          <Property Name="LineExSum" Type="Double" />
+          <Property Name="LineEnSum" Type="Double" />
+          <Property Name="ExEnPer" Type="Double" />
+          <Property Name="FeeSum" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SmaCarFeeNum" Type="Double" />
+          <Property Name="ExSmaCarFee" Type="Double" />
+          <Property Name="EnSmaCarFee" Type="Double" />
+          <Property Name="SmaCarCompGrow" Type="Double" />
+          <Property Name="SmaCarFee" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChagSumNum" Type="Double" />
+          <Property Name="ExChagNum" Type="Double" />
+          <Property Name="EnChagNum" Type="Double" />
+          <Property Name="ChagAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="GreNum" Type="Double" />
+          <Property Name="GreFee" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="StaExSum" Type="Double" />
+          <Property Name="StaEnSum" Type="Double" />
+          <Property Name="WorkPeoNum" Type="Int32" />
+          <Property Name="InfoNum" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SitState" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CalculTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrtDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RP_Daily">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="VehType" Type="Int32" />
+          <Property Name="OutNum" Type="Double" />
+          <Property Name="InNum" Type="Double" />
+          <Property Name="ChagFee" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="StaType" Type="Int32" />
+          <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrtDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="Byte" />
+          <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="RP_EnEx">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="EnSmaCar" Type="Double" />
+          <Property Name="EnOthCar" Type="Double" />
+          <Property Name="EnTruk" Type="Double" />
+          <Property Name="EnGre" Type="Double" />
+          <Property Name="ExSmaCar" Type="Double" />
+          <Property Name="ExOthCar" Type="Double" />
+          <Property Name="ExTruk" Type="Double" />
+          <Property Name="ExGre" Type="Double" />
+          <Property Name="StaType" Type="Int32" />
+          <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrtDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RP_HDayAADT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="YC" Type="Double" />
+          <Property Name="YXBD" Type="Double" />
+          <Property Name="YXBX" Type="Double" />
+          <Property Name="JZL" Type="Double" />
+          <Property Name="JC" Type="Double" />
+          <Property Name="KG" Type="Double" />
+          <Property Name="TGX" Type="Double" />
+          <Property Name="TGXF" Type="Double" />
+          <Property Name="TGB" Type="Double" />
+          <Property Name="SameSum" Type="Double" />
+          <Property Name="CompGrow" Type="Double" />
+          <Property Name="Out" Type="Double" />
+          <Property Name="CalcuTime" Type="DateTime" Precision="3" />
+          <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrtDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sum" Type="Double" />
+        </EntityType>
+        <EntityType Name="RP_HDayAADTSta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ExNat" Type="Double" />
+          <Property Name="EnNat" Type="Double" />
+          <Property Name="ExEqu" Type="Double" />
+          <Property Name="EnEqu" Type="Double" />
+          <Property Name="CrowDeg" Type="Double" />
+          <Property Name="SmaEx" Type="Double" />
+          <Property Name="SmaEn" Type="Double" />
+          <Property Name="MedEx" Type="Double" />
+          <Property Name="MedEn" Type="Double" />
+          <Property Name="LarEx" Type="Double" />
+          <Property Name="LarEn" Type="Double" />
+          <Property Name="HeaEx" Type="Double" />
+          <Property Name="HeaEn" Type="Double" />
+          <Property Name="SupEx" Type="Double" />
+          <Property Name="SupEn" Type="Double" />
+          <Property Name="EnExTrukNum" Type="Double" />
+          <Property Name="CarTrukPer" Type="Double" />
+          <Property Name="SupTruNum" Type="Double" />
+          <Property Name="SupTruPer" Type="Double" />
+          <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrtDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RP_HourAADT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Dyf_ExIn" Type="Double" />
+          <Property Name="Dyf_EnOut" Type="Double" />
+          <Property Name="Mjqd_EnIn" Type="Double" />
+          <Property Name="Mjqd_EnOut" Type="Double" />
+          <Property Name="Mjqx_ExIn" Type="Double" />
+          <Property Name="Mjqx_EnOut" Type="Double" />
+          <Property Name="Cy_ExIn" Type="Double" />
+          <Property Name="Cy_EnOut" Type="Double" />
+          <Property Name="HourPer" Type="Byte" Nullable="false" />
+          <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrtDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RP_NatSta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Sum" Type="Double" />
+          <Property Name="EnNum" Type="Double" />
+          <Property Name="ExNum" Type="Double" />
+          <Property Name="StaType" Type="Int32" />
+          <Property Name="HourPer" Type="Byte" />
+          <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CrtDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDate" Type="DateTime" Precision="3" />
+          <Property Name="RunStae" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rek" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_OT_ExportHis_OT_Dic">
+          <End Type="DataSubmittedModel.OT_Dic" Role="OT_Dic" Multiplicity="0..1" />
+          <End Type="DataSubmittedModel.OT_ExportHis" Role="OT_ExportHis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_Dic">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_ExportHis">
+              <PropertyRef Name="HDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OT_HDayConfig_OT_Dic">
+          <End Type="DataSubmittedModel.OT_Dic" Role="OT_Dic" Multiplicity="0..1" />
+          <End Type="DataSubmittedModel.OT_HDayConfig" Role="OT_HDayConfig" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_Dic">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_HDayConfig">
+              <PropertyRef Name="HDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_uid">
+          <End Type="DataSubmittedModel.OT_Dic" Role="OT_Dic" Multiplicity="1" />
+          <End Type="DataSubmittedModel.OT_HDayConfig" Role="OT_HDayConfig" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_Dic">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_HDayConfig">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OT_UserRole_OT_Role">
+          <End Type="DataSubmittedModel.OT_Role" Role="OT_Role" Multiplicity="1" />
+          <End Type="DataSubmittedModel.OT_UserRole" Role="OT_UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OT_UserRole_OT_User">
+          <End Type="DataSubmittedModel.OT_User" Role="OT_User" Multiplicity="1" />
+          <End Type="DataSubmittedModel.OT_UserRole" Role="OT_UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OT_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OT_UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataSubmittedModelStoreContainer" CdmEntityContainer="DataSubmittedEntities">
+          <FunctionImportMapping FunctionImportName="SP_LinkServer" FunctionName="DataSubmittedModel.Store.SP_LinkServer" />
+          <FunctionImportMapping FunctionImportName="SP_StaDataSource" FunctionName="DataSubmittedModel.Store.SP_StaDataSource" />
+          <EntitySetMapping Name="DS_DataSource">
+            <EntityTypeMapping TypeName="DataSubmittedModel.DS_DataSource">
+              <MappingFragment StoreEntitySet="DS_DataSource">
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CalcuType" ColumnName="CalcuType" />
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+                <ScalarProperty Name="PayMoney" ColumnName="PayMoney" />
+                <ScalarProperty Name="RecMoney" ColumnName="RecMoney" />
+                <ScalarProperty Name="InNum" ColumnName="InNum" />
+                <ScalarProperty Name="OutNum" ColumnName="OutNum" />
+                <ScalarProperty Name="InNumETC" ColumnName="InNumETC" />
+                <ScalarProperty Name="OutNumETC" ColumnName="OutNumETC" />
+                <ScalarProperty Name="InNumMTC" ColumnName="InNumMTC" />
+                <ScalarProperty Name="OutNumMTC" ColumnName="OutNumMTC" />
+                <ScalarProperty Name="VehType" ColumnName="VehType" />
+                <ScalarProperty Name="StaID" ColumnName="StaID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OT_Dic">
+            <EntityTypeMapping TypeName="DataSubmittedModel.OT_Dic">
+              <MappingFragment StoreEntitySet="OT_Dic">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Rek" ColumnName="Rek" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Belong" ColumnName="Belong" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OT_ErrorStation">
+            <EntityTypeMapping TypeName="DataSubmittedModel.OT_ErrorStation">
+              <MappingFragment StoreEntitySet="OT_ErrorStation">
+                <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="StaName" ColumnName="StaName" />
+                <ScalarProperty Name="StaID" ColumnName="StaID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OT_ExportHis">
+            <EntityTypeMapping TypeName="DataSubmittedModel.OT_ExportHis">
+              <MappingFragment StoreEntitySet="OT_ExportHis">
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+                <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+                <ScalarProperty Name="SavePath" ColumnName="SavePath" />
+                <ScalarProperty Name="HDayId" ColumnName="HDayId" />
+                <ScalarProperty Name="TableType" ColumnName="TableType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OT_HDayConfig">
+            <EntityTypeMapping TypeName="DataSubmittedModel.OT_HDayConfig">
+              <MappingFragment StoreEntitySet="OT_HDayConfig">
+                <ScalarProperty Name="ConfigItem" ColumnName="ConfigItem" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CheckFloat" ColumnName="CheckFloat" />
+                <ScalarProperty Name="RptRemark" ColumnName="RptRemark" />
+                <ScalarProperty Name="ForeFloat" ColumnName="ForeFloat" />
+                <ScalarProperty Name="ForeDate" ColumnName="ForeDate" />
+                <ScalarProperty Name="CompEnd" ColumnName="CompEnd" />
+                <ScalarProperty Name="CompStart" ColumnName="CompStart" />
+                <ScalarProperty Name="HDayEnd" ColumnName="HDayEnd" />
+                <ScalarProperty Name="HDayStart" ColumnName="HDayStart" />
+                <ScalarProperty Name="HDayId" ColumnName="HDayId" />
+                <ScalarProperty Name="ConfigName" ColumnName="ConfigName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OT_Log">
+            <EntityTypeMapping TypeName="DataSubmittedModel.OT_Log">
+              <MappingFragment StoreEntitySet="OT_Log">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="RptName" ColumnName="RptName" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OT_Role">
+            <EntityTypeMapping TypeName="DataSubmittedModel.OT_Role">
+              <MappingFragment StoreEntitySet="OT_Role">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OT_Station">
+            <EntityTypeMapping TypeName="DataSubmittedModel.OT_Station">
+              <MappingFragment StoreEntitySet="OT_Station">
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="OutDir" ColumnName="OutDir" />
+                <ScalarProperty Name="InDir" ColumnName="InDir" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OT_User">
+            <EntityTypeMapping TypeName="DataSubmittedModel.OT_User">
+              <MappingFragment StoreEntitySet="OT_User">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OT_UserRole">
+            <EntityTypeMapping TypeName="DataSubmittedModel.OT_UserRole">
+              <MappingFragment StoreEntitySet="OT_UserRole">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RP_AADTAndTransCalcu">
+            <EntityTypeMapping TypeName="DataSubmittedModel.RP_AADTAndTransCalcu">
+              <MappingFragment StoreEntitySet="RP_AADTAndTransCalcu">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+                <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="ExTrav" ColumnName="ExTrav" />
+                <ScalarProperty Name="ExCar" ColumnName="ExCar" />
+                <ScalarProperty Name="ExTra" ColumnName="ExTra" />
+                <ScalarProperty Name="EnTrav" ColumnName="EnTrav" />
+                <ScalarProperty Name="EnCar" ColumnName="EnCar" />
+                <ScalarProperty Name="EnTra" ColumnName="EnTra" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RP_AADTSta">
+            <EntityTypeMapping TypeName="DataSubmittedModel.RP_AADTSta">
+              <MappingFragment StoreEntitySet="RP_AADTSta">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+                <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+                <ScalarProperty Name="CalculTime" ColumnName="CalculTime" />
+                <ScalarProperty Name="SitState" ColumnName="SitState" />
+                <ScalarProperty Name="InfoNum" ColumnName="InfoNum" />
+                <ScalarProperty Name="WorkPeoNum" ColumnName="WorkPeoNum" />
+                <ScalarProperty Name="StaEnSum" ColumnName="StaEnSum" />
+                <ScalarProperty Name="StaExSum" ColumnName="StaExSum" />
+                <ScalarProperty Name="GreFee" ColumnName="GreFee" />
+                <ScalarProperty Name="GreNum" ColumnName="GreNum" />
+                <ScalarProperty Name="ChagAmount" ColumnName="ChagAmount" />
+                <ScalarProperty Name="EnChagNum" ColumnName="EnChagNum" />
+                <ScalarProperty Name="ExChagNum" ColumnName="ExChagNum" />
+                <ScalarProperty Name="ChagSumNum" ColumnName="ChagSumNum" />
+                <ScalarProperty Name="SmaCarFee" ColumnName="SmaCarFee" />
+                <ScalarProperty Name="SmaCarCompGrow" ColumnName="SmaCarCompGrow" />
+                <ScalarProperty Name="EnSmaCarFee" ColumnName="EnSmaCarFee" />
+                <ScalarProperty Name="ExSmaCarFee" ColumnName="ExSmaCarFee" />
+                <ScalarProperty Name="SmaCarFeeNum" ColumnName="SmaCarFeeNum" />
+                <ScalarProperty Name="FeeSum" ColumnName="FeeSum" />
+                <ScalarProperty Name="ExEnPer" ColumnName="ExEnPer" />
+                <ScalarProperty Name="LineEnSum" ColumnName="LineEnSum" />
+                <ScalarProperty Name="LineExSum" ColumnName="LineExSum" />
+                <ScalarProperty Name="SumGrow" ColumnName="SumGrow" />
+                <ScalarProperty Name="LineSum" ColumnName="LineSum" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RP_Daily">
+            <EntityTypeMapping TypeName="DataSubmittedModel.RP_Daily">
+              <MappingFragment StoreEntitySet="RP_Daily">
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+                <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+                <ScalarProperty Name="StaType" ColumnName="StaType" />
+                <ScalarProperty Name="ChagFee" ColumnName="ChagFee" />
+                <ScalarProperty Name="InNum" ColumnName="InNum" />
+                <ScalarProperty Name="OutNum" ColumnName="OutNum" />
+                <ScalarProperty Name="VehType" ColumnName="VehType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RP_EnEx">
+            <EntityTypeMapping TypeName="DataSubmittedModel.RP_EnEx">
+              <MappingFragment StoreEntitySet="RP_EnEx">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+                <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="StaType" ColumnName="StaType" />
+                <ScalarProperty Name="ExGre" ColumnName="ExGre" />
+                <ScalarProperty Name="ExTruk" ColumnName="ExTruk" />
+                <ScalarProperty Name="ExOthCar" ColumnName="ExOthCar" />
+                <ScalarProperty Name="ExSmaCar" ColumnName="ExSmaCar" />
+                <ScalarProperty Name="EnGre" ColumnName="EnGre" />
+                <ScalarProperty Name="EnTruk" ColumnName="EnTruk" />
+                <ScalarProperty Name="EnOthCar" ColumnName="EnOthCar" />
+                <ScalarProperty Name="EnSmaCar" ColumnName="EnSmaCar" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RP_HDayAADT">
+            <EntityTypeMapping TypeName="DataSubmittedModel.RP_HDayAADT">
+              <MappingFragment StoreEntitySet="RP_HDayAADT">
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+                <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="Out" ColumnName="Out" />
+                <ScalarProperty Name="CompGrow" ColumnName="CompGrow" />
+                <ScalarProperty Name="SameSum" ColumnName="SameSum" />
+                <ScalarProperty Name="TGB" ColumnName="TGB" />
+                <ScalarProperty Name="TGXF" ColumnName="TGXF" />
+                <ScalarProperty Name="TGX" ColumnName="TGX" />
+                <ScalarProperty Name="KG" ColumnName="KG" />
+                <ScalarProperty Name="JC" ColumnName="JC" />
+                <ScalarProperty Name="JZL" ColumnName="JZL" />
+                <ScalarProperty Name="YXBX" ColumnName="YXBX" />
+                <ScalarProperty Name="YXBD" ColumnName="YXBD" />
+                <ScalarProperty Name="YC" ColumnName="YC" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RP_HDayAADTSta">
+            <EntityTypeMapping TypeName="DataSubmittedModel.RP_HDayAADTSta">
+              <MappingFragment StoreEntitySet="RP_HDayAADTSta">
+                <ScalarProperty Name="LineType" ColumnName="LineType" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+                <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="SupTruPer" ColumnName="SupTruPer" />
+                <ScalarProperty Name="SupTruNum" ColumnName="SupTruNum" />
+                <ScalarProperty Name="CarTrukPer" ColumnName="CarTrukPer" />
+                <ScalarProperty Name="EnExTrukNum" ColumnName="EnExTrukNum" />
+                <ScalarProperty Name="SupEn" ColumnName="SupEn" />
+                <ScalarProperty Name="SupEx" ColumnName="SupEx" />
+                <ScalarProperty Name="HeaEn" ColumnName="HeaEn" />
+                <ScalarProperty Name="HeaEx" ColumnName="HeaEx" />
+                <ScalarProperty Name="LarEn" ColumnName="LarEn" />
+                <ScalarProperty Name="LarEx" ColumnName="LarEx" />
+                <ScalarProperty Name="MedEn" ColumnName="MedEn" />
+                <ScalarProperty Name="MedEx" ColumnName="MedEx" />
+                <ScalarProperty Name="SmaEn" ColumnName="SmaEn" />
+                <ScalarProperty Name="SmaEx" ColumnName="SmaEx" />
+                <ScalarProperty Name="CrowDeg" ColumnName="CrowDeg" />
+                <ScalarProperty Name="EnEqu" ColumnName="EnEqu" />
+                <ScalarProperty Name="ExEqu" ColumnName="ExEqu" />
+                <ScalarProperty Name="EnNat" ColumnName="EnNat" />
+                <ScalarProperty Name="ExNat" ColumnName="ExNat" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RP_HourAADT">
+            <EntityTypeMapping TypeName="DataSubmittedModel.RP_HourAADT">
+              <MappingFragment StoreEntitySet="RP_HourAADT">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+                <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+                <ScalarProperty Name="Cy_EnOut" ColumnName="Cy_EnOut" />
+                <ScalarProperty Name="Cy_ExIn" ColumnName="Cy_ExIn" />
+                <ScalarProperty Name="Mjqx_EnOut" ColumnName="Mjqx_EnOut" />
+                <ScalarProperty Name="Mjqx_ExIn" ColumnName="Mjqx_ExIn" />
+                <ScalarProperty Name="Mjqd_EnOut" ColumnName="Mjqd_EnOut" />
+                <ScalarProperty Name="Mjqd_EnIn" ColumnName="Mjqd_EnIn" />
+                <ScalarProperty Name="Dyf_EnOut" ColumnName="Dyf_EnOut" />
+                <ScalarProperty Name="Dyf_ExIn" ColumnName="Dyf_ExIn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RP_NatSta">
+            <EntityTypeMapping TypeName="DataSubmittedModel.RP_NatSta">
+              <MappingFragment StoreEntitySet="RP_NatSta">
+                <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+                <ScalarProperty Name="Rek" ColumnName="Rek" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="RunStae" ColumnName="RunStae" />
+                <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+                <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+                <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+                <ScalarProperty Name="StaType" ColumnName="StaType" />
+                <ScalarProperty Name="ExNum" ColumnName="ExNum" />
+                <ScalarProperty Name="EnNum" ColumnName="EnNum" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,128 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+    <link href="~/Content/CSS/report/nodataList.css" rel="stylesheet" />
+    <script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script src="~/Scripts/jggrid/jquery-ui-1.9.2/jquery.jqGrid.js"></script>
+    <script src="~/Scripts/jggrid/jquery-ui-1.9.2/ui/i18n/grid.locale-cn.js"></script>
+    <script>
+        $(document).ready(function () {
+            var selId = $("#selId", parent.document).val();
+            var daily = $("#daily", parent.document);
+            var rowData = daily.jqGrid("getRowData", selId);
+            var CheckFloat = rowData.CheckFloat;
+            var ReportRemark = rowData.ReportRemark.replace("<br />", "\r\n").replace("<BR>", "\r\n").replace("<br>", "\r\n");
+            var HolidayConfigId = rowData.HolidayConfigId;
+            var HolidayName = rowData.HolidayName;
+            $("#checkFloat").val(CheckFloat);
+            $("#ReportRemark").val(ReportRemark);
+            $("#HolidayConfigId").val(HolidayConfigId);
+            $("#HolidayName").text(HolidayName);
+            //报表17备注项获取值
+            var strs = ReportRemark.split(";");
+
+            if (strs[0] != null) {
+                var ptemp = strs[0].split(" ");
+                if (ptemp.length == 3) {
+                    var a = ptemp[0].substring(4);
+                    var b = ptemp[1].substring(5);
+                    var c = ptemp[2].substring(3);
+                }
+
+            }
+            if (strs[1] != null) {
+                var ptemp1 = strs[1].split(" ");
+                if (ptemp1.length == 3) {
+                    var d = ptemp1[1].substring(5);
+                    var e = ptemp1[2].substring(3);
+                }
+            }
+            $("#charge").val(a);
+            $("#charge_tel").val(b);
+            $("#charge_mobile").val(c);
+            $("#tel").val(d);
+            $("#mobile").val(e);
+        });
+    </script>
+</head>
+<body>
+    <input type="hidden" id="HolidayConfigId" value="" />
+    <form action="" id="addForm" method="post">
+        <table class="checkTable" id="editTable" style="margin-top:10px; margin-left:0;">
+            <tr>
+                <th width="80">假期名称：</th>
+                <td width="128">
+                    <span id="HolidayName"></span>
+                </td>
+                <th id="first_tr">校正百分比：</th>
+                <td id="first_td">
+                    （正负）<input name="" type="text" class="input" id="checkFloat" value="" style="width:50px;">
+                </td>
+            </tr>
+            <tr id="four_tr">
+                <th>备注：</th>
+                <td colspan="4">
+                    <textarea name="" id="ReportRemark" rows="7" style="width:330px; font-size:12px;"></textarea>
+                </td>
+            </tr>
+            <tr id="second_tr" style="display:none;">
+                <th valign="top">备注：</th>
+                <td colspan="4">
+                    <div>
+                        <b class="b1"></b><b class="b2 d1"></b><b class="b3 d1"></b><b class="b4 d1"></b>
+                        <div class="b d1 k">
+                            <table class="bz_table">
+                                <tr>
+                                    <th><span id="span1">负责人:</span></th>
+                                    <td>
+                                        <input name="" type="text" class="input" id="charge" value="" style="width:100px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span id="span2">联系电话:</span></th>
+                                    <td>
+                                        <input name="" type="text" class="input" id="charge_tel" value="" style="width:100px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span id="span3">手机:</span></th>
+                                    <td>
+                                        <input name="" type="text" class="input" id="charge_mobile" value="" style="width:100px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span id="span6">填表人:</span></th>
+                                    <td><span>系统自动生成</span></td>
+                                </tr>
+                                <tr>
+                                    <th><span id="span4">联系电话:</span></th>
+                                    <td>
+                                        <input name="" type="text" class="input" id="tel" value="" style="width:100px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span id="span5">手机:</span></th>
+                                    <td>
+                                        <input name="" type="text" class="input" id="mobile" value="" style="width:100px;">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b"></b>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

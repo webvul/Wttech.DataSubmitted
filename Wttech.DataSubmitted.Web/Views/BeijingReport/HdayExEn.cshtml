@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "假期进出京交通量表（北京段）";
+    Layout = null;
+}
+
+<link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+<script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+<script src="~/Scripts/report/HdayExEn.js"></script>
+<style>
+    .ui-widget-content .ui-state-default {
+        background: #F7F9FB;
+    }
+</style>
+<input type="hidden" value="10" id="ReportType" />
+<div id="big" class="big">
+    <div class="gridName">
+        <span class="spread"></span>
+        <span>北京交管部门：假期进出京交通量表（北京段）</span>
+    </div>
+    <div class="search-area">
+        <form action="" method="post" id="queryForm1">
+            <table class="queryTable">
+                <tr>
+                    <th width="60">数据日期：</th>
+                    <td width="400">
+                        <div id="sjy">
+                            <input name="StartTime" type="text" class="input Wdate" id="StartTime" value='@ViewBag.StartTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', maxDate: '@ViewBag.EndTime' })">
+                            -&nbsp;<input name="EndTime" type="text" class="input Wdate" id="EndTime" value='@ViewBag.EndTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', minDate: '#F{$dp.$D(\'StartTime\')}', maxDate: '#F{$dp.$D(\'StartTime\',{d:14});}' })">
+                        </div>
+                        <div id="gly" style="display:none;">
+                            <input name="" type="text" class="input Wdate" id="StartTime1" value='@ViewBag.StartTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日' })" style="display:none;">
+                            -&nbsp;<input name="" type="text" class="input Wdate" id="EndTime1" value='@ViewBag.EndTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', minDate: '#F{$dp.$D(\'StartTime1\')}', maxDate: '#F{$dp.$D(\'StartTime1\',{d:14});}' })" style="display:none;">
+                        </div>
+                    </td>
+                    <th width="80" style="text-align:right">假期名称：</th>
+                    <td>
+                        <select name="HolidayId" class="select" id="Holiday_List">
+                            @foreach (var item in (IEnumerable<SelectListItem>)ViewBag.HolName)
+                            {
+                                if (item.Value == ViewBag.HolidayId)
+                                {
+                                    <option value="@item.Value" selected="selected">@item.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        </select>
+                    </td>
+                    <td><input name="Input" type="button" value="查&nbsp;&nbsp;&nbsp;询" class="queryBtn1" id="query"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="creatReport" class="creatReport">
+        <div id="operate_btn" class="operate_btn">
+            <div class="queryBtn" id="export">
+                <span class="query_icon expIcon"></span>
+                <span class="query_txt">导出</span>
+            </div>
+        </div>
+        <div class="report_title" style="text-align:center;color:#555;font-size:14px;">
+            <span id="year"></span>年<span id="report9_name"></span>假期进出京交通量表（北京段）
+            <span id="noDataList" style="float:right;color:red;cursor:pointer;margin-right:15px; display:none;">无数据收费站列表</span>
+        </div>
+        <div class="report_title">
+            <div style="margin-left:20px;margin-right:0;">
+                <div style="float:right;margin-right:15px;">单位：辆</div>
+            </div>
+        </div>
+        <div class="tableDiv">
+            <table id="report10"></table>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*数据日期：<input name="StartTime" type="text" class="input Wdate" id="StartTime" value='@ViewBag.StartTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日'})">
+—<input name="EndTime" type="text" class="input Wdate" id="EndTime" value='@ViewBag.EndTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日'})">
+
+假期名称：<select name="HolidayId">
+    @foreach (var item in (IEnumerable<SelectListItem>)ViewBag.HolName)
+    {
+        if (item.Value == ViewBag.HolidayId)
+        {
+            <option value="@item.Value" selected="selected">@item.Text</option>
+        }
+        else
+        {
+            <option value="@item.Value">@item.Text</option>
+        }
+    }
+</select>*@
+@*@Html.DropDownList("aaa",(IEnumerable<SelectListItem>)ViewBag.HolName)*@
+
+@*<input type="hidden" value="@ViewBag.HolidayId" />*@

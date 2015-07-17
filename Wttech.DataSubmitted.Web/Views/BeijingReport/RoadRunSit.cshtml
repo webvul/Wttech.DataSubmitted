@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "收费公路运行情况";
+    Layout = null;
+}
+
+
+<link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+<script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+<script src="~/Scripts/report/RoadRunSit.js"></script>
+<style>
+    .ui-widget-content .ui-state-default {
+        background: #F7F9FB;
+    }
+</style>
+<input type="hidden" value="9" id="ReportType" />
+<div id="big" class="big">
+    <div class="gridName">
+        <span class="spread"></span>
+        <span>北京市路政局：收费公路运行情况</span>
+    </div>
+    <div class="search-area">
+        <form action="" method="post" id="queryForm1">
+            <table class="queryTable">
+                <tr>                   
+                    <th width="60">数据日期：</th>
+                    <td width="150">
+                        <input id="holidayEnd" type="hidden" value='@ViewBag.HolidayEndTime' />
+                        <input id="holidayStart" type="hidden" value='@ViewBag.HolidayStartTime' />
+                        <input name="" type="text" class="input Wdate" id="StartTime" value='@ViewBag.HolidayStartTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', maxDate: '@ViewBag.HolidayEndTime',minDate:'@ViewBag.HolidayStartTime' })">
+                        <input name="" type="text" class="input Wdate" id="StartTime1" value='' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', maxDate: '%y-%M-%d' })" style="display:none;">
+                    </td>
+                    <th width="100" style="text-align:right">去年同期：</th>
+                    <td width="150">
+                        <input name="" type="text" class="input Wdate" id="LastYearStart" value='@ViewBag.ComparedStartTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日', maxDate: '@ViewBag.ComparedEndTime ' ,minDate:'@ViewBag.ComparedStartTime'})">
+                        <input name="" type="text" class="input Wdate" id="LastYearStart1" value='@ViewBag.ComparedStartTime' onclick="WdatePicker({ dateFmt: 'yyyy年M月d日'})" style="display:none;">
+                    </td>
+                    <td><input name="Input" type="button" value="查&nbsp;&nbsp;&nbsp;询" class="queryBtn1" id="query"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="creatReport" class="creatReport">
+        <div id="operate_btn" class="operate_btn">
+            <div class="queryBtn" id="export">
+                <span class="query_icon expIcon"></span>
+                <span class="query_txt">导出</span>
+            </div>
+            <div class="queryBtn" id="forcast">
+                <span class="query_icon forecastIcon"></span>
+                <span class="query_txt">预测</span>
+            </div>
+        </div>
+        <div class="report_title" style="text-align:center;color:#555;font-size:14px;">
+            收费公路运行情况
+            <span id="noDataList" style="float:right;color:red;cursor:pointer;margin-right:15px; display:none;">无数据收费站列表</span>
+        </div>
+        <div class="report_title">
+            <div style="margin-left:20px;margin-right:0;">
+                填报单位：<span id="orgName">华北高速</span>
+                <div style="float:right;margin-right:15px;">数据日期：<span id="date"></span></div>
+            </div>
+        </div>
+        <div class="tableDiv">
+            <table id="report9"></table>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="@ViewBag.ForecastDate" id="ForecastDate" />
+<input type="hidden" value="@ViewBag.ForecastFloat" />

@@ -1,0 +1,213 @@
+﻿@{
+    ViewBag.Title = "交通自然流量（含免费）统计日报表(小时数据)";
+    Layout = null;
+}
+
+    
+    <link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+    <script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+    <style>
+        .ui-widget-content .ui-state-default {
+            background: #F7F9FB;
+        }
+    </style>
+    <script type="text/javascript">
+        var grid = {
+            scrollOffset: 0,
+            datatype: "local",
+          //  rowNum: 4,
+            viewrecords: true,
+            height: "auto",
+            colNames: ['序号', '道路名称', '日交通量合计', '进京方向日交通量', '出京方向日交通量', '运行状况', '备注'],
+            colModel: [
+                  { name: 'Num', index: 'Num', align: 'center', title: false, sortable: false, resizable: false, width: 40 },
+                  { name: 'RoadName', index: 'RoadName', align: 'center', title: false, sortable: false, resizable: false },
+                  { name: 'DayTraffic', index: 'DayTraffic', align: 'center', title: false, sortable: false, resizable: false },
+                  { name: 'InDayTraffic', index: 'InDayTraffic', align: 'center', sortable: false, title: false, editable: true, edittype: "text", resizable: false },
+                  { name: 'OutDayTraffic', index: 'OutDayTraffic', align: 'center', title: false, editable: true, sortable: false, editrules: { required: true, number: true }, editable: true, edittype: "text", resizable: false },
+                  { name: 'RunningStatus', index: 'RunningStatus', align: 'center', title: false, sortable: false, editable: true, edittype: "textarea", resizable: false },
+                  { name: 'Remark', index: 'Remark', align: 'center', title: false, sortable: false, editable: true, edittype: "textarea", resizable: false }
+            ],
+            // footerrow:true,//显示尾行合计行
+            jsonReader: {
+                root: "ReportData",
+                repeatitems: false
+            }
+        }
+        $(document).ready(function () {
+            resize();
+            //获取当前日期
+            var StartTime = GetDate();
+            $("#date").text(StartTime);
+            $("#StartTime").val(StartTime);
+            getReport();//获取报表数据
+
+            //无数据列表弹出
+            $("#noDataList").click(function () {
+                // window.parent.content("nodataList",url,"无数据收费站信息",500,600)
+            });
+            //导出
+            $("#export").click(function () {
+                var StartTime = $("#StartTime").val();
+                $.ajax({
+                    url: '/Report/ExportReport',
+                    data: { "StartTime": StartTime, "ReportType": 17, "HolidayId": 8 },
+                    dataType: "json",
+                    type: "Post",
+                    beforeSend: function () {
+                        isShowload(1);
+                    },
+                    complete: function () {
+                        isShowload(0);
+                    },
+                    success: function (data) {
+                        //获取到的文件名先进行转码再使用，否则可能乱码
+                        var path = escape(data.path);
+                        window.location = "/DownFile/Downfile?name=" + path + "&reporttype=17";
+                    }
+                });
+            });
+        });
+        //获取报表数据
+        function getReport() {
+            //获取当前日期
+           // var myDate = new Date();
+           // var StartTime = myDate.getFullYear() + "-" + ((myDate.getMonth() + 1) < 10 ? "0" : "") + (myDate.getMonth() + 1) + "-" + (myDate.getDate() < 10 ? "0" : "") + myDate.getDate();
+            var StartTime = $("#StartTime").val();
+            $.ajax({
+                url: '/Report/Getinfo',
+                data: { "StartTime": StartTime, "ReportType": 17},
+                dataType: "json",
+                type: "Post",
+                beforeSend: function () {
+                    isShowload(1);
+                },
+                complete: function () {
+                    isShowload(0);
+                },
+                success: function (data) {
+                    grid.data = data.ReportData;
+                    $("#report").jqGrid(grid).trigger("reloadGrid");
+                    $("#report").jqGrid('setGridWidth', $("#maincontent").width() - 30);
+                    $("#report").closest(".ui-jqgrid-bdiv").css({ 'overflow-x': 'hidden' });
+                    $(".reportRemark").children().remove();
+                    $(".reportRemark").append("<table class='report17'><tr><td>" + data.ReportRemark.replace("\r\n", "\r").replace("\n", "\r").replace("\r", "<br />") + "</td></tr></table>");
+                }
+            });
+            
+
+        }
+
+        //查询报表
+        function reloadReportGrid() {
+            var StartTime = $("#StartTime").val();
+            if (StartTime == '') {
+                alert("请选择数据日期");
+                return false;
+            }           
+            $.ajax({
+                type: "POST",
+                url: '/Report/Getinfo',
+                data: { "StartTime": StartTime, "ReportType": 17 },
+                dataType: "json",
+                beforeSend: function () {
+                    isShowload(1);
+                },
+                complete: function () {
+                    isShowload(0);
+                },
+                success: function (data) {
+                    $("#date").text(StartTime);
+                    $('#report').GridUnload();
+                    grid.data = data.ReportData;
+                    //$("#reportRemark").text(data.ReportRemark);
+                    $("#report").jqGrid(grid).trigger("reloadGrid");
+                    $("#report").jqGrid('setGridWidth', $("#maincontent").width() - 30);
+                    $("#report").closest(".ui-jqgrid-bdiv").css({ 'overflow-x': 'hidden' });
+                    $(".reportRemark").children().remove();
+                    $(".reportRemark").append("<table class='report17'><tr><td>" + data.ReportRemark.replace("\r\n", "\r").replace("\n", "\r").replace("\r", "<br />") + "</td></tr></table>");
+                }
+            });
+        }
+
+        function resize() {
+            $("#creatReport").width($("#big").width() - 30);
+            $(".tableDiv").width($("#big").width() - 30);
+            $("#big").height($("#maincontent").height());
+            $("#report").jqGrid('setGridWidth', $("#maincontent").width() - 30);
+            $(".report_title").width($("#big").width() - 30);
+        }
+        $(window).resize(function () {
+            resize();
+        });
+    </script>
+@*<div class="wait" id="doing">
+    <div style="text-align:center;width:270px; height:20px; font-size:14px;">正在导出，请稍后……</div>
+    <img src="~/Content/images/report/loading1.gif" style="position:relative;top:20px; left:20px;" />
+</div>*@
+    <div id="big" style="background:#fff;width:100%;display:block;float:left;">
+        <div class="gridName">
+            <span class="spread"></span>
+            <span>北京交通委：交通自然流量（含免费）统计日报表</span>
+        </div>
+        <div class="search-area">
+            <form action="" method="post" id="queryForm1">
+                <table class="queryTable">
+                    <tr>
+                        <th width="60">数据日期：</th>
+                        <td width="150">
+                            <input name="" type="text" class="input Wdate" id="StartTime" value="" onclick="WdatePicker({ dateFmt: 'yyyy年M月d日',maxDate:'%y-%M-%d' })">
+                        </td>
+                        <td><input name="Input" type="button" value="查&nbsp;&nbsp;&nbsp;询" class="queryBtn1" onclick="reloadReportGrid()"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div id="creatReport" class="creatReport">
+            <div id="operate_btn" class="operate_btn">
+                <div class="queryBtn" id="export">
+                    <span class="query_icon expIcon"></span>
+                    <span class="query_txt">导出</span>
+                </div>
+            </div>
+            <div class="report_title" style="text-align:center;color:#555;font-size:14px;">
+                交通自然流量（含免费）统计日报表
+                <span id="noDataList" style="float:right;color:red;cursor:pointer;margin-right:15px; display:none;">无数据收费站列表</span>
+            </div>
+            <div class="report_title">
+                <div style="margin-left:20px;margin-right:0;">
+                    数据日期：<span id="date"></span>
+                    <span style="float:right;margin-right:15px;">单位：万辆/日</span>
+                </div>
+
+
+            </div>
+            <div class="tableDiv">
+                <table id="report"></table>
+                <div class="reportRemark" style="height:68px; width:100%;">
+                    @*<table class="report17">
+                        <tr>
+                            <th width="10%">填报单位：</th>
+                            <td width="15%">(公章)</td>
+                            <th width="10%">负责人：</th>
+                            <td width="15%"></td>
+                            <th width="10%">联系电话：</th>
+                            <td width="15%"></td>
+                            <th width="10%">手机：</th>
+                            <td width="15%"></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                            <th>填表人：</th>
+                            <td></td>
+                            <th>联系电话：</th>
+                            <td></td>
+                            <th>手机：</th>
+                            <td></td>
+                        </tr>
+                    </table>*@
+                </div>
+            </div>
+        </div>
+    </div>

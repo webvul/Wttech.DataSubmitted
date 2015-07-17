@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "日志查询";
+    Layout = null;
+}
+<link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+<script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+<script>
+    $(document).ready(function () {
+        resize();
+        getLogTabel();
+        getOpeartType();
+        //查询
+        $("#query").click(function () {
+            reloadLog();
+        })
+    });
+    function getOpeartType() {
+        $.ajax({
+            url: '/SystemManage/LogType',
+            dataType: "json",
+            type: "Post",
+            success: function (data) {
+                var str = "";
+                $.each(data, function (a, b) {
+                    str += "<option>" + b+ "</option>";
+                })                
+                $("#oprType").append(str);
+            }
+        });
+    }
+    //获取日志列表
+    function getLogTabel() {
+        var page = $("#logTabel").jqGrid("getGridParam", "page");
+        var rows = $("#logTabel").jqGrid("getGridParam", "rowNum");
+        jQuery("#logTabel").jqGrid({
+            mtype: "POST",
+            url: "/SystemManage/LogManage",
+            postData: { "pageSize": 10, "pageIndex": 1, "StartDate": "", "EndDate": "", "Type": "", "RptName": "", "UserName": "" },
+            scrollOffset: 18,
+            autoScroll: true,
+            datatype: "json",
+            rowNum: 10,
+            pager: '#pager_log',
+            viewrecords: true,
+            height: '100%',
+            prmNames: { page: "pageIndex", rows: "pageSize", sort: null, order: null, search: null, nd: null, npage: null },
+            colNames: ['操作用户', '角色', '报表名称', '操作类型', '操作时间','操作明细'],
+            colModel: [
+                  { name: 'UserName', index: 'UserName', align: 'center', resizable: false, sortable: false, width: 40 },
+                  { name: 'RoleName', index: 'RoleName', align: 'center', title: false, sortable: false, resizable: false, width: 30 },
+                  { name: 'RptName', index: 'RptName', align: 'center', title: false, sortable: false, resizable: false, width: 130 },
+                  { name: 'Type', index: 'Type', align: 'center', editable: true, title: false, resizable: false, width: 30 },
+                  { name: 'LogDate', index: 'LogDate', align: 'center', sortable: false, title: false, resizable: false, width: 60,datefmt:"yyyy-MM-dd HH:mm:ss", formatter:dateFom },
+                  { name: 'Describe', index: 'Describe', align: 'left', sortable: false, title: true, resizable: false, width: 120 }
+            ],
+            jsonReader: {
+                root: "LogList",//数据源
+                total: "PageCount",//总页数
+                page: "pageIndex", //当前页
+                records: "Count",  //数据总条数
+                repeatitems: false
+            }
+        });
+        $("#logTabel").jqGrid('setGridWidth', $("#maincontent").width() - 30);
+       // $("#logTabel").jqGrid('setGridHeight', $(window).height() - 510);
+        jQuery("#logTabel").jqGrid('navGrid', "#pager_log", { edit: false, add: false, del: false, search: false, refresh: false });
+    }
+    function dateFom(cellvalue, options, rowObject) {
+        //var LogDate = new Date(parseInt(cellvalue.substr(6))).toLocaleString("yyyy-MM-dd HH:mm:ss");
+        var LogDate=ChangeDateFormat(cellvalue);
+        return LogDate;
+    }
+    function ChangeDateFormat(time) {
+        if (time != null) {
+            var date = new Date(parseInt(time.replace("/Date(", "").replace(")/", ""), 10));
+            var month = changeInt(date.getMonth() + 1);
+            var currentDate = changeInt(date.getDate());
+            var currentTime = changeInt(date.getHours()) + ":" + changeInt(date.getMinutes()) + ":" + changeInt(date.getSeconds());
+            return date.getFullYear() + "-" + month + "-" + currentDate + " " + currentTime;
+        }
+        return "";
+    }
+
+    //查询日志列表
+    function reloadLog() {
+        var UserName = $("#opeartUser").val();
+        var RptName = $("#reportName").val();
+        var Type = $("#oprType option:selected").val();
+        var StartDate = $("#oprStartTime").val();
+        var EndDate = $("#oprEndTime").val();
+        if (StartDate != "" && EndDate != "") {
+            if (EndDate < StartDate) {
+                alert("开始时间必须小于结束时间！");
+                return;
+            }
+        }       
+        jQuery("#logTabel").jqGrid('setGridParam', {
+            url: "/SystemManage/LogManage",
+            postData: { "pageSize": 10, "pageIndex": 1, "StartDate": StartDate, "EndDate": EndDate, "Type": Type, "RptName": RptName, "UserName": UserName },
+        }).trigger("reloadGrid");
+    }
+    function resize() {
+        $("#creatReport").width($("#big").width() - 30);
+        $(".tableDiv").width($("#big").width() - 30);
+        $("#logTabel").jqGrid('setGridWidth', $("#maincontent").width() - 30);
+       // $("#logTabel").jqGrid('setGridHeight', $(window).height() - 510);
+        $("#big").height($("#maincontent").height());
+    }
+    $(window).resize(function () {
+        resize();
+    });
+</script>
+<div id="big" class="big">
+    <div class="gridName">
+        <span class="spread"></span>
+        <span>日志查询</span>
+    </div>
+    <div class="search-area" style="height:95px;">
+        <form action="" method="post" id="queryForm1">
+            <table class="LogQuery">
+                <tr>
+                    <th width="80">操作用户：</th>
+                    <td width="35%"><input name="" type="text" class="input" id="opeartUser"></td>
+                    <th width="80">报表名称：</th>
+                    <td width="350"><input name="" type="text" class="input" id="reportName" style="width:322px;"></td>
+                    <td rowspan="2"><input name="Input" type="button" value="查&nbsp;&nbsp;&nbsp;询" class="queryBtn1" id="query"></td>
+                </tr>
+                <tr>
+                    <th width="80">操作类型：</th>
+                    <td>
+                        <select class="select" id="oprType">
+                        </select>
+                    </td>
+                    <th width="80">操作时间：</th>
+                    <td width="350">
+                        <input name="" type="text" class="input Wdate" id="oprStartTime" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })">
+                        -&nbsp;<input name="" type="text" class="input Wdate" id="oprEndTime" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" style="padding-left:0;">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="creatReport" class="creatReport">
+        <div class="tableDiv">
+            <table id="logTabel"></table>
+            <div id="pager_log"></div>
+        </div>
+    </div>
+</div>

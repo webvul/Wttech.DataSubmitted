@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+    <link href="~/Content/CSS/report/nodataList.css" rel="stylesheet" />
+    <script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script>
+    $(document).ready(function () {
+        var foreDate = $("#ForecastDate", parent.document).val();
+        $("#foreDate").val(foreDate);
+    });
+    </script>
+
+</head>
+<body>
+    <div class="explain">
+        请输入预测设置，点击确定后完成下载导出
+    </div>
+    <form action="" id="addForm" method="post">
+        <table class="checkTable" >
+            <tr>
+                <th>预测参考日期：</th>
+                <td>
+                    <input name="" type="text" class="input Wdate" id="foreDate" value="" onclick="WdatePicker()" style="width:109px;">
+                </td>
+            </tr>
+            <tr>
+                <th>预测范围：</th>
+                <td>
+                    <input name="forecheck" type="radio" value="1" id="plus" checked />正
+                    <input name="forecheck" type="radio" value="0" id="minus" />负&nbsp;&nbsp;
+                    <input name="" type="text" class="input" id="fore_rank" value="" style="width:30px;">%
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>

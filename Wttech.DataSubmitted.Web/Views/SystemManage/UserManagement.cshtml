@@ -1,0 +1,148 @@
+﻿@model List<Wttech.DataSubmitted.Common.ViewModels.UserInfoViewModel>
+@{
+    ViewBag.Title = "用户权限管理";
+    Layout = null;
+}
+@*<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.jqgrid.css" rel="stylesheet" />
+    <link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.all.css" rel="stylesheet" />
+    <script src="~/Scripts/jggrid/jquery-ui-1.9.2/jquery.jqGrid.js"></script>*@
+    <link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+    @*<link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.jqgrid.css" rel="stylesheet" />
+    <link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.all.css" rel="stylesheet" />
+    <script src="~/Scripts/jggrid/jquery-ui-1.9.2/ui/i18n/grid.locale-cn.js"></script>*@   
+    <script src="~/Scripts/systemManage/UserManagement.js"></script> 
+    @*<script type="text/javascript">
+        ////编辑
+        //function edit(uid) {
+        //    var rolename = $("span[uid='" + uid + "'][id='rolename']").text();
+        //    $("#edit[uid='" + uid + "']").hide();
+        //    $("#save[uid='" + uid + "']").show();
+        //    $("span[uid='" + uid + "']").hide();
+        //    $("div[uid='" + uid + "']").show();
+        //    $("input[uid='" + uid + "']").show();
+        //    $("div[uid='" + uid + "']")[0].innerHTML = $("#tabel_rolelist")[0].innerHTML;
+        //    $("div[uid='" + uid + "'] input[value='" + rolename + "']").attr("checked", "checked");
+        //}
+        //保存
+        //function save(uid) {
+        //    var userId = uid;
+        //    var roleId = $("div[uid='" + uid + "'] input[type='radio']:checked").eq(0).attr('id');
+        //    var rolename = $("div[uid='" + uid + "'] input[type='radio']:checked").val();
+        //    var userName = $("input[uid='" + uid + "']").val();
+        //    var postdata='{ userId:"' + userId + '", roleList: ["' + roleId + '" ], userName:"' + userName + '"}'
+        //    $.ajax({
+        //        contentType: "application/json",
+        //        type: "POST",
+        //        url: "/SystemManage/Update",
+        //        data: postdata,
+        //        success: function (data) {
+        //            if (data == 1) {
+        //                alert("修改成功!");
+        //                $("span[uid='" + uid + "'][id='username']").val(userName);
+        //                $("span[uid='" + uid + "'][id='rolename']").val(rolename);
+        //                $("span[uid='" + uid + "']").show();
+        //                $("div[uid='" + uid + "']").hide();
+        //                $("input[uid='" + uid + "']").hide();
+        //                $("#edit[uid='" + uid + "']").show();
+        //                $("#save[uid='" + uid + "']").hide();
+        //            } else if (data == 3) {
+        //                alert("请选择角色！");
+        //            } else if (data == 4) {
+        //                alert("请输入用户名！");
+        //                $("#rolename").focus();
+        //            } else if (data == 0) {
+        //                alert("修改失败！");
+        //                $("span[uid='" + uid + "']").show();
+        //                $("div[uid='" + uid + "']").hide();
+        //                $("input[uid='" + uid + "']").hide();
+        //            }
+        //        },
+        //        error: function (data)
+        //        {
+        //            alert(data);
+        //        }
+        //    });
+        //}
+    </script>*@
+@*</head>*@
+@*<body onkeydown="keyQuery()">*@
+    <div id="big" class="big">
+        <div class="gridName">
+            <span class="spread"></span>
+            <span>用户权限管理</span>
+        </div>
+        <div class="search-area">
+            <form action="" method="post" id="queryForm1">
+                <table class="queryTable">
+                    <tr>
+                        <th width="60">登录名：</th>
+                        <td width="150"><input name="" type="text" class="input" id="query_userName" onkeydown="keyQuery()"></td>
+                        <td><input name="Input" type="button" value="查&nbsp;&nbsp;&nbsp;询" class="queryBtn1" id="query"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div id="creatReport" class="creatReport">
+            <div id="operate_btn" class="operate_btn">
+                <div class="queryBtn" id="addUser_btn">
+                    <span class="query_icon addIcon"></span>
+                    <span class="query_txt">新增</span>
+                </div>
+                <div class="queryBtn" onclick="assignUser()">
+                    <span class="query_icon assignIcon"></span>
+                    <span class="query_txt">角色分配</span>
+                </div>
+                <div class="queryBtn" onclick="delUser()">
+                    <span class="query_icon delIcon"></span>
+                    <span class="query_txt">删除</span>
+                </div>
+                @*<input name="Input" type="button" value="新增" class="queryBtn" id="addUser_btn">
+                <input name="Input" type="button" value="角色分配" class="queryBtn" onclick="assignUser()">
+                <input name="Input" type="button" value="删除" class="queryBtn" onclick="delUser()">*@
+            </div>
+            <div id="addUser" style="display:none; float:left;width:100%; height:44px; border-bottom:1px solid #d8e0eb; background:#f79914;">
+                <form action="" method="post" id="queryForm1">
+                    <table class="addTable">
+
+                        <tr>
+                            <th width="10%">登录名：</th>
+                            <td width="20%"><input name="" type="text" class="input" id="addUserName" style="margin-top:-5px;"></td>
+                            <th>角色权限：</th>
+                            <td>
+                                <div id="rolelist"></div>
+                            </td>
+                            <td>
+                                <div class="queryBtn" id="saveUser" style="margin-top:0;">
+                                    <span class="query_icon saveIcon"></span>
+                                    <span class="query_txt">保存</span>
+                                </div>
+                                <div class="queryBtn" id="cancle" style="margin-top:0;">
+                                    <span class="query_icon cancleIcon"></span>
+                                    <span class="query_txt">取消</span>
+                                </div>
+                                @*<input name="Input" type="button" value="保存" class="queryBtn" style="margin-top:0;" id="saveUser">
+                                <input name="Input" type="button" value="取消" class="queryBtn" style="margin-top:0;" id="cancle">*@
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </form>
+            </div>
+            <div class="tableDiv">
+                <input type="hidden" id="userId">
+                <table id="userTable"></table>
+                <div id="pager2"></div>
+            </div>
+        </div>
+    </div>
+    <div id="tabel_rolelist" style="display:none;"></div>
+
+@*</body>*@
+@*</html>*@

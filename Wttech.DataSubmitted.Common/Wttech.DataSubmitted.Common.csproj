@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C5D268B-352D-4634-A21A-8E9452AE705F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wttech.DataSubmitted.Common</RootNamespace>
+    <AssemblyName>Wttech.DataSubmitted.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\NPOI 2.1.1\dotnet4\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\packages\NPOI 2.1.1\dotnet4\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\packages\NPOI 2.1.1\dotnet4\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\packages\NPOI 2.1.1\dotnet4\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\packages\NPOI 2.1.1\dotnet4\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compress.cs" />
+    <Compile Include="CustomResult.cs" />
+    <Compile Include="ChinaDateTime.cs" />
+    <Compile Include="EDicParentId.cs" />
+    <Compile Include="OperationType.cs" />
+    <Compile Include="EResult.cs" />
+    <Compile Include="EDataStatus.cs" />
+    <Compile Include="ELoginResult.cs" />
+    <Compile Include="ENodeAddResult.cs" />
+    <Compile Include="EUserStatus.cs" />
+    <Compile Include="Export.cs" />
+    <Compile Include="MD5Encryptor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryParameters.cs" />
+    <Compile Include="Resources\SystemConst.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemConst.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TipInfo.Designer.cs">
+      <DependentUpon>TipInfo.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Result.cs" />
+    <Compile Include="SessionManage.cs" />
+    <Compile Include="SystemLog.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="ViewModels\AADTAndTransCalcuViewModels.cs" />
+    <Compile Include="ViewModels\DataDailyInfoViewModel.cs" />
+    <Compile Include="ViewModels\DictionaryViewModels.cs" />
+    <Compile Include="ViewModels\EnExViewModels.cs" />
+    <Compile Include="ViewModels\HdayExEnViewModels.cs" />
+    <Compile Include="ViewModels\HDayAADTViewModel.cs" />
+    <Compile Include="ViewModels\HDayExViewModel.cs" />
+    <Compile Include="ViewModels\HDayStaExEnViewModels.cs" />
+    <Compile Include="ViewModels\HDayTraInfoViewModel.cs" />
+    <Compile Include="ViewModels\HolidayConfigViewModels.cs" />
+    <Compile Include="ViewModels\HourAADTViewModel.cs" />
+    <Compile Include="ViewModels\IReportViewModel.cs" />
+    <Compile Include="ViewModels\LogManageViewModels.cs" />
+    <Compile Include="ViewModels\NaturalInfoViewModel.cs" />
+    <Compile Include="ViewModels\ReportRelatedViewModels.cs" />
+    <Compile Include="ViewModels\RoadRunSitStatisticalViewModels.cs" />
+    <Compile Include="ViewModels\UserManageViewModels.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wttech.DataSubmitted.DAL\Wttech.DataSubmitted.DAL.csproj">
+      <Project>{30e85437-6320-4c90-ac79-857d22df23e3}</Project>
+      <Name>Wttech.DataSubmitted.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\SystemConst.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SystemConst.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TipInfo.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TipInfo.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

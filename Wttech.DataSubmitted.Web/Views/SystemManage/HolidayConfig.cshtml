@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "假期报送计划配置";
+    Layout = null;
+}
+
+
+<link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+<link href="~/Content/CSS/report/holidayConfig.css" rel="stylesheet" />
+<script src="~/Scripts/systemManage/HolidayConfig.js"></script>
+<style>
+    .ui-widget-content .ui-state-default {
+        background: #F7F9FB;
+    }
+    .ui-jqgrid .ui-widget-content.ui-state-highlight{background: #e8eff9 none;}/*选中行颜色*/
+
+   .ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited { color: #5b626d; text-decoration: none; }
+
+   /*.ui-widget-content .ui-state-hover{background: #f8fafc; color:#5b626d;}*/          /*鼠标经过行高亮*/
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        height: auto;
+    }
+</style>
+<input type="hidden" value="" id="selId" />
+<div id="big" class="big">
+    <div class="gridName">
+        <span class="spread"></span>
+        <span>假期报送配置</span>
+    </div>
+    <div id="creatReport" class="creatReport" style="margin-top:18px;">
+        <div id="operate_btn" class="operate_btn">
+            <div class="queryBtn" id="holidayName">
+                <span class="query_icon holIcon"></span>
+                <span class="query_txt">假期名称管理</span>
+            </div>
+        </div>
+        <div class="tableDiv" style="border-left:1px solid #d8e0eb; height:40px;font-size:12px;line-height:40px;">
+            @*<div style="margin-left:10px;float:left;color:#555;" id="defNameCog">
+                <span>默认假期名称:</span>
+                <span id="defaultName" onmouseover="xgDefault()"></span>
+            </div>*@
+            <div style="margin-left:10px;margin-top:7px; float:left; display:none;color:#555;" id="editNameCog" >
+                <span>默认假期名称配置:</span>
+                <select id="editHolName" class="select" style="width:80px;" onchange="saveDefault()" @*onblur="quitDefault()"*@></select>
+            </div>
+            @*<input name="Input" type="button" value="修&nbsp;&nbsp;&nbsp;改" class="queryBtn1" id="xg" style="margin-top:5px;" onclick="xgDefault()">
+           <input name="Input" type="button" value="保&nbsp;&nbsp;&nbsp;存" class="queryBtn1" id="qd" style="margin-top:5px; display:none;" onclick="saveDefault()">
+           <input name="Input" type="button" value="取&nbsp;&nbsp;&nbsp;消" class="queryBtn1" id="qxdef" style="margin-top:5px; display:none;" onclick="quitDefault()">*@
+        </div>
+
+        <ul class="groupName">
+            <li class="group_li" id="dailyConfig" style="margin-left:15px;">每日报送</li>
+            <li class="group_li" id="bjReport">北京段</li>
+            <li class="group_li" id="tjReport">天津段</li>
+        </ul>
+        <div style="float:left;width:99.9%;height:6px;border-left:1px solid #d8e0eb;border-right:1px solid #d8e0eb;background:#fff;"></div>
+        <div id="rptConfig" class="rptConfig">
+            <div class="dailyConfig">
+                <table id="daily"></table>
+            </div>
+            <div class="bjReport" style="display:none;">
+                <table id="bj"></table>
+            </div>
+            <div class="tjReport" style="display:none;">
+                <table id="tjConfig"></table>
+            </div>
+        </div>
+    </div>
+</div>

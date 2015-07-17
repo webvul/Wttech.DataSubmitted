@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{324F2FD8-2F43-4120-9D74-DA545B22D80E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wttech.DataSubmitted.Tests</RootNamespace>
+    <AssemblyName>Wttech.DataSubmitted.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2-beta1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="ServicesTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesStartTest.cs" />
+    <Compile Include="NaturalTest.cs" />
+    <Compile Include="DataDailyTest.cs" />
+    <Compile Include="HDayAADTTest.cs" />
+    <Compile Include="HDayTraTest.cs" />
+    <Compile Include="EnExStatisticalTest.cs" />
+    <Compile Include="AADTTransStatisticalTest.cs" />
+    <Compile Include="HDayTest.cs" />
+    <Compile Include="HourAADTTest.cs" />
+    <Compile Include="AADTStatisticalTest.cs" />
+    <Compile Include="UserManageTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <Content Include="ReporttemplateTest\编号01--收费公路数据汇总日报.xlsx" />
+    <Content Include="ReporttemplateTest\编号02--收费公路数据汇总日报.xlsx" />
+    <Content Include="ReporttemplateTest\编号03--京沪高速大羊坊收费站数据日报表.xlsx" />
+    <Content Include="ReporttemplateTest\编号04--重要运输通道主线收费站数据日报表（泗村店站）.xlsx" />
+    <Content Include="ReporttemplateTest\编号05--重点城市出入境车辆数日报表（北京段）.xlsx" />
+    <Content Include="ReporttemplateTest\编号06--重点城市出入境车辆数日报表（泗村店）.xlsx" />
+    <Content Include="ReporttemplateTest\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="ReporttemplateTest\编号08--假期交通量统计表.xlsx" />
+    <Content Include="ReporttemplateTest\编号09--收费公路运行情况统计表.xlsx" />
+    <Content Include="ReporttemplateTest\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="ReporttemplateTest\编号11--假期重点收费站流量表（出口+入口）.xlsx" />
+    <Content Include="ReporttemplateTest\编号12--假期流量表（出口）.xlsx" />
+    <Content Include="ReporttemplateTest\编号13--0-24时各高速公路各收费站分方向出入口小时交通量.xlsx" />
+    <Content Include="ReporttemplateTest\编号14--各高速公路各收费站出口小时交通量.xlsx" />
+    <Content Include="ReporttemplateTest\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx" />
+    <Content Include="ReporttemplateTest\编号16--交通自然流量（含免费）统计日报表（小时数据）--断面数据.xlsx" />
+    <Content Include="ReporttemplateTest\编号17--交通自然流量（含免费）统计日报表.xlsx" />
+    <Content Include="ReporttemplateTest\编号18--假期高速公路交通流量统计表.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wttech.DataSubmitted.BLL\Wttech.DataSubmitted.BLL.csproj">
+      <Project>{5fcb4625-84e7-4d6b-a8de-aef545b34871}</Project>
+      <Name>Wttech.DataSubmitted.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wttech.DataSubmitted.Common\Wttech.DataSubmitted.Common.csproj">
+      <Project>{9c5d268b-352d-4634-a21a-8e9452ae705f}</Project>
+      <Name>Wttech.DataSubmitted.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wttech.DataSubmitted.IBLL\Wttech.DataSubmitted.IBLL.csproj">
+      <Project>{a21206d3-0851-4384-ac13-38e605b62313}</Project>
+      <Name>Wttech.DataSubmitted.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wttech.DataSubmitted.Services\Wttech.DataSubmitted.Services.csproj">
+      <Project>{bad4836c-d036-4c8a-89a3-0942b1ad90f8}</Project>
+      <Name>Wttech.DataSubmitted.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wttech.DataSubmitted.Web\Wttech.DataSubmitted.Web.csproj">
+      <Project>{a4a87bfa-bf17-4d2a-842e-a8f16d518fc7}</Project>
+      <Name>Wttech.DataSubmitted.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

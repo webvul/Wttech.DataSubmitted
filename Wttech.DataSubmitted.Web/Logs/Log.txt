@@ -1,0 +1,349 @@
+
+ 2014-12-16 10:39:28,464：INFO  缺少参数:报表类型!
+ 2014-12-16 10:43:35,359：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,515：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,515：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,515：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,546：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,546：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,546：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,593：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,593：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,593：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,624：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,624：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,624：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,671：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,671：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,671：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,702：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,702：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,702：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,748：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,748：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,748：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,780：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,780：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,780：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,813：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,813：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,813：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,843：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,843：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,843：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,873：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,873：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,873：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:35,967：INFO  2014-12-16 10:43:35：结束获取15.16.17报表数据
+ 2014-12-16 10:43:35,967：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:35,967：INFO  2014-12-16 10:43:35：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,012：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,012：INFO  统计15,16,17报表数据耗时1秒
+ 2014-12-16 10:43:36,013：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,053：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,053：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,053：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,135：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,135：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,136：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,178：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,178：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,178：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,220：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,220：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,221：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,252：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,252：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,252：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,284：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,284：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,285：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,322：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,323：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,323：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,365：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,365：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,365：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,397：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,397：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,397：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,443：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,443：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 10:43:36,443：INFO  2014-12-16 10:43:36：开始获取15,16,17报表数据
+ 2014-12-16 10:43:36,475：INFO  2014-12-16 10:43:36：结束获取15.16.17报表数据
+ 2014-12-16 10:43:36,476：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 11:25:28,330：INFO  缺少参数:报表类型!
+ 2014-12-16 11:27:49,166：INFO  缺少参数:报表类型!
+ 2014-12-16 14:50:47,870：INFO  System.Data.Entity.Core.EntityException: 基础提供程序在 Open 上失败。 ---> System.Data.SqlClient.SqlException: 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接) ---> System.ComponentModel.Win32Exception: 找不到网络路径。
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   在 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   在 System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 Wttech.DataSubmitted.BLL.TrafficStatisticalSum.CreateOrUpdateSum(QueryParameters para, Int32 stationtype) 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.BLL\TrafficStatisticalSum.cs:行号 64
+   在 Wttech.DataSubmitted.BLL.Report.NaturalTrafficStatistical.GetListByPra(QueryParameters para) 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.BLL\Report\NaturalTrafficStatistical.cs:行号 168
+ 2014-12-16 15:18:52,280：INFO  2014-12-16 15:18:52：开始获取15,16,17报表数据
+ 2014-12-16 15:18:53,836：INFO  2014-12-16 15:18:53：结束获取15.16.17报表数据
+ 2014-12-16 15:18:53,837：INFO  统计15,16,17报表数据耗时1秒
+ 2014-12-16 15:18:53,837：INFO  2014-12-16 15:18:53：开始获取15,16,17报表数据
+ 2014-12-16 15:18:53,902：INFO  2014-12-16 15:18:53：结束获取15.16.17报表数据
+ 2014-12-16 15:18:53,902：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:53,902：INFO  2014-12-16 15:18:53：开始获取15,16,17报表数据
+ 2014-12-16 15:18:53,938：INFO  2014-12-16 15:18:53：结束获取15.16.17报表数据
+ 2014-12-16 15:18:53,938：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:53,938：INFO  2014-12-16 15:18:53：开始获取15,16,17报表数据
+ 2014-12-16 15:18:53,971：INFO  2014-12-16 15:18:53：结束获取15.16.17报表数据
+ 2014-12-16 15:18:53,971：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:53,971：INFO  2014-12-16 15:18:53：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,003：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,003：INFO  统计15,16,17报表数据耗时1秒
+ 2014-12-16 15:18:54,004：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,037：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,037：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,037：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,076：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,076：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,076：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,118：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,118：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,118：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,228：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,229：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,229：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,261：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,261：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,261：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,299：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,299：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,299：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,340：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,340：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,341：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,398：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,398：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,398：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,458：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,458：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,458：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,496：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,496：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,496：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,574：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,574：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,574：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,621：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,621：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,621：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,663：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,663：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,663：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,739：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,739：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,739：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,780：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,780：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,780：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,821：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,821：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,822：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,855：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,855：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,855：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,888：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,888：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 15:18:54,888：INFO  2014-12-16 15:18:54：开始获取15,16,17报表数据
+ 2014-12-16 15:18:54,921：INFO  2014-12-16 15:18:54：结束获取15.16.17报表数据
+ 2014-12-16 15:18:54,921：INFO  统计15,16,17报表数据耗时0秒
+ 2014-12-16 17:18:39,006：INFO  缺少参数:报表类型!
+ 2014-12-16 17:18:45,903：INFO  缺少参数:报表类型!
+ 2014-12-16 17:18:56,962：INFO  缺少参数:报表类型!
+ 2014-12-16 17:22:56,992：INFO  缺少参数:报表类型!
+ 2014-12-16 17:23:06,057：INFO  缺少参数:报表类型!
+ 2014-12-16 17:23:06,181：INFO  System.IO.FileNotFoundException: 未能找到文件“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\5\null”。
+文件名:“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\5\null”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileInfo.get_Length()
+   在 Wttech.DataSubmitted.Web.Controllers.DownFileController.Downfile() 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\Controllers\DownFileController.cs:行号 47
+ 2014-12-16 17:24:24,032：INFO  缺少参数:报表类型!
+ 2014-12-16 17:24:33,579：INFO  缺少参数:报表类型!
+ 2014-12-16 17:24:33,624：INFO  System.IO.FileNotFoundException: 未能找到文件“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\5\null”。
+文件名:“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\5\null”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileInfo.get_Length()
+   在 Wttech.DataSubmitted.Web.Controllers.DownFileController.Downfile() 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\Controllers\DownFileController.cs:行号 47
+ 2014-12-16 17:24:43,081：INFO  缺少参数:报表类型!
+ 2014-12-16 17:39:34,423：INFO  导出错误：模板信息不存在！
+ 2014-12-16 17:39:34,461：INFO  System.IO.FileNotFoundException: 未能找到文件“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\10\”。
+文件名:“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\10\”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileInfo.get_Length()
+   在 Wttech.DataSubmitted.Web.Controllers.DownFileController.Downfile() 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\Controllers\DownFileController.cs:行号 47
+ 2014-12-17 12:22:36,325：INFO  缺少参数:报表类型!
+ 2014-12-17 12:22:38,513：INFO  缺少参数:报表类型!
+ 2014-12-17 12:22:40,585：INFO  缺少参数:报表类型!
+ 2014-12-17 12:22:40,651：INFO  System.IO.FileNotFoundException: 未能找到文件“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141217\5\null”。
+文件名:“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141217\5\null”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileInfo.get_Length()
+   在 Wttech.DataSubmitted.Web.Controllers.DownFileController.Downfile() 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\Controllers\DownFileController.cs:行号 47
+ 2014-12-17 12:27:25,671：INFO  缺少参数:报表类型!
+ 2014-12-17 12:28:13,295：INFO  缺少参数:报表类型!
+ 2014-12-17 12:28:31,269：INFO  缺少参数:报表类型!
+ 2014-12-17 12:28:32,759：INFO  缺少参数:报表类型!
+ 2014-12-17 12:28:45,067：INFO  缺少参数:报表类型!
+ 2014-12-17 12:28:59,726：INFO  缺少参数:报表类型!
+ 2014-12-17 12:28:59,808：INFO  System.IO.FileNotFoundException: 未能找到文件“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141217\7\null”。
+文件名:“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141217\7\null”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileInfo.get_Length()
+   在 Wttech.DataSubmitted.Web.Controllers.DownFileController.Downfile() 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\Controllers\DownFileController.cs:行号 47
+ 2014-12-17 12:43:35,677：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\18\编号18--假期高速公路交通流量统计表.xlsx
+ 2014-12-17 12:43:35,677：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\10\3.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\10\15.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141210\10\15.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径C:\华北机房系统\数据报送\DataSubmitted2\\ReportDownLoad\20141215\10\5.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141210\10\1.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141210\10\8.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\10\7.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\10\编号10--假期进出京交通流量表（北京段）.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\10\8.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141212\10\3.xlsx
+ 2014-12-17 12:43:35,732：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141210\10\3.xlsx
+ 2014-12-17 12:43:35,734：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141212\10\编号10--假期进出京交通流量表（北京段）.xlsx
+ 2014-12-17 13:37:12,497：INFO  缺少参数:报表类型!
+ 2014-12-17 13:37:17,684：INFO  缺少参数:报表类型!
+ 2014-12-17 13:37:24,043：INFO  缺少参数:报表类型!
+ 2014-12-17 14:04:49,139：INFO  缺少参数:报表类型!
+ 2014-12-17 14:16:02,914：INFO  缺少参数:报表类型!
+ 2014-12-17 15:02:01,751：INFO  缺少参数:报表类型!
+ 2014-12-17 15:04:55,831：INFO  缺少参数:报表类型!
+ 2014-12-17 15:08:59,758：INFO  缺少参数:报表类型!
+ 2014-12-17 16:22:47,161：INFO  缺少参数:报表类型!
+ 2014-12-17 16:32:20,259：INFO  缺少参数:报表类型!
+ 2014-12-17 16:32:21,893：INFO  缺少参数:报表类型!
+ 2014-12-17 16:32:23,255：INFO  缺少参数:报表类型!
+ 2014-12-17 16:33:08,407：INFO  缺少参数:报表类型!
+ 2014-12-17 16:33:24,946：INFO  缺少参数:报表类型!
+ 2014-12-17 16:33:27,020：INFO  缺少参数:报表类型!
+ 2014-12-17 16:33:28,031：INFO  缺少参数:报表类型!
+ 2014-12-17 16:33:34,292：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:14,403：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:23,552：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:31,105：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:32,148：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:32,937：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:38,174：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:38,946：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:39,757：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:44,353：INFO  缺少参数:报表类型!
+ 2014-12-17 16:49:44,426：INFO  System.IO.FileNotFoundException: 未能找到文件“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141217\5\null”。
+文件名:“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141217\5\null”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileInfo.get_Length()
+   在 Wttech.DataSubmitted.Web.Controllers.DownFileController.Downfile() 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\Controllers\DownFileController.cs:行号 47
+ 2014-12-17 17:34:14,411：INFO  缺少参数:报表类型!
+ 2014-12-18 12:13:56,230：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\编号01--收费公路数据汇总日报.xlsx
+ 2014-12-18 12:13:56,293：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\2014120915\8\编号08--假期交通量统计表.xlsx
+ 2014-12-18 12:13:56,294：INFO  文件不存在，文件路径C:\华北高速测试\数据报送系统\DataSubmitted\ReportDownLoad\20141217\1\编号01--收费公路数据汇总日报.xlsx
+ 2014-12-18 12:13:56,294：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141210\10\8.xlsx
+ 2014-12-18 12:13:56,318：INFO  文件不存在，文件路径D:\tmp\20141212\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,318：INFO  文件不存在，文件路径C:\华北高速测试\数据报送系统\DataSubmitted\ReportDownLoad\20141217\3\编号03--京沪高速大羊坊收费站数据日报表.xlsx
+ 2014-12-18 12:13:56,318：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\10\8.xlsx
+ 2014-12-18 12:13:56,318：INFO  文件不存在，文件路径C:\华北机房系统\数据报送\DataSubmitted2\\ReportDownLoad\20141215\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,318：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\20141218\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,318：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141210\10\1.xlsx
+ 2014-12-18 12:13:56,319：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141210\10\3.xlsx
+ 2014-12-18 12:13:56,329：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141217\5\编号05--重点城市出入境车辆数日报表（北京段）.xlsx
+ 2014-12-18 12:13:56,329：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141209\8\编号08--假期交通量统计表(预测).xlsx
+ 2014-12-18 12:13:56,329：INFO  文件不存在，文件路径C:\华北高速测试\数据报送系统\DataSubmitted\ReportDownLoad\20141217\4\编号04--重要运输通道主线收费站数据日报表（泗村店站）.xlsx
+ 2014-12-18 12:13:56,329：INFO  文件不存在，文件路径C:\华北机房系统\数据报送\DataSubmitted2\tmp\20141212\8\编号08--假期交通量统计表.xlsx
+ 2014-12-18 12:13:56,330：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\9\编号09--收费公路运行情况统计表.xlsx
+ 2014-12-18 12:13:56,330：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141212\10\3.xlsx
+ 2014-12-18 12:13:56,330：INFO  文件不存在，文件路径C:\华北高速测试\数据报送系统\DataSubmitted\ReportDownLoad\20141217\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,330：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141209\1\编号01--收费公路数据汇总日报(预测).xlsx
+ 2014-12-18 12:13:56,330：INFO  文件不存在，文件路径C:\华北机房系统\数据报送\DataSubmitted2\tmp\20141211\17\编号17--交通自然流量（含免费）统计日报表.xlsx
+ 2014-12-18 12:13:56,330：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\20141216\1\编号01--收费公路数据汇总日报.xlsx
+ 2014-12-18 12:13:56,330：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141209\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,331：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141217\5\编号05--重点城市出入境车辆数日报表（北京段）(预测).xlsx
+ 2014-12-18 12:13:56,358：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141215\4\编号04--重要运输通道主线收费站数据日报表（泗村店站）.xlsx
+ 2014-12-18 12:13:56,358：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\编号08--假期交通量统计表.xlsx
+ 2014-12-18 12:13:56,369：INFO  文件不存在，文件路径C:\华北机房系统\数据报送\DataSubmitted2\tmp\20141212\1\编号01--收费公路数据汇总日报(预测).xlsx
+ 2014-12-18 12:13:56,369：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\20141217\1\编号01--收费公路数据汇总日报.xlsx
+ 2014-12-18 12:13:56,369：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\20141217\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,392：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\编号03--京沪高速大羊坊收费站数据日报表.xlsx
+ 2014-12-18 12:13:56,393：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\10\编号10--假期进出京交通流量表（北京段）.xlsx
+ 2014-12-18 12:13:56,393：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\10\3.xlsx
+ 2014-12-18 12:13:56,393：INFO  文件不存在，文件路径C:\华北高速测试\数据报送系统\DataSubmitted\ReportDownLoad\20141218\17\编号17--交通自然流量（含免费）统计日报表.xlsx
+ 2014-12-18 12:13:56,393：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\20141211\9\编号09--收费公路运行情况统计表(预测).xlsx
+ 2014-12-18 12:13:56,411：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141210\10\15.xlsx
+ 2014-12-18 12:13:56,411：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\6\编号06--重点城市出入境车辆数日报表（泗村店）(预测).xlsx
+ 2014-12-18 12:13:56,457：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141210\9\编号09--收费公路运行情况统计表.xlsx
+ 2014-12-18 12:13:56,457：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141212\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,457：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\编号02--收费公路数据汇总日报(预测).xlsx
+ 2014-12-18 12:13:56,457：INFO  文件不存在，文件路径D:\tmp\20141212\1\编号01--收费公路数据汇总日报.xlsx
+ 2014-12-18 12:13:56,457：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141212\9\编号09--收费公路运行情况统计表.xlsx
+ 2014-12-18 12:13:56,488：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\编号01--收费公路数据汇总日报(预测).xlsx
+ 2014-12-18 12:13:56,489：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,489：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,506：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\18\编号18--假期高速公路交通流量统计表.xlsx
+ 2014-12-18 12:13:56,532：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\10\7.xlsx
+ 2014-12-18 12:13:56,532：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141212\9\编号09--收费公路运行情况统计表(预测).xlsx
+ 2014-12-18 12:13:56,534：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141209\16\编号16--交通自然流量（含免费）统计日报表（小时数据）--断面数据.xlsx
+ 2014-12-18 12:13:56,534：INFO  文件不存在，文件路径C:\华北机房系统\数据报送\DataSubmitted2\\ReportDownLoad\20141215\10\5.xlsx
+ 2014-12-18 12:13:56,540：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141212\10\编号10--假期进出京交通流量表（北京段）.xlsx
+ 2014-12-18 12:13:56,540：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\9\编号09--收费公路运行情况统计表.xlsx
+ 2014-12-18 12:13:56,540：INFO  文件不存在，文件路径C:\华北机房系统\数据报送\DataSubmitted2\tmp\20141211\9\编号09--收费公路运行情况统计表.xlsx
+ 2014-12-18 12:13:56,556：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\1\20141212\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,567：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\\ReportDownLoad\20141215\15\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx
+ 2014-12-18 12:13:56,567：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\20141211\9\编号09--收费公路运行情况统计表.xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141217\6\编号06--重点城市出入境车辆数日报表（泗村店）.xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\10\15.xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141209\17\编号17--交通自然流量（含免费）统计日报表.xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径D:\sjbs\Wttech.DataSubmitted.Web\tmp\20141218\10\编号10--假期进出京交通流量表（北京段）.xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\编号01--收费公路数据汇总日报.xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\\ReportDownLoad\20141216\6\编号06--重点城市出入境车辆数日报表（泗村店）.xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径D:\workspaces\hbgs.toll\trunk\Src\201207运营版\TollLaneIC\Src\TollServer\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\编号08--假期交通量统计表(预测).xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径C:\华北高速测试\数据报送系统\DataSubmitted\ReportDownLoad\20141217\17\编号17--交通自然流量（含免费）统计日报表.xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径C:\华北机房系统\数据报送\DataSubmitted2\tmp\20141211\1\编号01--收费公路数据汇总日报.xlsx
+ 2014-12-18 12:13:56,568：INFO  文件不存在，文件路径E:\Worke\数据报送\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\tmp\20141211\9\编号09--收费公路运行情况统计表(预测).xlsx
+ 2014-12-18 13:56:02,768：ERROR System.NotImplementedException: 未实现该方法或操作。
+   在 Wttech.DataSubmitted.BLL.Report.AADTAndTransCalcu.GenerateSheet(IWorkbook readworkbook, QueryParameters para) 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.BLL\Report\AADTAndTransCalcu.cs:行号 228
+   在 Wttech.DataSubmitted.BLL.ExportHelper.ExportExcel(String path, QueryParameters para, IGenerateSheet updatesheet) 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.BLL\ExportHelper.cs:行号 71
+ 2014-12-18 13:56:03,068：INFO  System.IO.FileNotFoundException: 未能找到文件“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141218\7\”。
+文件名:“D:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\ReportDownLoad\20141218\7\”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileInfo.get_Length()
+   在 Wttech.DataSubmitted.Web.Controllers.DownFileController.Downfile() 位置 d:\Wttech.DataSubmitted\Wttech.DataSubmitted.Web\Controllers\DownFileController.cs:行号 47

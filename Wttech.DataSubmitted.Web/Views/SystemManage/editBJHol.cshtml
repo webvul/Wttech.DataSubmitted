@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+    <link href="~/Content/CSS/report/nodataList.css" rel="stylesheet" />
+    <script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script src="~/Scripts/jggrid/jquery-ui-1.9.2/jquery.jqGrid.js"></script>
+    <script src="~/Scripts/jggrid/jquery-ui-1.9.2/ui/i18n/grid.locale-cn.js"></script>
+    <script>
+        $(document).ready(function () {
+            getHolNameList();
+            var selId = $("#selId", parent.document).val();
+            var bj = $("#bj", parent.document);
+            var rowData = bj.jqGrid("getRowData", selId);
+            var CheckFloat = rowData.CheckFloat;
+            var HolidayConfigId = rowData.HolidayConfigId;
+            var HolidayName = rowData.HolidayName;
+            var ForecastFloat = rowData.ForecastFloat;
+            var ForecastDate = rowData.ForecastDate;
+            var HolidayStartTime = rowData.HolidayStartTime;
+            var HolidayEndTime = rowData.HolidayEndTime;
+            var ComparedStartTime = rowData.ComparedStartTime;
+            var ComparedEndTime = rowData.ComparedEndTime;
+            $("#checkFloat").val(CheckFloat);
+            $("#HolidayConfigId").val(HolidayConfigId);
+            $("#HolidayName").text(HolidayName);
+            $("#ForecastFloat").val(ForecastFloat);
+            $("#ForecastDate").val(ForecastDate);
+            $("#HolidayStartTime").val(HolidayStartTime);
+            $("#HolidayEndTime").val(HolidayEndTime);
+            $("#ComparedStartTime").val(ComparedStartTime);
+            $("#ComparedEndTime").val(ComparedEndTime);
+            $("#HolidayId").val(rowData.HolidayId);
+            $("table tr").hide();
+            $("table tr:eq(0)").show();
+
+            //假期名称下拉列表与假期时间段联动
+            //$("#HolNameList").change(function () {
+            //    $("#HolidayStartTime").attr("value", "");
+            //    $("#HolidayEndTime").attr("value", "");
+            //    var name = $("#HolNameList option:selected").text();
+            //    $.ajax({
+            //        url: '/SystemManage/GetHolidayTime',
+            //        data: { "name": name },
+            //        dataType: "json",
+            //        type: "Post",
+            //        success: function (data) {
+            //            $("#HolidayStartTime").val(data.HolidayStartTime);
+            //            $("#HolidayEndTime").val(data.HolidayEndTime);
+            //        },
+            //        error: function (data) {
+            //            alert(data);
+            //        }
+            //    });
+            //})
+        });
+        //获取默认假期名称配置下拉列表
+        function getHolNameList() {
+            $.ajax({
+                url: '/SystemManage/GetHolidayList',
+                dataType: "json",
+                type: "Post",
+                success: function (data) {
+                    var str = "";
+                    var selId = $("#selId", parent.document).val();
+                    var bj = $("#bj", parent.document);
+                    var rowData = bj.jqGrid("getRowData", selId);
+                    $.each(data, function (i, j) {                      
+                        if (j.Name == rowData.HolidayName) {
+                            str += "<option id=" + j.DictId + " selected>" + j.Name + "</option>";
+                        } else {
+                            str += "<option id=" + j.DictId + ">" + j.Name + "</option>";
+                        }                        
+                    });
+                    $("#HolNameList").append(str);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="hidden" id="HolidayConfigId" value="" />
+    <input type="hidden" id="HolidayId" value="" />
+    <form action="" id="addForm" method="post">
+        <table class="checkTable" id="editTable" style="margin-top:10px;">
+            <tr>
+                <th width="90">假期名称：</th>
+                <td>
+                    <span id="HolidayName"></span>
+                    <select id="HolNameList" class="select" style="display:none;width:122px;"></select>
+                </td>
+            </tr>
+            <tr id="first_tr">
+                <th>预测日期：</th>
+                <td>
+                    <input name="" type="text" class="input Wdate" id="ForecastDate" value="" onclick="WdatePicker()" style="width:100px;">
+                </td>
+            </tr>
+            <tr id="second_tr">
+                <th>预测百分比：</th>
+                <td>
+                    <input name="" type="text" class="input" id="ForecastFloat" value="" style="width:100px;">（正负）
+                </td>
+            </tr>
+            <tr id="third_tr">
+                <th>校正百分比：</th>
+                <td>
+                    <input name="" type="text" class="input" id="checkFloat" value="" style="width:100px;">（正负）
+                </td>
+            </tr>
+            <tr id="fourth_tr">
+                <th>假期时间段：</th>
+                <td>
+                    <input name="" type="text" class="input Wdate" id="HolidayStartTime" value="" onclick="WdatePicker()" style="width:100px;">
+                    -&nbsp;<input name="" type="text" class="input Wdate" id="HolidayEndTime" value="" onclick="WdatePicker({ minDate: '#F{$dp.$D(\'HolidayStartTime\')}', maxDate: '#F{$dp.$D(\'HolidayStartTime\',{d:14});}' })" style="width:100px;">
+                </td>
+            </tr>
+            <tr id="fifth_tr">
+                <th>同比时间段：</th>
+                <td>
+                    <input name="" type="text" class="input Wdate" id="ComparedStartTime" value="" onclick="WdatePicker()" style="width:100px;">
+                    -&nbsp;<input name="" type="text" class="input Wdate" id="ComparedEndTime" value="" onclick="WdatePicker()" style="width:100px;">
+                </td>
+            </tr>
+            
+
+        </table>
+    </form>
+</body>
+</html>

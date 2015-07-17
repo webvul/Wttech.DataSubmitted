@@ -1,0 +1,349 @@
+﻿<#@ assembly name="EnvDTE" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Configuration" #>
+<#@ assembly name="System.Windows.Forms" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data.Common" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Globalization" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Configuration" #>
+<#+
+
+
+string ConnectionStringName = "conn";
+
+
+public class Table
+{	
+    public string TableName;
+	public string TableSummary;
+
+}
+
+public class Column
+{
+    public string ColumnName;
+    public string ColumnSummary;
+    public string TableName;
+}
+
+string GetConnectionString(ref string connectionStringName, out string providerName)
+{
+    var _CurrentProject = GetCurrentProject();
+
+	providerName=null;
+    
+    string result="";
+    ExeConfigurationFileMap configFile = new ExeConfigurationFileMap();
+    configFile.ExeConfigFilename = GetConfigPath();
+
+    if (string.IsNullOrEmpty(configFile.ExeConfigFilename))
+        throw new ArgumentNullException("The project does not contain App.config or Web.config file.");
+    
+    
+    var config = System.Configuration.ConfigurationManager.OpenMappedExeConfiguration(configFile, ConfigurationUserLevel.None);
+    var connSection=config.ConnectionStrings;
+
+    //if the connectionString is empty - which is the defauls
+    //look for count-1 - this is the last connection string
+    //and takes into account AppServices and LocalSqlServer
+    if(string.IsNullOrEmpty(connectionStringName))
+    {
+        if(connSection.ConnectionStrings.Count>1)
+        {
+			connectionStringName = connSection.ConnectionStrings[connSection.ConnectionStrings.Count-1].Name;
+            result=connSection.ConnectionStrings[connSection.ConnectionStrings.Count-1].ConnectionString;
+            providerName=connSection.ConnectionStrings[connSection.ConnectionStrings.Count-1].ProviderName;
+        }            
+    }
+    else
+    {
+        try
+        {
+            result=connSection.ConnectionStrings[connectionStringName].ConnectionString;
+            providerName=connSection.ConnectionStrings[connectionStringName].ProviderName;
+        }
+        catch
+        {
+            result="There is no connection string name called '"+connectionStringName+"'";
+        }
+    }
+
+//	if (String.IsNullOrEmpty(providerName))
+//		providerName="System.Data.SqlClient";
+    
+    return result;
+}
+
+string _connectionString="";
+string _providerName="";
+
+List<Table> _tables;
+List<Column> _columns;
+
+void InitConnectionString()
+{
+    if(String.IsNullOrEmpty(_connectionString))
+    {
+        _connectionString=GetConnectionString(ref ConnectionStringName, out _providerName);
+
+		if(_connectionString.Contains("|DataDirectory|"))
+		{
+			//have to replace it
+			string dataFilePath=GetDataDirectory();
+			_connectionString=_connectionString.Replace("|DataDirectory|",dataFilePath);
+		}    
+	}
+}
+
+public string ConnectionString
+{
+    get 
+    {
+		InitConnectionString();
+        return _connectionString;
+    }
+}
+
+public string ProviderName
+{
+    get 
+    {
+		InitConnectionString();
+        return _providerName;
+    }
+}
+
+public EnvDTE.Project GetCurrentProject()  {
+
+    IServiceProvider _ServiceProvider = (IServiceProvider)Host;
+    if (_ServiceProvider == null)
+        throw new Exception("Host property returned unexpected value (null)");
+	
+    EnvDTE.DTE dte = (EnvDTE.DTE)_ServiceProvider.GetService(typeof(EnvDTE.DTE));
+    if (dte == null)
+        throw new Exception("Unable to retrieve EnvDTE.DTE");
+	
+    Array activeSolutionProjects = (Array)dte.ActiveSolutionProjects;
+    if (activeSolutionProjects == null)
+        throw new Exception("DTE.ActiveSolutionProjects returned null");
+	
+    EnvDTE.Project dteProject = (EnvDTE.Project)activeSolutionProjects.GetValue(0);
+    if (dteProject == null)
+        throw new Exception("DTE.ActiveSolutionProjects[0] returned null");
+	
+    return dteProject;
+
+}
+
+private string GetProjectPath()
+{
+    EnvDTE.Project project = GetCurrentProject();
+    System.IO.FileInfo info = new System.IO.FileInfo(project.FullName);
+    return info.Directory.FullName;
+}
+
+private string GetConfigPath()
+{
+    EnvDTE.Project project = GetCurrentProject();
+    foreach (EnvDTE.ProjectItem item in project.ProjectItems)
+    {
+        // if it is the app.config file, then open it up
+        if (item.Name.Equals("App.config",StringComparison.InvariantCultureIgnoreCase) || item.Name.Equals("Web.config",StringComparison.InvariantCultureIgnoreCase))
+			return GetProjectPath() + "\\" + item.Name;
+    }
+    return String.Empty;
+}
+
+public string GetDataDirectory()
+{
+    EnvDTE.Project project=GetCurrentProject();
+    return System.IO.Path.GetDirectoryName(project.FileName)+"\\App_Data\\";
+}
+
+
+
+public void Init()
+{
+	InitConnectionString();
+	DbProviderFactory _factory;
+	try
+	{
+		_factory = DbProviderFactories.GetFactory(ProviderName);
+	}
+	catch (Exception x)
+	{
+		var error=x.Message.Replace("\r\n", "\n").Replace("\n", " ");
+		Warning(string.Format("Failed to load provider `{0}` - {1}", ProviderName, error));
+		WriteLine("");
+		WriteLine("// -----------------------------------------------------------------------------------------");
+		WriteLine("// Failed to load provider `{0}` - {1}", ProviderName, error);
+		WriteLine("// -----------------------------------------------------------------------------------------");
+		WriteLine("");
+		return;
+	}
+
+	try
+	{
+		using(var conn=_factory.CreateConnection())
+		{
+		conn.ConnectionString=ConnectionString; 
+		conn.Open();
+			SchemaReader sr= new SqlServerReader();
+			sr.Init(conn,_factory);
+			_tables = sr.LoadTables();
+			_columns = sr.LoadColumns();
+			conn.Close();
+		}
+	}
+	catch (Exception x)
+	{
+		var error=x.Message.Replace("\r\n", "\n").Replace("\n", " ");
+		Warning(string.Format("Failed to read database schema - {0}", error));
+		WriteLine("");
+		WriteLine("// -----------------------------------------------------------------------------------------");
+		WriteLine("// Failed to read database schema - {0}", error);
+		WriteLine("// -----------------------------------------------------------------------------------------");
+		WriteLine("");
+		return;
+	}
+}
+
+public List<Table>  lt()
+{
+return _tables;
+}
+
+public string GetTableSummary(string tableName)
+{
+
+	var temp = _tables.SingleOrDefault(i=>i.TableName==tableName);
+	if(temp!=null)
+    {
+		return temp.Value.Replace("\r\n", "\n").Replace("\n", " ");
+	}
+	return "";
+}
+public string GetColumnSummary(string tableName,string columnName)
+{
+
+	var temp = _columns.SingleOrDefault(i=>i.TableName==tableName&&i.ColumnName==columnName);
+	if(temp!=null)
+    {
+		return temp.Value.Replace("\r\n", "\n").Replace("\n", " ");
+	}
+	return "";
+}
+
+
+public abstract class SchemaReader
+{
+	public DbConnection _connection;
+	public DbProviderFactory _factory;
+	public abstract void Init(DbConnection connection, DbProviderFactory factory);
+	public abstract List<Column> LoadColumns(); 
+	public abstract List<Table> LoadTables();
+
+}
+
+public class SqlServerReader : SchemaReader
+{
+	public override void Init(DbConnection connection, DbProviderFactory factory)
+	{
+		
+		_connection=connection;
+		_factory=factory;
+	}
+	
+
+	
+
+	public override List<Column> LoadColumns()
+	{
+	
+		using (var cmd=_factory.CreateCommand())
+		{
+			cmd.Connection=_connection;
+			cmd.CommandText=COLUMN_SQL;
+
+			var result=new List<Column>();
+			using (IDataReader rdr=cmd.ExecuteReader())
+			{
+				while(rdr.Read())
+				{
+					Column col=new Column();
+					col.ColumnName=rdr["ColumnName"].ToString();
+					col.TableName=rdr["TableName"].ToString();
+					col.ColumnSummary=rdr["ColumnSummary"].ToString();
+					result.Add(col);
+				}
+			}
+
+			return result;
+		}
+	}
+
+	public override List<Table> LoadTables()
+	{
+	
+		using (var cmd=_factory.CreateCommand())
+		{
+			cmd.Connection=_connection;
+			cmd.CommandText=TABLE_SQL;
+
+			var result=new List<Table>();
+			using (IDataReader rdr=cmd.ExecuteReader())
+			{
+				while(rdr.Read())
+				{
+					Table tab=new Table();
+					tab.TableName=rdr["TableName"].ToString();
+					tab.TableSummary=rdr["TableSummary"].ToString();
+					result.Add(tab);
+				}
+			}
+			return result;
+		}
+	}
+
+	
+
+
+
+	const string TABLE_SQL=@"  SELECT 
+    TableName       = d.name,
+    TableSummary     = f.value
+FROM
+    sysobjects d 
+inner join
+sys.extended_properties f
+on 
+    d.id=f.major_id and f.minor_id=0 ";
+
+	const string COLUMN_SQL=@"SELECT 
+    TableName       = d.name,
+    ColumnName     = a.name,
+    ColumnSummary   = isnull(g.[value],'')
+FROM 
+    syscolumns a
+inner join 
+    sysobjects d 
+on 
+    a.id=d.id  and d.xtype='U' and  d.name<>'dtproperties'
+
+left join 
+sys.extended_properties   g 
+on 
+    a.id=G.major_id and a.colid=g.minor_id";
+	  
+}
+
+
+#>

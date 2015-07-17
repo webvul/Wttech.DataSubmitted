@@ -1,0 +1,843 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A4A87BFA-BF17-4D2A-842E-A8F16D518FC7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wttech.DataSubmitted.Web</RootNamespace>
+    <AssemblyName>Wttech.DataSubmitted.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Mvc">
+      <HintPath>..\packages\Unity.Mvc.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\BeijingReportController.cs" />
+    <Compile Include="Controllers\DaliyReportController.cs" />
+    <Compile Include="Controllers\DownFileController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\SystemManageController.cs" />
+    <Compile Include="Controllers\TJReportController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\CSS\bootstrap.css" />
+    <Content Include="Content\CSS\bootstrap.min.css" />
+    <Content Include="Content\CSS\common\common.css" />
+    <Content Include="Content\CSS\index\index.css" />
+    <Content Include="Content\CSS\index\sjbs-report.css" />
+    <Content Include="Content\CSS\index\updatePassword.css" />
+    <Content Include="Content\CSS\login\login.css" />
+    <Content Include="Content\CSS\report\holidayConfig.css" />
+    <Content Include="Content\CSS\report\nodataList.css" />
+    <Content Include="Content\CSS\Site.css" />
+    <Content Include="Content\images\index\beijing_icon.fw.png" />
+    <Content Include="Content\images\index\beijing_icon.png" />
+    <Content Include="Content\images\index\beijing_sel.fw.png" />
+    <Content Include="Content\images\index\daily_icon.fw.png" />
+    <Content Include="Content\images\index\daily_icon.png" />
+    <Content Include="Content\images\index\daily_sel.fw.png" />
+    <Content Include="Content\images\index\btn_bg.png" />
+    <Content Include="Content\images\index\daily_sel.png" />
+    <Content Include="Content\images\index\exit.png" />
+    <Content Include="Content\images\index\exit_hover.png" />
+    <Content Include="Content\images\index\expbtn_bg.png" />
+    <Content Include="Content\images\index\expbtn_bg1.png" />
+    <Content Include="Content\images\index\index_bottom_bg.png" />
+    <Content Include="Content\images\index\index_top_bg.png" />
+    <Content Include="Content\images\index\left_li_bg.png" />
+    <Content Include="Content\images\index\left_li_sel .png" />
+    <Content Include="Content\images\index\logo.png" />
+    <Content Include="Content\images\index\open.png" />
+    <Content Include="Content\images\index\psw_hover.png" />
+    <Content Include="Content\images\index\pwd.png" />
+    <Content Include="Content\images\index\pwd_hover.png" />
+    <Content Include="Content\images\index\shensuo.png" />
+    <Content Include="Content\images\index\system_icon.png" />
+    <Content Include="Content\images\index\three_icon.png" />
+    <Content Include="Content\images\index\three_level.png" />
+    <Content Include="Content\images\index\three_level1.png" />
+    <Content Include="Content\images\index\three_level_sel.png" />
+    <Content Include="Content\images\index\three_sel.png" />
+    <Content Include="Content\images\index\tj_icon.png" />
+    <Content Include="Content\images\index\user_icon.png" />
+    <Content Include="Content\images\index\user_icon_hover.png" />
+    <Content Include="Content\images\login\login.png" />
+    <Content Include="Content\images\login\login_bg.png" />
+    <Content Include="Content\images\login\login_btn.png" />
+    <Content Include="Content\images\login\login_logo.png" />
+    <Content Include="Content\images\login\login_window_bg.png" />
+    <Content Include="Content\images\report\addUser_icon.png" />
+    <Content Include="Content\images\report\addUser_icon_hover.png" />
+    <Content Include="Content\images\report\cancle_icon.png" />
+    <Content Include="Content\images\report\cancle_icon_hover.png" />
+    <Content Include="Content\images\report\check_icon.png" />
+    <Content Include="Content\images\report\check_icon_hover.png" />
+    <Content Include="Content\images\report\delete_icon.png" />
+    <Content Include="Content\images\report\delete_icon_hover.png" />
+    <Content Include="Content\images\report\edit_icon.png" />
+    <Content Include="Content\images\report\export_icon.png" />
+    <Content Include="Content\images\report\export_icon_hover.png" />
+    <Content Include="Content\images\report\forecast_icon.png" />
+    <Content Include="Content\images\report\forecast_icon_hover.png" />
+    <Content Include="Content\images\report\holiday_icon.png" />
+    <Content Include="Content\images\report\holiday_icon_hover.png" />
+    <Content Include="Content\images\report\loading.gif" />
+    <Content Include="Content\images\report\loading1.gif" />
+    <Content Include="Content\images\report\save_icon.png" />
+    <Content Include="Content\images\report\save_icon_hover.png" />
+    <Content Include="Content\images\report\uncheck.png" />
+    <Content Include="Content\images\report\unexport.png" />
+    <Content Include="Content\images\report\upd_icon.png" />
+    <Content Include="Content\images\report\upd_icon_hover.png" />
+    <Content Include="Content\images\report\userAssign_icon.png" />
+    <Content Include="Content\images\index\system_icon.fw.png" />
+    <Content Include="Content\images\index\system_sel.fw.png" />
+    <Content Include="Content\images\index\tj_icon.fw.png" />
+    <Content Include="Content\images\index\tj_sel.fw.png" />
+    <Content Include="Content\images\index\twolevel_icon.fw.png" />
+    <Content Include="Content\images\index\twolevel_sel.fw.png" />
+    <Content Include="Content\images\report\userAssign_icon_hover.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Reporttemplate\编号01--收费公路数据汇总日报.xlsx" />
+    <Content Include="Reporttemplate\编号02--收费公路数据汇总日报.xlsx" />
+    <Content Include="Reporttemplate\编号03--京沪高速大羊坊收费站数据日报表.xlsx" />
+    <Content Include="Reporttemplate\编号04--重要运输通道主线收费站数据日报表（泗村店站）.xlsx" />
+    <Content Include="Reporttemplate\编号05--重点城市出入境车辆数日报表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\编号06--重点城市出入境车辆数日报表（泗村店）.xlsx" />
+    <Content Include="Reporttemplate\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\编号08--假期交通量统计表.xlsx" />
+    <Content Include="Reporttemplate\编号09--收费公路运行情况统计表.xlsx" />
+    <Content Include="Reporttemplate\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\编号12--假期流量表（出口）.xlsx" />
+    <Content Include="Reporttemplate\编号14--各高速公路各收费站出口小时交通量.xlsx" />
+    <Content Include="Reporttemplate\编号15--交通自然流量（含免费）统计日报表（小时数据）--北京段.xlsx" />
+    <Content Include="Reporttemplate\编号16--交通自然流量（含免费）统计日报表（小时数据）--断面数据.xlsx" />
+    <Content Include="Reporttemplate\编号17--交通自然流量（含免费）统计日报表.xlsx" />
+    <Content Include="Reporttemplate\编号18--假期高速公路交通流量统计表.xlsx" />
+    <None Include="Properties\PublishProfiles\Default Settings %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
+    <Content Include="Reporttemplate\DynamicReport\10\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\11\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\12\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\13\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\14\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\15\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\2\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\3\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\4\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\5\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\6\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\7\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\8\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\9\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\1\编号10--假期进出京交通流量表（北京段）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\1\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\10\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\11\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\12\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\13\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\14\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\15\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\2\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\3\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\4\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\6\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\7\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\8\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\9\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\5\编号07--黄金周京津塘高速公路交通量及客运情况统计表.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\4\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\3\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\2\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\1\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\5\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\6\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\7\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\8\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\9\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\10\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\11\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\12\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\13\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\14\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\DynamicReport\15\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\编号11--假期重点收费站流量表（出口加入口）.xlsx" />
+    <Content Include="Reporttemplate\编号13--0-24时各高速公路各收费站分方向出入口小时交通量.xlsx" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\common\public.js" />
+    <Content Include="Scripts\frameDialog.js" />
+    <Content Include="Scripts\index\index.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\globalize.culture.de-DE.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\globalize.culture.ja-JP.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\globalize.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\jquery.bgiframe-2.1.2.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\jquery.cookie.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\jquery.metadata.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\jquery.mousewheel.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\jshint.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\qunit.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\external\qunit.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\jquery-1.8.3.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\jquery-ui-1.9.2.custom.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\jquery.jqGrid.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery-ui-i18n.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-af.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ar-DZ.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ar.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-az.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-bg.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-bs.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ca.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-cs.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-cy-GB.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-da.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-de.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-el.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-en-AU.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-en-GB.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-en-NZ.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-eo.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-et.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-eu.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-fa.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-fi.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-fo.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-fr-CH.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-fr.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-gl.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-he.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-hi.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-hr.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-hu.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-hy.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-id.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-is.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-it.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ja.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ka.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-kk.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-km.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ko.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-lb.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-lt.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-lv.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-mk.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ml.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ms.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-nl-BE.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-nl.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-no.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-pl.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-pt-BR.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-pt.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-rm.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ro.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ru.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-sk.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-sl.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-sq.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-sr-SR.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-sr.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-sv.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-ta.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-th.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-tj.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-tr.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-uk.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-vi.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery-ui.custom.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.accordion.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.autocomplete.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.button.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.core.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.dialog.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.draggable.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.droppable.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-blind.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-bounce.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-clip.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-drop.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-explode.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-fade.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-fold.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-highlight.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-pulsate.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-scale.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-shake.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-slide.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect-transfer.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.effect.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.menu.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.mouse.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.position.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.progressbar.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.resizable.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.selectable.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.slider.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.sortable.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.spinner.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.tabs.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.tooltip.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery-ui-i18n.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-af.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ar-DZ.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ar.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-az.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-bg.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-bs.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ca.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-cs.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-cy-GB.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-da.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-de.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-el.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-en-AU.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-en-GB.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-en-NZ.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-eo.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-es.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-et.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-eu.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-fa.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-fi.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-fo.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-fr-CH.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-fr.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-gl.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-he.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-hi.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-hr.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-hu.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-hy.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-id.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-is.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-it.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ja.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ka.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-kk.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-km.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ko.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-lb.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-lt.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-lv.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-mk.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ml.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ms.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-nl-BE.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-nl.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-no.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-pl.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-pt-BR.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-pt.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-rm.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ro.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ru.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-sk.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-sl.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-sq.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-sr-SR.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-sr.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-sv.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-ta.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-th.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-tj.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-tr.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-uk.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-vi.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-zh-CN.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-zh-HK.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\i18n\jquery.ui.datepicker-zh-TW.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery-ui.custom.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.accordion.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.autocomplete.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.button.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.core.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.datepicker.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.dialog.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.draggable.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.droppable.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-blind.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-bounce.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-clip.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-drop.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-explode.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-fade.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-fold.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-highlight.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-pulsate.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-scale.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-shake.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-slide.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect-transfer.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.effect.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.menu.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.mouse.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.position.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.progressbar.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.resizable.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.selectable.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.slider.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.sortable.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.spinner.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.tabs.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.tooltip.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-1.9.2\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery-ui.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.accordion.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.all.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.base.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.button.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.core.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.dialog.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.menu.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.resizable.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.selectable.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.slider.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.spinner.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.tabs.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.theme.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\grid-header.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\tableth.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_flat_0_ffffff_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_flat_75_3e4c57_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_highlight-soft_65_f79914_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_highlight-soft_75_dddede_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_highlight-soft_75_ffffff_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_3e4c57_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery-ui.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.accordion.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.all.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.autocomplete.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.base.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.button.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.core.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.datepicker.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.dialog.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.jqgrid.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.menu.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.progressbar.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.resizable.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.selectable.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.slider.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.spinner.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.tabs.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.theme.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\jquery.ui.tooltip.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_flat_0_ffffff_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_flat_75_3e4c57_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_highlight-soft_65_f79914_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_highlight-soft_75_dddede_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_highlight-soft_75_ffffff_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_3e4c57_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery-ui.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.button.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.core.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.menu.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.slider.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.theme.min.css" />
+    <Content Include="Scripts\jggrid\jquery-ui-themes\icac\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.jqGrid.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\login\login.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\My97DatePicker\config.js" />
+    <Content Include="Scripts\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="Scripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\report\CityDailyEnEx.js" />
+    <Content Include="Scripts\report\CityEnEx.js" />
+    <Content Include="Scripts\report\DYFSum.js" />
+    <Content Include="Scripts\report\HDayEx.js" />
+    <Content Include="Scripts\report\HdayExEn.js" />
+    <Content Include="Scripts\report\HDayStaExEn.js" />
+    <Content Include="Scripts\report\HDayRoadSta.js" />
+    <Content Include="Scripts\report\HDaySta.js" />
+    <Content Include="Scripts\report\ImpStaDaily.js" />
+    <Content Include="Scripts\report\JJTHighWay.js" />
+    <Content Include="Scripts\report\NaturalHour.js" />
+    <Content Include="Scripts\report\reportCommon.js" />
+    <Content Include="Scripts\report\RoadRunSit.js" />
+    <Content Include="Scripts\report\RoadStaExEnHour.js" />
+    <Content Include="Scripts\report\RoadStaExHour.js" />
+    <Content Include="Scripts\report\TollRoadDaily.js" />
+    <Content Include="Scripts\report\TollRoadSum.js" />
+    <Content Include="Scripts\systemManage\UserManagement.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\systemManage\HolidayConfig.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\SystemManage\Login.cshtml" />
+    <Content Include="Views\SystemManage\UpdatePassWord.cshtml" />
+    <Content Include="Views\SystemManage\UserRoleAssign.cshtml" />
+    <Content Include="Views\BeijingReport\TollRoadSum.cshtml" />
+    <Content Include="Views\SystemManage\UserManagement.cshtml" />
+    <Content Include="Views\DaliyReport\NaturalHour.cshtml" />
+    <Content Include="Views\BeijingReport\DYFSum.cshtml" />
+    <Content Include="Views\BeijingReport\CityEnEx.cshtml" />
+    <Content Include="Views\DaliyReport\HourNoList.cshtml" />
+    <Content Include="Views\DaliyReport\HourCheckRight.cshtml" />
+    <Content Include="Views\DaliyReport\DYFNaturalHour.cshtml" />
+    <Content Include="Views\DaliyReport\HourDataReport.cshtml" />
+    <Content Include="Views\SystemManage\HolidayConfig.cshtml" />
+    <Content Include="Views\SystemManage\HolidayName.cshtml" />
+    <Content Include="Views\SystemManage\LogManage.cshtml" />
+    <Content Include="Views\SystemManage\batchExport.cshtml" />
+    <Content Include="Views\BeijingReport\forecastWindow.cshtml" />
+    <Content Include="Views\SystemManage\editHolConfig.cshtml" />
+    <Content Include="Views\SystemManage\editBJHol.cshtml" />
+    <Content Include="Views\SystemManage\editTemplate.cshtml" />
+    <Content Include="Views\TJReport\TollRoadDaily.cshtml" />
+    <Content Include="Views\TJReport\ImpStaDaily.cshtml" />
+    <Content Include="Views\BeijingReport\HDaySta.cshtml" />
+    <Content Include="Views\BeijingReport\RoadRunSit.cshtml" />
+    <Content Include="Views\TJReport\HDayStaExEn.cshtml" />
+    <Content Include="Views\TJReport\HDayEx.cshtml" />
+    <Content Include="Views\BeijingReport\RoadStaExEnHour.cshtml" />
+    <Content Include="Views\BeijingReport\RoadStaExHour.cshtml" />
+    <Content Include="Views\BeijingReport\HDayRoadSta.cshtml" />
+    <Content Include="Views\BeijingReport\BJCheckWindow.cshtml" />
+    <Content Include="Views\BeijingReport\HdayExEn.cshtml" />
+    <Content Include="Views\TJReport\CityDailyEnEx.cshtml" />
+    <Content Include="Views\BeijingReport\JJTHighWay.cshtml" />
+    <Content Include="Views\BeijingReport\checkReport7.cshtml" />
+    <Content Include="Views\TJReport\NoDataList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Report\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wttech.DataSubmitted.BLL\Wttech.DataSubmitted.BLL.csproj">
+      <Project>{5fcb4625-84e7-4d6b-a8de-aef545b34871}</Project>
+      <Name>Wttech.DataSubmitted.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wttech.DataSubmitted.Common\Wttech.DataSubmitted.Common.csproj">
+      <Project>{9c5d268b-352d-4634-a21a-8e9452ae705f}</Project>
+      <Name>Wttech.DataSubmitted.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wttech.DataSubmitted.DAL\Wttech.DataSubmitted.DAL.csproj">
+      <Project>{30e85437-6320-4c90-ac79-857d22df23e3}</Project>
+      <Name>Wttech.DataSubmitted.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wttech.DataSubmitted.IBLL\Wttech.DataSubmitted.IBLL.csproj">
+      <Project>{a21206d3-0851-4384-ac13-38e605b62313}</Project>
+      <Name>Wttech.DataSubmitted.IBLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>38888</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:38888/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

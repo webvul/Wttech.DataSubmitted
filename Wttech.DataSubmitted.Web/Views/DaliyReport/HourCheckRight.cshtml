@@ -1,0 +1,67 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+    <link href="~/Content/CSS/report/nodataList.css" rel="stylesheet" />
+    <script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script>
+        $(document).ready(function () {
+            var StartTime = $("#date", parent.document).text();
+            // $(self.parent.frames["right-middle"].document).contents().find('#StartTime').val();
+            $("#StartTime").text(StartTime);
+        });
+    </script>
+</head>
+<body>
+    <div class="explain">
+        请完成校正设置，以便系统准确完成校正
+    </div>
+    <form action="" id="addForm" method="post">
+        <table class="checkTable">
+            <tr>
+                <th>校正数据日期：</th>
+                <td>
+                    <span id="StartTime"></span>
+                          @*<input name="" type="text" class="input Wdate" id="StartTime" value="" onclick="WdatePicker()" disabled="disabled" readonly="readonly">*@
+                          @*-&nbsp;
+                    <input name="" type="text" class="input Wdate" id="EndTime" value="" onclick="WdatePicker()">*@
+                </td>
+            </tr>
+            <tr>
+                <th>参考数据日期：</th>
+                <td>
+                    <input name="" type="text" class="input Wdate" id="LastYearStart" value="" onclick="WdatePicker()">
+                    @*-&nbsp;
+                    <input name="" type="text" class="input Wdate" id="LastYearEnd" value="" onclick="WdatePicker()">*@
+                </td>
+            </tr>
+            <tr>
+                <th>参考时间段：</th>
+                <td>
+                    <input name="" type="text" class="input" id="StartHour" value="" style="width:55px;">
+                    -&nbsp;
+                    <input name="" type="text" class="input" id="EndHour" value="" style="width:55px;">
+                </td>
+            </tr>
+            <tr>
+                <th>浮动范围：</th>
+                <td>
+                    <input name="checkRadio" type="radio" value="1" id="plus" checked/>正
+                    <input name="checkRadio" type="radio" value="0" id="minus"/>负&nbsp;&nbsp;
+                    <input name="" type="text" class="input" id="rank" value="" style="width:30px;" >%
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>

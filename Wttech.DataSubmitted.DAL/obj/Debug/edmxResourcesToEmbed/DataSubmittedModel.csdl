@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataSubmittedModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DataSubmittedEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_LinkServer">
+      <Parameter Name="ServerIp" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="PassWord" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_StaDataSource">
+      <Parameter Name="timePeriodHourPra" Mode="In" Type="Int32" />
+      <Parameter Name="staticalTimePra" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="DS_DataSource" EntityType="DataSubmittedModel.DS_DataSource" />
+    <EntitySet Name="OT_Dic" EntityType="DataSubmittedModel.OT_Dic" />
+    <EntitySet Name="OT_ErrorStation" EntityType="DataSubmittedModel.OT_ErrorStation" />
+    <EntitySet Name="OT_ExportHis" EntityType="DataSubmittedModel.OT_ExportHis" />
+    <EntitySet Name="OT_HDayConfig" EntityType="DataSubmittedModel.OT_HDayConfig" />
+    <EntitySet Name="OT_Log" EntityType="DataSubmittedModel.OT_Log" />
+    <EntitySet Name="OT_Role" EntityType="DataSubmittedModel.OT_Role" />
+    <EntitySet Name="OT_Station" EntityType="DataSubmittedModel.OT_Station" />
+    <EntitySet Name="OT_User" EntityType="DataSubmittedModel.OT_User" />
+    <EntitySet Name="OT_UserRole" EntityType="DataSubmittedModel.OT_UserRole" />
+    <EntitySet Name="RP_AADTAndTransCalcu" EntityType="DataSubmittedModel.RP_AADTAndTransCalcu" />
+    <EntitySet Name="RP_AADTSta" EntityType="DataSubmittedModel.RP_AADTSta" />
+    <EntitySet Name="RP_Daily" EntityType="DataSubmittedModel.RP_Daily" />
+    <EntitySet Name="RP_EnEx" EntityType="DataSubmittedModel.RP_EnEx" />
+    <EntitySet Name="RP_HDayAADT" EntityType="DataSubmittedModel.RP_HDayAADT" />
+    <EntitySet Name="RP_HDayAADTSta" EntityType="DataSubmittedModel.RP_HDayAADTSta" />
+    <EntitySet Name="RP_HourAADT" EntityType="DataSubmittedModel.RP_HourAADT" />
+    <EntitySet Name="RP_NatSta" EntityType="DataSubmittedModel.RP_NatSta" />
+    <AssociationSet Name="FK_OT_ExportHis_OT_Dic" Association="DataSubmittedModel.FK_OT_ExportHis_OT_Dic">
+      <End Role="OT_Dic" EntitySet="OT_Dic" />
+      <End Role="OT_ExportHis" EntitySet="OT_ExportHis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OT_HDayConfig_OT_Dic" Association="DataSubmittedModel.FK_OT_HDayConfig_OT_Dic">
+      <End Role="OT_Dic" EntitySet="OT_Dic" />
+      <End Role="OT_HDayConfig" EntitySet="OT_HDayConfig" />
+    </AssociationSet>
+    <AssociationSet Name="fk_uid" Association="DataSubmittedModel.fk_uid">
+      <End Role="OT_Dic" EntitySet="OT_Dic" />
+      <End Role="OT_HDayConfig" EntitySet="OT_HDayConfig" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OT_UserRole_OT_Role" Association="DataSubmittedModel.FK_OT_UserRole_OT_Role">
+      <End Role="OT_Role" EntitySet="OT_Role" />
+      <End Role="OT_UserRole" EntitySet="OT_UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OT_UserRole_OT_User" Association="DataSubmittedModel.FK_OT_UserRole_OT_User">
+      <End Role="OT_User" EntitySet="OT_User" />
+      <End Role="OT_UserRole" EntitySet="OT_UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DS_DataSource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="StaID" Type="Int32" />
+    <Property Name="VehType" Type="Int32" />
+    <Property Name="OutNumMTC" Type="Int32" />
+    <Property Name="InNumMTC" Type="Int32" />
+    <Property Name="OutNumETC" Type="Int32" />
+    <Property Name="InNumETC" Type="Int32" />
+    <Property Name="OutNum" Type="Int32" />
+    <Property Name="InNum" Type="Int32" />
+    <Property Name="RecMoney" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PayMoney" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="HourPer" Type="Byte" />
+    <Property Name="CalcuTime" Type="DateTime" Precision="3" />
+    <Property Name="CalcuType" Type="Byte" />
+    <Property Name="CrtDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OT_Dic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Belong" Type="Int32" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="Rek" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsDelete" Type="Byte" />
+    <NavigationProperty Name="OT_ExportHis" Relationship="DataSubmittedModel.FK_OT_ExportHis_OT_Dic" FromRole="OT_Dic" ToRole="OT_ExportHis" />
+    <NavigationProperty Name="OT_HDayConfig" Relationship="DataSubmittedModel.FK_OT_HDayConfig_OT_Dic" FromRole="OT_Dic" ToRole="OT_HDayConfig" />
+    <NavigationProperty Name="OT_HDayConfig1" Relationship="DataSubmittedModel.fk_uid" FromRole="OT_Dic" ToRole="OT_HDayConfig" />
+  </EntityType>
+  <EntityType Name="OT_ErrorStation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="StaID" Type="Int32" Nullable="false" />
+    <Property Name="StaName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HourPer" Type="Byte" />
+  </EntityType>
+  <EntityType Name="OT_ExportHis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="TableType" Type="Int32" />
+    <Property Name="HDayId" Type="Int32" />
+    <Property Name="SavePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HourPer" Type="Byte" />
+    <Property Name="DataDate" Type="DateTime" Precision="3" />
+    <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OT_Dic" Relationship="DataSubmittedModel.FK_OT_ExportHis_OT_Dic" FromRole="OT_ExportHis" ToRole="OT_Dic" />
+  </EntityType>
+  <EntityType Name="OT_HDayConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ConfigName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HDayId" Type="Int32" />
+    <Property Name="HDayStart" Type="DateTime" Precision="3" />
+    <Property Name="HDayEnd" Type="DateTime" Precision="3" />
+    <Property Name="CompStart" Type="DateTime" Precision="3" />
+    <Property Name="CompEnd" Type="DateTime" Precision="3" />
+    <Property Name="ForeDate" Type="DateTime" Precision="0" />
+    <Property Name="ForeFloat" Type="Int32" />
+    <Property Name="RptRemark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CheckFloat" Type="Int32" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="ConfigItem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OT_Dic" Relationship="DataSubmittedModel.FK_OT_HDayConfig_OT_Dic" FromRole="OT_HDayConfig" ToRole="OT_Dic" />
+    <NavigationProperty Name="OT_Dic1" Relationship="DataSubmittedModel.fk_uid" FromRole="OT_HDayConfig" ToRole="OT_Dic" />
+  </EntityType>
+  <EntityType Name="OT_Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Describe" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="RptName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OT_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="IsDelete" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="OT_UserRole" Relationship="DataSubmittedModel.FK_OT_UserRole_OT_Role" FromRole="OT_Role" ToRole="OT_UserRole" />
+  </EntityType>
+  <EntityType Name="OT_Station">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InDir" Type="Int32" Nullable="false" />
+    <Property Name="OutDir" Type="Int32" Nullable="false" />
+    <Property Name="District" Type="Int32" Nullable="false" />
+    <Property Name="IsDelete" Type="Byte" Nullable="false" />
+    <Property Name="Charge" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OT_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsDelete" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="OT_UserRole" Relationship="DataSubmittedModel.FK_OT_UserRole_OT_User" FromRole="OT_User" ToRole="OT_UserRole" />
+  </EntityType>
+  <EntityType Name="OT_UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Guid" Nullable="false" />
+    <Property Name="IsDelete" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="OT_Role" Relationship="DataSubmittedModel.FK_OT_UserRole_OT_Role" FromRole="OT_UserRole" ToRole="OT_Role" />
+    <NavigationProperty Name="OT_User" Relationship="DataSubmittedModel.FK_OT_UserRole_OT_User" FromRole="OT_UserRole" ToRole="OT_User" />
+  </EntityType>
+  <EntityType Name="RP_AADTAndTransCalcu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="EnTra" Type="Double" />
+    <Property Name="EnCar" Type="Double" />
+    <Property Name="EnTrav" Type="Double" />
+    <Property Name="ExTra" Type="Double" />
+    <Property Name="ExCar" Type="Double" />
+    <Property Name="ExTrav" Type="Double" />
+    <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CrtDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdDate" Type="DateTime" Precision="3" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RP_AADTSta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="LineSum" Type="Double" />
+    <Property Name="SumGrow" Type="Double" />
+    <Property Name="LineExSum" Type="Double" />
+    <Property Name="LineEnSum" Type="Double" />
+    <Property Name="ExEnPer" Type="Double" />
+    <Property Name="FeeSum" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SmaCarFeeNum" Type="Double" />
+    <Property Name="ExSmaCarFee" Type="Double" />
+    <Property Name="EnSmaCarFee" Type="Double" />
+    <Property Name="SmaCarCompGrow" Type="Double" />
+    <Property Name="SmaCarFee" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ChagSumNum" Type="Double" />
+    <Property Name="ExChagNum" Type="Double" />
+    <Property Name="EnChagNum" Type="Double" />
+    <Property Name="ChagAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GreNum" Type="Double" />
+    <Property Name="GreFee" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="StaExSum" Type="Double" />
+    <Property Name="StaEnSum" Type="Double" />
+    <Property Name="WorkPeoNum" Type="Int32" />
+    <Property Name="InfoNum" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SitState" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="CalculTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CrtDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdDate" Type="DateTime" Precision="3" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RP_Daily">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="VehType" Type="Int32" />
+    <Property Name="OutNum" Type="Double" />
+    <Property Name="InNum" Type="Double" />
+    <Property Name="ChagFee" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="StaType" Type="Int32" />
+    <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CrtDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdDate" Type="DateTime" Precision="3" />
+    <Property Name="State" Type="Byte" />
+    <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="RP_EnEx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="EnSmaCar" Type="Double" />
+    <Property Name="EnOthCar" Type="Double" />
+    <Property Name="EnTruk" Type="Double" />
+    <Property Name="EnGre" Type="Double" />
+    <Property Name="ExSmaCar" Type="Double" />
+    <Property Name="ExOthCar" Type="Double" />
+    <Property Name="ExTruk" Type="Double" />
+    <Property Name="ExGre" Type="Double" />
+    <Property Name="StaType" Type="Int32" />
+    <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CrtDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdDate" Type="DateTime" Precision="3" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RP_HDayAADT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="YC" Type="Double" />
+    <Property Name="YXBD" Type="Double" />
+    <Property Name="YXBX" Type="Double" />
+    <Property Name="JZL" Type="Double" />
+    <Property Name="JC" Type="Double" />
+    <Property Name="KG" Type="Double" />
+    <Property Name="TGX" Type="Double" />
+    <Property Name="TGXF" Type="Double" />
+    <Property Name="TGB" Type="Double" />
+    <Property Name="SameSum" Type="Double" />
+    <Property Name="CompGrow" Type="Double" />
+    <Property Name="Out" Type="Double" />
+    <Property Name="CalcuTime" Type="DateTime" Precision="3" />
+    <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CrtDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdDate" Type="DateTime" Precision="3" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sum" Type="Double" />
+  </EntityType>
+  <EntityType Name="RP_HDayAADTSta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ExNat" Type="Double" />
+    <Property Name="EnNat" Type="Double" />
+    <Property Name="ExEqu" Type="Double" />
+    <Property Name="EnEqu" Type="Double" />
+    <Property Name="CrowDeg" Type="Double" />
+    <Property Name="SmaEx" Type="Double" />
+    <Property Name="SmaEn" Type="Double" />
+    <Property Name="MedEx" Type="Double" />
+    <Property Name="MedEn" Type="Double" />
+    <Property Name="LarEx" Type="Double" />
+    <Property Name="LarEn" Type="Double" />
+    <Property Name="HeaEx" Type="Double" />
+    <Property Name="HeaEn" Type="Double" />
+    <Property Name="SupEx" Type="Double" />
+    <Property Name="SupEn" Type="Double" />
+    <Property Name="EnExTrukNum" Type="Double" />
+    <Property Name="CarTrukPer" Type="Double" />
+    <Property Name="SupTruNum" Type="Double" />
+    <Property Name="SupTruPer" Type="Double" />
+    <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CrtDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdDate" Type="DateTime" Precision="3" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LineType" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RP_HourAADT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Dyf_ExIn" Type="Double" />
+    <Property Name="Dyf_EnOut" Type="Double" />
+    <Property Name="Mjqd_EnIn" Type="Double" />
+    <Property Name="Mjqd_EnOut" Type="Double" />
+    <Property Name="Mjqx_ExIn" Type="Double" />
+    <Property Name="Mjqx_EnOut" Type="Double" />
+    <Property Name="Cy_ExIn" Type="Double" />
+    <Property Name="Cy_EnOut" Type="Double" />
+    <Property Name="HourPer" Type="Byte" Nullable="false" />
+    <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CrtDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdDate" Type="DateTime" Precision="3" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RP_NatSta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Sum" Type="Double" />
+    <Property Name="EnNum" Type="Double" />
+    <Property Name="ExNum" Type="Double" />
+    <Property Name="StaType" Type="Int32" />
+    <Property Name="HourPer" Type="Byte" />
+    <Property Name="CrtBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CrtDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdDate" Type="DateTime" Precision="3" />
+    <Property Name="RunStae" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rek" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CalcuTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK_OT_ExportHis_OT_Dic">
+    <End Type="DataSubmittedModel.OT_Dic" Role="OT_Dic" Multiplicity="0..1" />
+    <End Type="DataSubmittedModel.OT_ExportHis" Role="OT_ExportHis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_Dic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_ExportHis">
+        <PropertyRef Name="HDayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OT_HDayConfig_OT_Dic">
+    <End Type="DataSubmittedModel.OT_Dic" Role="OT_Dic" Multiplicity="0..1" />
+    <End Type="DataSubmittedModel.OT_HDayConfig" Role="OT_HDayConfig" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_Dic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_HDayConfig">
+        <PropertyRef Name="HDayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_uid">
+    <End Type="DataSubmittedModel.OT_Dic" Role="OT_Dic" Multiplicity="1" />
+    <End Type="DataSubmittedModel.OT_HDayConfig" Role="OT_HDayConfig" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_Dic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_HDayConfig">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OT_UserRole_OT_Role">
+    <End Type="DataSubmittedModel.OT_Role" Role="OT_Role" Multiplicity="1" />
+    <End Type="DataSubmittedModel.OT_UserRole" Role="OT_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OT_UserRole_OT_User">
+    <End Type="DataSubmittedModel.OT_User" Role="OT_User" Multiplicity="1" />
+    <End Type="DataSubmittedModel.OT_UserRole" Role="OT_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OT_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OT_UserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

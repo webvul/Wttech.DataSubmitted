@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataSubmittedModelStoreContainer" CdmEntityContainer="DataSubmittedEntities">
+    <FunctionImportMapping FunctionImportName="SP_LinkServer" FunctionName="DataSubmittedModel.Store.SP_LinkServer" />
+    <FunctionImportMapping FunctionImportName="SP_StaDataSource" FunctionName="DataSubmittedModel.Store.SP_StaDataSource" />
+    <EntitySetMapping Name="DS_DataSource">
+      <EntityTypeMapping TypeName="DataSubmittedModel.DS_DataSource">
+        <MappingFragment StoreEntitySet="DS_DataSource">
+          <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+          <ScalarProperty Name="CalcuType" ColumnName="CalcuType" />
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+          <ScalarProperty Name="PayMoney" ColumnName="PayMoney" />
+          <ScalarProperty Name="RecMoney" ColumnName="RecMoney" />
+          <ScalarProperty Name="InNum" ColumnName="InNum" />
+          <ScalarProperty Name="OutNum" ColumnName="OutNum" />
+          <ScalarProperty Name="InNumETC" ColumnName="InNumETC" />
+          <ScalarProperty Name="OutNumETC" ColumnName="OutNumETC" />
+          <ScalarProperty Name="InNumMTC" ColumnName="InNumMTC" />
+          <ScalarProperty Name="OutNumMTC" ColumnName="OutNumMTC" />
+          <ScalarProperty Name="VehType" ColumnName="VehType" />
+          <ScalarProperty Name="StaID" ColumnName="StaID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OT_Dic">
+      <EntityTypeMapping TypeName="DataSubmittedModel.OT_Dic">
+        <MappingFragment StoreEntitySet="OT_Dic">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="Rek" ColumnName="Rek" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Belong" ColumnName="Belong" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OT_ErrorStation">
+      <EntityTypeMapping TypeName="DataSubmittedModel.OT_ErrorStation">
+        <MappingFragment StoreEntitySet="OT_ErrorStation">
+          <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="StaName" ColumnName="StaName" />
+          <ScalarProperty Name="StaID" ColumnName="StaID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OT_ExportHis">
+      <EntityTypeMapping TypeName="DataSubmittedModel.OT_ExportHis">
+        <MappingFragment StoreEntitySet="OT_ExportHis">
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+          <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+          <ScalarProperty Name="SavePath" ColumnName="SavePath" />
+          <ScalarProperty Name="HDayId" ColumnName="HDayId" />
+          <ScalarProperty Name="TableType" ColumnName="TableType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OT_HDayConfig">
+      <EntityTypeMapping TypeName="DataSubmittedModel.OT_HDayConfig">
+        <MappingFragment StoreEntitySet="OT_HDayConfig">
+          <ScalarProperty Name="ConfigItem" ColumnName="ConfigItem" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CheckFloat" ColumnName="CheckFloat" />
+          <ScalarProperty Name="RptRemark" ColumnName="RptRemark" />
+          <ScalarProperty Name="ForeFloat" ColumnName="ForeFloat" />
+          <ScalarProperty Name="ForeDate" ColumnName="ForeDate" />
+          <ScalarProperty Name="CompEnd" ColumnName="CompEnd" />
+          <ScalarProperty Name="CompStart" ColumnName="CompStart" />
+          <ScalarProperty Name="HDayEnd" ColumnName="HDayEnd" />
+          <ScalarProperty Name="HDayStart" ColumnName="HDayStart" />
+          <ScalarProperty Name="HDayId" ColumnName="HDayId" />
+          <ScalarProperty Name="ConfigName" ColumnName="ConfigName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OT_Log">
+      <EntityTypeMapping TypeName="DataSubmittedModel.OT_Log">
+        <MappingFragment StoreEntitySet="OT_Log">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="RptName" ColumnName="RptName" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Describe" ColumnName="Describe" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OT_Role">
+      <EntityTypeMapping TypeName="DataSubmittedModel.OT_Role">
+        <MappingFragment StoreEntitySet="OT_Role">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OT_Station">
+      <EntityTypeMapping TypeName="DataSubmittedModel.OT_Station">
+        <MappingFragment StoreEntitySet="OT_Station">
+          <ScalarProperty Name="Charge" ColumnName="Charge" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="OutDir" ColumnName="OutDir" />
+          <ScalarProperty Name="InDir" ColumnName="InDir" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OT_User">
+      <EntityTypeMapping TypeName="DataSubmittedModel.OT_User">
+        <MappingFragment StoreEntitySet="OT_User">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OT_UserRole">
+      <EntityTypeMapping TypeName="DataSubmittedModel.OT_UserRole">
+        <MappingFragment StoreEntitySet="OT_UserRole">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RP_AADTAndTransCalcu">
+      <EntityTypeMapping TypeName="DataSubmittedModel.RP_AADTAndTransCalcu">
+        <MappingFragment StoreEntitySet="RP_AADTAndTransCalcu">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+          <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+          <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="ExTrav" ColumnName="ExTrav" />
+          <ScalarProperty Name="ExCar" ColumnName="ExCar" />
+          <ScalarProperty Name="ExTra" ColumnName="ExTra" />
+          <ScalarProperty Name="EnTrav" ColumnName="EnTrav" />
+          <ScalarProperty Name="EnCar" ColumnName="EnCar" />
+          <ScalarProperty Name="EnTra" ColumnName="EnTra" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RP_AADTSta">
+      <EntityTypeMapping TypeName="DataSubmittedModel.RP_AADTSta">
+        <MappingFragment StoreEntitySet="RP_AADTSta">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+          <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+          <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+          <ScalarProperty Name="CalculTime" ColumnName="CalculTime" />
+          <ScalarProperty Name="SitState" ColumnName="SitState" />
+          <ScalarProperty Name="InfoNum" ColumnName="InfoNum" />
+          <ScalarProperty Name="WorkPeoNum" ColumnName="WorkPeoNum" />
+          <ScalarProperty Name="StaEnSum" ColumnName="StaEnSum" />
+          <ScalarProperty Name="StaExSum" ColumnName="StaExSum" />
+          <ScalarProperty Name="GreFee" ColumnName="GreFee" />
+          <ScalarProperty Name="GreNum" ColumnName="GreNum" />
+          <ScalarProperty Name="ChagAmount" ColumnName="ChagAmount" />
+          <ScalarProperty Name="EnChagNum" ColumnName="EnChagNum" />
+          <ScalarProperty Name="ExChagNum" ColumnName="ExChagNum" />
+          <ScalarProperty Name="ChagSumNum" ColumnName="ChagSumNum" />
+          <ScalarProperty Name="SmaCarFee" ColumnName="SmaCarFee" />
+          <ScalarProperty Name="SmaCarCompGrow" ColumnName="SmaCarCompGrow" />
+          <ScalarProperty Name="EnSmaCarFee" ColumnName="EnSmaCarFee" />
+          <ScalarProperty Name="ExSmaCarFee" ColumnName="ExSmaCarFee" />
+          <ScalarProperty Name="SmaCarFeeNum" ColumnName="SmaCarFeeNum" />
+          <ScalarProperty Name="FeeSum" ColumnName="FeeSum" />
+          <ScalarProperty Name="ExEnPer" ColumnName="ExEnPer" />
+          <ScalarProperty Name="LineEnSum" ColumnName="LineEnSum" />
+          <ScalarProperty Name="LineExSum" ColumnName="LineExSum" />
+          <ScalarProperty Name="SumGrow" ColumnName="SumGrow" />
+          <ScalarProperty Name="LineSum" ColumnName="LineSum" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RP_Daily">
+      <EntityTypeMapping TypeName="DataSubmittedModel.RP_Daily">
+        <MappingFragment StoreEntitySet="RP_Daily">
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+          <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+          <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+          <ScalarProperty Name="StaType" ColumnName="StaType" />
+          <ScalarProperty Name="ChagFee" ColumnName="ChagFee" />
+          <ScalarProperty Name="InNum" ColumnName="InNum" />
+          <ScalarProperty Name="OutNum" ColumnName="OutNum" />
+          <ScalarProperty Name="VehType" ColumnName="VehType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RP_EnEx">
+      <EntityTypeMapping TypeName="DataSubmittedModel.RP_EnEx">
+        <MappingFragment StoreEntitySet="RP_EnEx">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+          <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+          <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="StaType" ColumnName="StaType" />
+          <ScalarProperty Name="ExGre" ColumnName="ExGre" />
+          <ScalarProperty Name="ExTruk" ColumnName="ExTruk" />
+          <ScalarProperty Name="ExOthCar" ColumnName="ExOthCar" />
+          <ScalarProperty Name="ExSmaCar" ColumnName="ExSmaCar" />
+          <ScalarProperty Name="EnGre" ColumnName="EnGre" />
+          <ScalarProperty Name="EnTruk" ColumnName="EnTruk" />
+          <ScalarProperty Name="EnOthCar" ColumnName="EnOthCar" />
+          <ScalarProperty Name="EnSmaCar" ColumnName="EnSmaCar" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RP_HDayAADT">
+      <EntityTypeMapping TypeName="DataSubmittedModel.RP_HDayAADT">
+        <MappingFragment StoreEntitySet="RP_HDayAADT">
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+          <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+          <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="Out" ColumnName="Out" />
+          <ScalarProperty Name="CompGrow" ColumnName="CompGrow" />
+          <ScalarProperty Name="SameSum" ColumnName="SameSum" />
+          <ScalarProperty Name="TGB" ColumnName="TGB" />
+          <ScalarProperty Name="TGXF" ColumnName="TGXF" />
+          <ScalarProperty Name="TGX" ColumnName="TGX" />
+          <ScalarProperty Name="KG" ColumnName="KG" />
+          <ScalarProperty Name="JC" ColumnName="JC" />
+          <ScalarProperty Name="JZL" ColumnName="JZL" />
+          <ScalarProperty Name="YXBX" ColumnName="YXBX" />
+          <ScalarProperty Name="YXBD" ColumnName="YXBD" />
+          <ScalarProperty Name="YC" ColumnName="YC" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RP_HDayAADTSta">
+      <EntityTypeMapping TypeName="DataSubmittedModel.RP_HDayAADTSta">
+        <MappingFragment StoreEntitySet="RP_HDayAADTSta">
+          <ScalarProperty Name="LineType" ColumnName="LineType" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+          <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+          <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="SupTruPer" ColumnName="SupTruPer" />
+          <ScalarProperty Name="SupTruNum" ColumnName="SupTruNum" />
+          <ScalarProperty Name="CarTrukPer" ColumnName="CarTrukPer" />
+          <ScalarProperty Name="EnExTrukNum" ColumnName="EnExTrukNum" />
+          <ScalarProperty Name="SupEn" ColumnName="SupEn" />
+          <ScalarProperty Name="SupEx" ColumnName="SupEx" />
+          <ScalarProperty Name="HeaEn" ColumnName="HeaEn" />
+          <ScalarProperty Name="HeaEx" ColumnName="HeaEx" />
+          <ScalarProperty Name="LarEn" ColumnName="LarEn" />
+          <ScalarProperty Name="LarEx" ColumnName="LarEx" />
+          <ScalarProperty Name="MedEn" ColumnName="MedEn" />
+          <ScalarProperty Name="MedEx" ColumnName="MedEx" />
+          <ScalarProperty Name="SmaEn" ColumnName="SmaEn" />
+          <ScalarProperty Name="SmaEx" ColumnName="SmaEx" />
+          <ScalarProperty Name="CrowDeg" ColumnName="CrowDeg" />
+          <ScalarProperty Name="EnEqu" ColumnName="EnEqu" />
+          <ScalarProperty Name="ExEqu" ColumnName="ExEqu" />
+          <ScalarProperty Name="EnNat" ColumnName="EnNat" />
+          <ScalarProperty Name="ExNat" ColumnName="ExNat" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RP_HourAADT">
+      <EntityTypeMapping TypeName="DataSubmittedModel.RP_HourAADT">
+        <MappingFragment StoreEntitySet="RP_HourAADT">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+          <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+          <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+          <ScalarProperty Name="Cy_EnOut" ColumnName="Cy_EnOut" />
+          <ScalarProperty Name="Cy_ExIn" ColumnName="Cy_ExIn" />
+          <ScalarProperty Name="Mjqx_EnOut" ColumnName="Mjqx_EnOut" />
+          <ScalarProperty Name="Mjqx_ExIn" ColumnName="Mjqx_ExIn" />
+          <ScalarProperty Name="Mjqd_EnOut" ColumnName="Mjqd_EnOut" />
+          <ScalarProperty Name="Mjqd_EnIn" ColumnName="Mjqd_EnIn" />
+          <ScalarProperty Name="Dyf_EnOut" ColumnName="Dyf_EnOut" />
+          <ScalarProperty Name="Dyf_ExIn" ColumnName="Dyf_ExIn" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RP_NatSta">
+      <EntityTypeMapping TypeName="DataSubmittedModel.RP_NatSta">
+        <MappingFragment StoreEntitySet="RP_NatSta">
+          <ScalarProperty Name="CalcuTime" ColumnName="CalcuTime" />
+          <ScalarProperty Name="Rek" ColumnName="Rek" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="RunStae" ColumnName="RunStae" />
+          <ScalarProperty Name="UpdDate" ColumnName="UpdDate" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+          <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+          <ScalarProperty Name="CrtBy" ColumnName="CrtBy" />
+          <ScalarProperty Name="HourPer" ColumnName="HourPer" />
+          <ScalarProperty Name="StaType" ColumnName="StaType" />
+          <ScalarProperty Name="ExNum" ColumnName="ExNum" />
+          <ScalarProperty Name="EnNum" ColumnName="EnNum" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

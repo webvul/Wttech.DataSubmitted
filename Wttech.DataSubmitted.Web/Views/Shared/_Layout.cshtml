@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>@ViewBag.Title - 华北数据报送系统</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/index/index.js"></script>
+    <link href="~/Content/CSS/index/index.css" rel="stylesheet" />
+    <link href="~/Content/CSS/index/sjbs-report.css" rel="stylesheet" />
+    <link href="~/Content/CSS/common/common.css" rel="stylesheet" />
+    <link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.jqgrid.css" rel="stylesheet" />
+    <link href="~/Scripts/jggrid/jquery-ui-themes/icac/jquery.ui.all.css" rel="stylesheet" />
+    @*<script src="~/Scripts/jggrid/jquery-ui-1.9.2/jquery.jqGrid.js"></script>*@
+    <script src="~/Scripts/jquery.jqGrid.js"></script>
+    <script src="~/Scripts/jggrid/jquery-ui-1.9.2/ui/i18n/grid.locale-cn.js"></script>
+    <script src="~/Scripts/common/public.js"></script>
+
+
+</head>
+<body>
+    <input type="hidden" value="" id="RoleId">
+    <input type="hidden" value="" id="isAdmin">
+    <div id="shadow" class="wait">
+        <span>正在加载，请稍后……</span>
+        <img src="~/Content/images/report/loading1.gif" />
+    </div>
+    <div id="all">
+        <div id="header" class="header">
+            <div class="title">
+                <div class="logo"></div>
+                <span>华北高速数据报送系统</span>
+            </div>
+            <ul class="top-user">
+                <li><span class="user"></span><span id="user"></span></li>
+                <li id="updPwd"><span class="pwd"></span>修改密码</li>
+                <li id="exit"><span class="exit"></span><span>退出</span></li>
+            </ul>
+        </div>
+
+        <div class="middle">
+            <div class="left" id="left">
+                <div style="float: left;" id="menu1">
+                    <div class="menu" id="menu">
+                        <div class="beijing" id="dailyReport">
+                            <span class="menu-icon"></span>
+                            <span class="menu-titleName">每日报送</span>
+                        </div>
+                        <div class="allsecond" id="c1">
+                            <div class="second-list">
+                                <span class="second_icon_sel"></span>
+                                <span class="menu-titleName secondColor">北京交通委</span>
+                            </div>
+                            <div id="datalist" class="datalist">
+                                <li>
+                                    <span class="span_select"></span>
+                                    <a class="selected-li" onclick="openhref('/DaliyReport/NaturalHour')" title="交通自然流量（含免费）统计日报表">
+                                        交通自然流量（含免费）统计日报表
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/DaliyReport/DYFNaturalHour')" title="交通自然流量（含免费）统计日报表--大羊坊">
+                                        交通自然流量（含免费）统计日报表--大羊坊
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/DaliyReport/HourDataReport')" title="交通自然流量（含免费）统计日报表">
+                                        交通自然流量（含免费）统计日报表
+                                    </a>
+                                </li>
+                            </div>
+                        </div>
+
+                        <div class="beijing" id="beijing">
+                            <span class="beijingIcon"></span>
+                            <span class="menu-titleName">北京段</span>
+                        </div>
+                        <div class="allsecond" id="c2" style="display: none;">
+                            <div class="second-list">
+                                <span class="second_icon"></span>
+                                <span class="menu-titleName">北京市路政局</span>
+                            </div>
+                            <div id="datalist" class="datalist" style="display: none;">
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/TollRoadSum')" title="收费公路数据汇总表">
+                                        收费公路数据汇总表
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/DYFSum')" title="京沪高速大羊坊收费站数据日报表">
+                                        京沪高速大羊坊收费站数据日报表
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/CityEnEx')" title="重点城市出入境车辆数日报表">
+                                        重点城市出入境车辆数日报表
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/HDaySta')" title="假期交通量统计表">
+                                        假期交通量统计表
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/RoadRunSit')" title="收费公路运行情况">
+                                        收费公路运行情况
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/HDayRoadSta')" title="假期高速公路交通流量统计表">
+                                        假期高速公路交通流量统计表
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="second-list">
+                                <span class="second_icon"></span>
+                                <span class="menu-titleName">北京旅游委</span>
+                            </div>
+                            <div class="datalist" style="display: none;">
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/JJTHighWay')" title="黄金周京津塘高速公路交通量及客运情况统计表">
+                                        黄金周京津塘高速公路交通量及客运情况统计表
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="second-list">
+                                <span class="second_icon"></span>
+                                <span class="menu-titleName">北京交管部门</span>
+                            </div>
+                            <div class="datalist" style="display: none;">
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/HdayExEn')" title="假期进出京交通量表（北京段）">
+                                        假期进出京交通量表（北京段）
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="second-list">
+                                <span class="second_icon"></span>
+                                <span class="menu-titleName">北京交通委</span>
+                            </div>
+                            <div class="datalist" style="display: none;">
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/RoadStaExEnHour')" title="0-24时各高速公路各收费站分方向出入口小时交通量">
+                                        0-24时各高速公路各收费站分方向出入口小时交通量
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/BeijingReport/RoadStaExHour')" title="各高速公路各收费站出口小时交通量">
+                                        各高速公路各收费站出口小时交通量
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/DaliyReport/NaturalHour')" title="交通自然流量（含免费）统计日报表">
+                                        交通自然流量（含免费）统计日报表
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/DaliyReport/DYFNaturalHour')" title="交通自然流量（含免费）统计日报表--大羊坊">
+                                        交通自然流量（含免费）统计日报表--大羊坊
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/DaliyReport/HourDataReport')" title="交通自然流量（含免费）统计日报表">
+                                        交通自然流量（含免费）统计日报表
+                                    </a>
+                                </li>
+                            </div>
+                        </div>
+                        <div class="beijing" id="tj">
+                            <span class="tjIcon"></span>
+                            <span class="menu-titleName">天津段</span>
+                        </div>
+                        <div class="allsecond" id="c3" style="display: none;">
+                            <div class="second-list">
+                                <span class="second_icon"></span>
+                                <span class="menu-titleName">天津交管部门</span>
+                            </div>
+                            <div class="datalist" style="display: none;">
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/TJReport/HDayStaExEn')" title="天津市高速公路支队假期重点收费站流量表(出口+入口)">
+                                        天津市高速公路支队假期重点收费站流量表(出口+入口)
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/TJReport/HDayEx')" title="天津市高速公路支队假期流量表(出口)">
+                                        天津市高速公路支队假期流量表(出口)
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="second-list">
+                                <span class="second_icon"></span>
+                                <span class="menu-titleName">天津高速处</span>
+                            </div>
+                            <div class="datalist" style="display: none;">
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/TJReport/TollRoadDaily')" title="收费公路数据日报表">
+                                        收费公路数据日报表
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/TJReport/ImpStaDaily')" title="重要运输通道主线收费站数据日报表">
+                                        重要运输通道主线收费站数据日报表
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/TJReport/CityDailyEnEx')" title="重点城市出入境车辆日报表">
+                                        重点城市出入境车辆日报表
+                                    </a>
+                                </li>
+                            </div>
+                        </div>
+
+                        <div class="beijing" id="sys">
+                            <span class="systemIcon"></span>
+                            <span class="menu-titleName">系统管理</span>
+                        </div>
+                        <div class="allsecond" id="c4" style="display: none;">
+                            <div class="second-list">
+                                <span class="second_icon"></span>
+                                <span class="menu-titleName">假期报送计划</span>
+                            </div>
+                            <div class="datalist" style="display: none;">
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/SystemManage/HolidayConfig')" title="假期报送配置">
+                                        假期报送配置
+                                    </a>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <a class="repTitle" onclick="openhref('/SystemManage/batchExport')" title="批量报表导出">
+                                        批量报表导出
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="userManage" id="userManage">
+                                <span class="second_icon"></span>
+                                <a class="menu-titleName" onclick="openhref('/SystemManage/UserManagement')" title="用户权限管理" style="color: #5b626d;">用户权限管理</a>
+                            </div>
+                            <div class="userManage" id="logManage">
+                                <span class="second_icon"></span>
+                                <a class="menu-titleName" onclick="openhref('/SystemManage/LogManage')" title="日志查询" style="color: #5b626d;">日志查询</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--第二个侧边栏-->
+                <div style="float: left" id="menu2">
+                    <div class="menu_small" id="menu_small">
+                        <div class="beijing-small" id="dailyReport">
+                            <a class="menu-small-Icon" title="每日报送"></a>
+                        </div>
+                        <div class="beijing-small" id="beijing">
+                            <a class="beijing-small-Icon" title="北京段"></a>
+                        </div>
+                        <div class="beijing-small" id="tj">
+                            <a class="tj-small-Icon" title="天津段"></a>
+                        </div>
+                        <div class="beijing-small" id="sys">
+                            <a class="system-small-Icon" title="系统管理"></a>
+                        </div>
+                    </div>
+                </div>
+
+
+               <div id="shousuo" class="shensuo">
+               </div>      
+            </div>
+
+            <div class="right">
+                <div class="right-middle" id="maincontent">
+                    @*<iframe name="right-middle" src="/DaliyReport/NaturalHour" width="100%" frameborder="0" scrolling="no" id="rightframe">
+                            @RenderBody()
+                        </iframe>*@
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+
+        <!--底部-->
+        <div class="bottom" id="bottom">
+            <div class="bottom-title"><span>华北高速公路股份有限公司</span></div>
+            <div class="banbenNo">版本号：<span>SJBS1.02.00.141229_03</span></div>
+        </div>
+    </div>
+
+    <input type="hidden" id="userId" value="" />
+    <!--修改密码-->
+    <div id="PassWordAlter" style="overflow: hidden; background: #fff;"></div>
+    <!--角色分配-->
+    <div id="assignUser" style="overflow: hidden; background: #fff;"></div>
+    <!--报表15无数据列表-->
+    <div id="nodataList" style="overflow: hidden; background: #fff;"></div>
+    <!--报表15校正-->
+    <div id="checkRight" style="overflow: hidden; background: #fff;"></div>
+    <!--假期名称管理-->
+    <div id="holNameWindow" style="overflow: hidden; background: #fff;"></div>
+    <!--报表预测-->
+    <div id="forecastWindow" style="overflow: hidden; background: #fff;"></div>
+    <!--每日报送假期配置-->
+    <div id="editHoliday" style="overflow: hidden; background: #fff;"></div>
+    <!--北京段假期配置-->
+    <div id="editBJHoliday" style="overflow: hidden; background: #fff;"></div>
+    <!--天津段假期配置-->
+    <div id="editTemplate" style="overflow: hidden; background: #fff;"></div>
+    <!--不包含数据时间段校正-->
+    <div id="Check_noTime" style="overflow: hidden; background: #fff;"></div>
+    <!--报表7校正-->
+    <div id="Check_rep7" style="overflow: hidden; background: #fff;"></div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

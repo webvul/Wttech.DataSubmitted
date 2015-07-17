@@ -1,0 +1,12 @@
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\bin\Debug\Wttech.DataSubmitted.DAL.dll.config
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\bin\Debug\Wttech.DataSubmitted.DAL.dll
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\bin\Debug\Wttech.DataSubmitted.DAL.pdb
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\bin\Debug\EntityFramework.dll
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\bin\Debug\EntityFramework.xml
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\obj\Debug\Wttech.DataSubmitted.DAL.csprojResolveAssemblyReference.cache
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\obj\Debug\Wttech.DataSubmitted.DAL.dll
+D:\Wttech.DataSubmitted\Wttech.DataSubmitted.DAL\obj\Debug\Wttech.DataSubmitted.DAL.pdb
